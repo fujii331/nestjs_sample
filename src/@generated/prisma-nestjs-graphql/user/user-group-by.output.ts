@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
+import { Authority } from '../prisma/authority.enum';
 import { UserCountAggregate } from './user-count-aggregate.output';
 import { UserAvgAggregate } from './user-avg-aggregate.output';
 import { UserSumAggregate } from './user-sum-aggregate.output';
@@ -21,6 +22,9 @@ export class UserGroupBy {
 
   @HideField()
   password!: string;
+
+  @Field(() => Authority, { nullable: false })
+  authority!: keyof typeof Authority;
 
   @HideField()
   createdAt!: Date | string;

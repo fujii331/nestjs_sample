@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
+import { Authority } from '../prisma/authority.enum';
 
 @ObjectType()
 export class UserMinAggregate {
@@ -16,6 +17,9 @@ export class UserMinAggregate {
 
   @HideField()
   password?: string;
+
+  @Field(() => Authority, { nullable: true })
+  authority?: keyof typeof Authority;
 
   @HideField()
   createdAt?: Date | string;

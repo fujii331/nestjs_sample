@@ -8,96 +8,29 @@ type User {
   """@Validator.@IsEmail()"""
   email: String!
   name: String!
+  authority: Authority!
+}
+
+enum Authority {
+  FIRST
+  SECOND
+  THIRD
 }
 
 type Query {
-  user(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): User!
+  users(usersInput: UsersInput!): User!
 }
 
-input UserWhereInput {
-  AND: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  NOT: [UserWhereInput!]
-  id: IntFilter
-  email: StringFilter
-  name: StringFilter
-  password: StringFilter
+input UsersInput {
+  usersWhereInput: UsersWhereInput
+  skip: Float
+  take: Float
 }
 
-input IntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input NestedIntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input StringFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: NestedStringFilter
-}
-
-input NestedStringFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: NestedStringFilter
-}
-
-input UserOrderByWithRelationInput {
-  id: SortOrder
-  email: SortOrder
-  name: SortOrder
-  password: SortOrder
-}
-
-enum SortOrder {
-  asc
-  desc
-}
-
-input UserWhereUniqueInput {
-  id: Int
+input UsersWhereInput {
   email: String
-}
-
-enum UserScalarFieldEnum {
-  id
-  email
-  name
-  password
-  createdAt
-  updatedAt
+  name: String
+  authority: String
 }
 
 type Mutation {
@@ -108,4 +41,5 @@ input UserCreateInput {
   email: String!
   name: String!
   password: String!
+  authority: Authority
 }
