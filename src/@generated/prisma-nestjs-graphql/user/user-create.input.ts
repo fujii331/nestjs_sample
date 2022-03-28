@@ -1,8 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
-import { Authority } from '../prisma/authority.enum';
 import { HideField } from '@nestjs/graphql';
+import { Authority } from '../prisma/authority.enum';
 
 @InputType()
 export class UserCreateInput {
@@ -16,6 +16,9 @@ export class UserCreateInput {
   @Field(() => String, { nullable: false })
   @Validator.MinLength(8)
   password!: string;
+
+  @HideField()
+  hashedRefreshToken?: string;
 
   @Field(() => Authority, { nullable: true })
   authority?: keyof typeof Authority;

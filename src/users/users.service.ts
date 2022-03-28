@@ -3,10 +3,11 @@ import { PrismaService } from 'src/prisma.service';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
 import { FindFirstUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-first-user.args';
 import { CreateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
-import { FindUniqueUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-unique-user.args';
-import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-many-user.args';
 import { UsersInput } from './dto/users.input';
 import { UsersRepository } from './users.repository';
+import { FirstUserInput } from './dto/first-user.input';
+import { UserWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
+import { UpdateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
 
 @Injectable()
 export class UsersService {
@@ -16,15 +17,19 @@ export class UsersService {
     return this.repository.findUsers(args);
   }
 
-  // async findFirst(args: FindFirstUserArgs): Promise<User | null> {
-  //   return this.prisma.user.findFirst(args);
-  // }
+  async findFirstUser(args: FirstUserInput): Promise<User | null> {
+    return this.repository.findFirstUser(args);
+  }
 
-  // async findUnique(args: FindUniqueUserArgs): Promise<User | null> {
-  //   return this.prisma.user.findUnique(args);
-  // }
+  async findUniqueUser(args: UserWhereUniqueInput): Promise<User | null> {
+    return this.repository.findUniqueUser(args);
+  }
 
   async createUser(args: CreateOneUserArgs): Promise<User> {
     return this.repository.createUser(args);
+  }
+
+  async updateUser(args: UpdateOneUserArgs): Promise<User> {
+    return this.repository.updateUser(args);
   }
 }

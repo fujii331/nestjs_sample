@@ -17,6 +17,9 @@ export class UserCountAggregate {
   @HideField()
   password!: number;
 
+  @HideField()
+  hashedRefreshToken!: number;
+
   @Field(() => Int, { nullable: false })
   authority!: number;
 

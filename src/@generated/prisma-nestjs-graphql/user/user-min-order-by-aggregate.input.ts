@@ -17,6 +17,9 @@ export class UserMinOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   password?: keyof typeof SortOrder;
 
+  @HideField()
+  hashedRefreshToken?: keyof typeof SortOrder;
+
   @Field(() => SortOrder, { nullable: true })
   authority?: keyof typeof SortOrder;
 

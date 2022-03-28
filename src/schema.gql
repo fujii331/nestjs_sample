@@ -17,14 +17,23 @@ enum Authority {
   THIRD
 }
 
+type LoginResponse {
+  access_token: String!
+  user: User!
+  refresh_token: String!
+}
+
 type Query {
-  users(usersInput: UsersInput!): User!
+  users(usersInput: UsersInput!): [User!]
+  firstUser(firstUserInput: FirstUserInput!): User
+  uniqueUser(uniqueUserInput: UserWhereUniqueInput!): User
 }
 
 input UsersInput {
   usersWhereInput: UsersWhereInput
   skip: Float
   take: Float
+  cursor: UserWhereUniqueInput
 }
 
 input UsersWhereInput {
@@ -33,8 +42,22 @@ input UsersWhereInput {
   authority: String
 }
 
+input UserWhereUniqueInput {
+  id: Int
+  email: String
+}
+
+input FirstUserInput {
+  email: String
+  name: String
+  authority: String
+}
+
 type Mutation {
   createUser(data: UserCreateInput!): User!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
+  refreshToken: LoginResponse!
+  logout: Boolean!
 }
 
 input UserCreateInput {
@@ -42,4 +65,9 @@ input UserCreateInput {
   name: String!
   password: String!
   authority: Authority
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
 }

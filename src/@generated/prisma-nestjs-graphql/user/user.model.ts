@@ -22,6 +22,9 @@ export class User {
   @HideField()
   password!: string;
 
+  @HideField()
+  hashedRefreshToken!: string | null;
+
   @Field(() => Authority, { nullable: false, defaultValue: 'THIRD' })
   authority!: keyof typeof Authority;
 

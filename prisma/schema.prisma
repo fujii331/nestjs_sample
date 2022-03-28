@@ -35,18 +35,20 @@ enum Authority {
 
 model User {
   /// @Field(() => ID)
-  id        Int       @id @default(autoincrement())
+  id                 Int       @id @default(autoincrement())
   /// @Validator.@IsEmail()
-  email     String    @unique
+  email              String    @unique
   /// @Validator.IsNotEmpty()
-  name      String
+  name               String
   /// @HideField()
   /// @Validator.MinLength(8)
-  password  String
+  password           String
+  /// @HideField({ input: true, output: true })
+  hashedRefreshToken String?
   /// @Field(() => Authority)
-  authority Authority @default(THIRD)
+  authority          Authority @default(THIRD)
   /// @HideField({ input: true, output: true })
-  createdAt DateTime  @default(now())
+  createdAt          DateTime  @default(now())
   /// @HideField({ input: true, output: true })
-  updatedAt DateTime  @updatedAt
+  updatedAt          DateTime  @updatedAt
 }

@@ -16,6 +16,9 @@ export class UserMinAggregateInput {
   @Field(() => Boolean, { nullable: true })
   password?: true;
 
+  @HideField()
+  hashedRefreshToken?: true;
+
   @Field(() => Boolean, { nullable: true })
   authority?: true;
 

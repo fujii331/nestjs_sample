@@ -18,6 +18,9 @@ export class UserMinAggregate {
   @HideField()
   password?: string;
 
+  @HideField()
+  hashedRefreshToken?: string;
+
   @Field(() => Authority, { nullable: true })
   authority?: keyof typeof Authority;
 

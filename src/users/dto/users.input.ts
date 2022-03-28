@@ -1,5 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Authority } from '@prisma/client';
+import { UserWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
 
 @InputType()
 class UsersWhereInput {
@@ -23,6 +24,7 @@ export class UsersInput {
 
   @Field(() => Number, { nullable: true })
   take?: number;
-  // @Field()
-  // cursor?: Prisma.UserWhereUniqueInput;
+
+  @Field(() => UserWhereUniqueInput, { nullable: true })
+  cursor?: UserWhereUniqueInput;
 }

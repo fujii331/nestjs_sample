@@ -23,6 +23,9 @@ export class UserGroupBy {
   @HideField()
   password!: string;
 
+  @HideField()
+  hashedRefreshToken?: string;
+
   @Field(() => Authority, { nullable: false })
   authority!: keyof typeof Authority;
 
