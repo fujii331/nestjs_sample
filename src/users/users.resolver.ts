@@ -6,22 +6,22 @@ import { UsersService } from 'src/users/users.service';
 import { UsersInput } from './dto/users.input';
 import { FirstUserInput } from './dto/first-user.input';
 import { UserWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
-import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { SkipAuth } from 'src/common/decorators/metadata/skip_auth.metadata';
+import { Authorities } from 'src/common/decorators/metadata/authorities.metadata';
+import { Authority } from '@prisma/client';
 
 @Resolver(() => User)
 export class UsersResolver {
   constructor(private readonly userService: UsersService) {}
 
   @Query(() => [User], { nullable: true })
-  // @UseGuards(JwtAuthGuard)
   users(@Args('usersInput') args: UsersInput) {
     return this.userService.findUsers(args);
   }
 
   @Query(() => User, { nullable: true })
   // @UseGuards(JwtAuthGuard)
+  @Authorities(Authority.FIRST)
   firstUser(@Args('firstUserInput') args: FirstUserInput) {
     return this.userService.findFirstUser(args);
   }
@@ -33,6 +33,7 @@ export class UsersResolver {
 
   @Mutation(() => User)
   @SkipAuth()
+  // @Authorities(Authority.FIRST)
   async createUser(@Args() args: CreateOneUserArgs) {
     args.data.password = await bcrypt.hash(args.data.password, 10);
     return this.userService.createUser(args);
