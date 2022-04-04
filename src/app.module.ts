@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 import { PrismaService } from './prisma.service';
 import { UsersModule } from './users/users.module';
@@ -19,12 +18,6 @@ import { ComplexityPlugin } from './common/plugins/complexity.plugin';
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    }),
-    ConfigModule.forRoot({
-      // 他のクラスで、ConfigServiceを使えるようにする
-      isGlobal: true,
-      // ロードするenvファイルを指定する
-      envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
     ScheduleModule.forRoot(),
     UsersModule,
