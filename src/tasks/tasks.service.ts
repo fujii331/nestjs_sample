@@ -15,16 +15,16 @@ export class TasksService {
   // | | hours
   // | minutes
   // seconds (optional)
-  @Cron('* * 8 * * *')
+  @Cron('0 0 8 * * *')
   async handleCron() {
-    const user = await this.usersService.createUser({
-      data: {
-        email: 'test-cron@example.com',
-        name: 'test-cron',
-        password: 'password12345',
-      },
-    });
-    this.logger.debug(user);
+    // const user = await this.usersService.createUser({
+    //   data: {
+    //     email: 'test-cron@example.com',
+    //     name: 'test-cron',
+    //     password: 'password12345',
+    //   },
+    // });
+    this.logger.debug('スケジュール実行');
   }
 
   // @Interval(50000)

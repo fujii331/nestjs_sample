@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 import { PrismaService } from './prisma.service';
 import { UsersModule } from './users/users.module';
@@ -12,6 +11,8 @@ import { TasksModule } from './tasks/tasks.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthoritiesGuard } from 'src/common/guards/authorities.guard';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { LoggingPlugin } from './common/plugins/logging.plugin';
+import { ComplexityPlugin } from './common/plugins/complexity.plugin';
 
 @Module({
   imports: [
@@ -19,14 +20,18 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    ConfigModule.forRoot({
+      // 他のクラスで、ConfigServiceを使えるようにする
+      isGlobal: true,
+      // ロードするenvファイルを指定する
+      envFilePath: `.env.${process.env.NODE_ENV}`,
+    }),
     ScheduleModule.forRoot(),
     UsersModule,
     AuthModule,
     TasksModule,
   ],
-  controllers: [AppController],
   providers: [
-    AppService,
     PrismaService,
     {
       provide: APP_GUARD,
@@ -36,6 +41,8 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
       provide: APP_GUARD,
       useClass: AuthoritiesGuard,
     },
+    LoggingPlugin,
+    ComplexityPlugin,
   ],
 })
 export class AppModule {}

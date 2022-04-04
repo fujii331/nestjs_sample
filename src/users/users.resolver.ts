@@ -1,14 +1,14 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import * as bcrypt from 'bcrypt';
-import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
-import { CreateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
-import { UsersService } from 'src/users/users.service';
+import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
+import { CreateOneUserArgs } from '../../src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
+import { UsersService } from '../../src/users/users.service';
 import { UsersInput } from './dto/users.input';
 import { FirstUserInput } from './dto/first-user.input';
-import { UserWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
-import { SkipAuth } from 'src/common/decorators/metadata/skip_auth.metadata';
-import { Authorities } from 'src/common/decorators/metadata/authorities.metadata';
-import { Authority } from '@prisma/client';
+import { UserWhereUniqueInput } from '../../src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
+import { SkipAuth } from '../../src/common/decorators/metadata/skip_auth.metadata';
+import { Authorities } from '../../src/common/decorators/metadata/authorities.metadata';
+import { Authority } from '../../src/@generated/prisma-nestjs-graphql/prisma/authority.enum';
 
 @Resolver(() => User)
 export class UsersResolver {

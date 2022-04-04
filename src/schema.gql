@@ -5,7 +5,9 @@
 type User {
   id: ID!
 
-  """@Validator.@IsEmail()"""
+  """
+  @Validator.@IsEmail()
+  """
   email: String!
   name: String!
   authority: Authority!

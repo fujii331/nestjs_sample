@@ -1,13 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
-import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
-import { FindFirstUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-first-user.args';
-import { CreateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
+import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
+import { CreateOneUserArgs } from '../../src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
 import { UsersInput } from './dto/users.input';
 import { UsersRepository } from './users.repository';
 import { FirstUserInput } from './dto/first-user.input';
-import { UserWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
-import { UpdateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
+import { UserWhereUniqueInput } from '../../src/@generated/prisma-nestjs-graphql/user/user-where-unique.input';
+import { UpdateOneUserArgs } from '../../src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
 
 @Injectable()
 export class UsersService {

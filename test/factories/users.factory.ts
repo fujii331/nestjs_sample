@@ -1,4 +1,4 @@
-import { Authority } from '@prisma/client';
+import { Authority } from '../../src/@generated/prisma-nestjs-graphql/prisma/authority.enum';
 import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
 import { createFactory } from './create-factory';

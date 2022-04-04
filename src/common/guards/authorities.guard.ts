@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { Authority } from '@prisma/client';
+import { Authority } from '../../../src/@generated/prisma-nestjs-graphql/prisma/authority.enum';
 import { AUTHORITIES_KEY } from '../decorators/metadata/authorities.metadata';
 
 @Injectable()

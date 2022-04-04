@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { Authority } from '@prisma/client';
+import { Authority } from '../../../../src/@generated/prisma-nestjs-graphql/prisma/authority.enum';
 
 @InputType()
 class UsersWhereInput {
