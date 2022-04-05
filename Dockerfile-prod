@@ -1,6 +1,6 @@
 #==================================================
 # Build Layer
-FROM node:16-slim as build
+FROM node:16.14-slim as build
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ RUN yarn build
 
 #==================================================
 # Package install Layer
-FROM node:16-slim as node_modules
+FROM node:16.14-slim as node_modules
 
 WORKDIR /app
 
@@ -26,14 +26,14 @@ RUN yarn install --non-interactive --frozen-lockfile
 
 #==================================================
 # Run Layer
-# yarnを使うためにnode:16-slimを使う
+# yarnを使うためにnode:16.14-slimを使う
 # FROM gcr.io/distroless/nodejs:16
-FROM node:16-slim 
+FROM node:16.14-slim 
+
+WORKDIR /app
 
 # パフォーマンスやセキュリティ関連の最適化を有効にするため
 ENV NODE_ENV=production
-
-WORKDIR /app
 
 # prisma generateの実行に必要
 RUN apt-get -qy update && apt-get -qy install openssl
