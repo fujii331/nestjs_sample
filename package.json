@@ -13,7 +13,7 @@
     "start:dev": "dotenv -e .env.development nest start --watch",
     "start:debug": "dotenv -e .env.development nest start --debug --watch",
     "start:prod": "dotenv -e .env.production node dist/src/main",
-    "db:migrate": "prisma migrate && eslint \"src/@generated/prisma-nestjs-graphql/*.ts\" --fix",
+    "db:generate": "prisma generate && eslint \"src/@generated/prisma-nestjs-graphql/**/*.ts\" --fix",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test:db": "dotenv -e .env.test yarn prisma migrate deploy",
     "test": "dotenv -e .env.test jest",
