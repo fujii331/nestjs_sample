@@ -1,36 +1,27 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
 }
 
 generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
   output                 = "../src/@generated/prisma-nestjs-graphql"
-  fields_Validator_from  = "class-validator"
-  fields_Validator_input = true
-  decorate_1_type        = "CreateOne*Args"
-  decorate_1_field       = data
-  decorate_1_name        = ValidateNested
-  decorate_1_from        = "class-validator"
+  fields_Validator_input = "true"
   decorate_1_arguments   = "[]"
+  decorate_1_from        = "class-validator"
+  decorate_2_name        = "Type"
   decorate_2_type        = "CreateOne*Args"
-  decorate_2_field       = data
   decorate_2_from        = "class-transformer"
+  fields_Validator_from  = "class-validator"
+  decorate_1_field       = "data"
+  decorate_1_type        = "CreateOne*Args"
+  decorate_2_field       = "data"
+  decorate_1_name        = "ValidateNested"
   decorate_2_arguments   = "['() => {propertyType.0}']"
-  decorate_2_name        = Type
 }
 
-enum Authority {
-  FIRST
-  SECOND
-  THIRD
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -51,4 +42,152 @@ model User {
   createdAt          DateTime  @default(now())
   /// @HideField({ input: true, output: true })
   updatedAt          DateTime  @updatedAt
+}
+
+model OrderEntry {
+  /// @Field(() => ID)
+  id           Int            @id @default(autoincrement())
+  /// @Validator.IsNotEmpty()
+  makerCd      String
+  /// @HideField({ input: true, output: true })
+  createdAt    DateTime       @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt    DateTime       @updatedAt
+  maker        Maker          @relation(fields: [makerCd], references: [makerCd])
+  OrderRequest OrderRequest[]
+
+  @@index([makerCd], map: "OrderEntry_makerCd_fkey")
+}
+
+model OrderRequest {
+  /// @Field(() => ID)
+  id                 Int                       @id @default(autoincrement())
+  /// @Validator.IsNotEmpty()
+  containerNo        Int
+  /// @Validator.IsNotEmpty()
+  orderRequestNo     String
+  /// @Validator.IsNotEmpty()
+  deliveryDate       DateTime                  @db.Date
+  /// @Validator.IsNotEmpty()
+  poRequestDate      DateTime                  @db.Date
+  /// @Field(() => DeliveryPort)
+  deliveryPort       OrderRequest_deliveryPort @default(OTHER)
+  /// @Field(() => PoStatus)
+  poStatus           PoStatus                  @default(NOTISSUED)
+  /// @Validator.IsNotEmpty()
+  discarded          Boolean                   @default(false)
+  /// @HideField({ input: true, output: true })
+  createdAt          DateTime                  @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt          DateTime                  @updatedAt
+  /// @Validator.IsNotEmpty()
+  OrderEntryId       Int
+  orderEntry         OrderEntry                @relation(fields: [OrderEntryId], references: [id])
+  OrderRequestDetail OrderRequestDetail[]
+
+  @@index([OrderEntryId], map: "OrderRequest_OrderEntryId_fkey")
+  @@index([deliveryDate])
+}
+
+model OrderRequestDetail {
+  /// @Field(() => ID)
+  id              Int          @id @default(autoincrement())
+  /// @Validator.IsNotEmpty()
+  prodCd          String
+  /// @Validator.IsNotEmpty()
+  orderQuantity   Int
+  ssp             Float?
+  cbm             Float?
+  /// @Validator.IsNotEmpty()
+  wasOrderAlerted Boolean      @default(false)
+  /// @HideField({ input: true, output: true })
+  createdAt       DateTime     @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt       DateTime     @updatedAt
+  /// @Validator.IsNotEmpty()
+  OrderRequestId  Int
+  orderRequest    OrderRequest @relation(fields: [OrderRequestId], references: [id])
+  product         Product      @relation(fields: [prodCd], references: [prodCd])
+
+  @@index([OrderRequestId], map: "OrderRequestDetail_OrderRequestId_fkey")
+  @@index([prodCd], map: "OrderRequestDetail_prodCd_fkey")
+}
+
+model Maker {
+  /// @Validator.IsNotEmpty()
+  makerCd    String       @unique
+  /// @Validator.IsNotEmpty()
+  makerName  String
+  leadtime   Int
+  /// @Validator.IsNotEmpty()
+  isValid    Boolean      @default(true)
+  /// @HideField({ input: true, output: true })
+  createdAt  DateTime     @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt  DateTime     @updatedAt
+  OrderEntry OrderEntry[]
+}
+
+model Product {
+  /// @Validator.IsNotEmpty()
+  prodCd             String               @unique
+  /// @Validator.IsNotEmpty()
+  prodName           String
+  ssp180Days         Float?
+  carton3SideSize    Float?
+  minOrderQuantity   Int
+  /// @Validator.IsNotEmpty()
+  isValid            Boolean              @default(true)
+  /// @HideField({ input: true, output: true })
+  createdAt          DateTime             @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt          DateTime             @updatedAt
+  OrderArrivalData   OrderArrivalData[]
+  OrderRequestDetail OrderRequestDetail[]
+}
+
+model OrderArrivalData {
+  /// @Field(() => ID)
+  id            Int          @id @default(autoincrement())
+  /// @Validator.IsNotEmpty()
+  prodCd        String
+  /// @Validator.IsNotEmpty()
+  orderQuantity Int
+  deliveryDate  DateTime?    @db.Date
+  /// @Field(() => DeliveryPort)
+  deliveryPort  DeliveryPort @default(OTHER)
+  /// @HideField({ input: true, output: true })
+  createdAt     DateTime     @default(now())
+  /// @HideField({ input: true, output: true })
+  updatedAt     DateTime     @updatedAt
+  product       Product      @relation(fields: [prodCd], references: [prodCd])
+
+  @@index([prodCd], map: "OrderArrivalData_prodCd_fkey")
+}
+
+enum Authority {
+  FIRST
+  SECOND
+  THIRD
+}
+
+enum DeliveryPort {
+  INZAI
+  TOYOKAWA
+  KOBE
+  MOJI
+  OTHER
+}
+
+enum PoStatus {
+  NOTISSUED
+  ISSUED
+}
+
+enum OrderRequest_deliveryPort {
+  INZAI
+  TOYOKAWA
+  KOBE
+  MOJI
+  OTHER
 }

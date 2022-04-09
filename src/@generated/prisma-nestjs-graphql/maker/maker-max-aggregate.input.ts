@@ -1,0 +1,24 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { HideField } from '@nestjs/graphql';
+
+@InputType()
+export class MakerMaxAggregateInput {
+  @Field(() => Boolean, { nullable: true })
+  makerCd?: true;
+
+  @Field(() => Boolean, { nullable: true })
+  makerName?: true;
+
+  @Field(() => Boolean, { nullable: true })
+  leadtime?: true;
+
+  @Field(() => Boolean, { nullable: true })
+  isValid?: true;
+
+  @HideField()
+  createdAt?: true;
+
+  @HideField()
+  updatedAt?: true;
+}
