@@ -33,7 +33,6 @@ export class UsersResolver {
 
   @Mutation(() => User)
   @SkipAuth()
-  // @Authorities(Authority.FIRST)
   async createUser(@Args() args: CreateOneUserArgs) {
     args.data.password = await bcrypt.hash(args.data.password, 10);
     return this.userService.createUser(args);

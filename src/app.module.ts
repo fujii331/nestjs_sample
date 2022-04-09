@@ -8,7 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TasksModule } from './tasks/tasks.module';
 import { APP_GUARD } from '@nestjs/core';
-import { AuthoritiesGuard } from 'src/common/guards/authorities.guard';
+import { AuthoritiesGuard } from '../src/common/guards/authorities.guard';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { LoggingPlugin } from './common/plugins/logging.plugin';
 import { ComplexityPlugin } from './common/plugins/complexity.plugin';
