@@ -24,8 +24,8 @@ export class OrderRequestGroupBy {
   @Field(() => Date, { nullable: false })
   deliveryDate!: Date | string;
 
-  @Field(() => Date, { nullable: false })
-  poRequestDate!: Date | string;
+  @Field(() => Date, { nullable: true })
+  poRequestDate?: Date | string;
 
   @Field(() => OrderRequest_deliveryPort, { nullable: false })
   deliveryPort!: keyof typeof OrderRequest_deliveryPort;
@@ -43,7 +43,7 @@ export class OrderRequestGroupBy {
   updatedAt!: Date | string;
 
   @Field(() => Int, { nullable: false })
-  OrderEntryId!: number;
+  orderEntryId!: number;
 
   @Field(() => OrderRequestCountAggregate, { nullable: true })
   _count?: OrderRequestCountAggregate;

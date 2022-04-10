@@ -34,7 +34,7 @@ export class OrderRequestDetail {
   updatedAt!: Date;
 
   @Field(() => Int, { nullable: false })
-  OrderRequestId!: number;
+  orderRequestId!: number;
 
   @Field(() => OrderRequest, { nullable: false })
   orderRequest?: OrderRequest;

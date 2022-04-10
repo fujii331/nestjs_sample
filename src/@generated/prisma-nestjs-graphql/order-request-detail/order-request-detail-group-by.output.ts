@@ -36,7 +36,7 @@ export class OrderRequestDetailGroupBy {
   updatedAt!: Date | string;
 
   @Field(() => Int, { nullable: false })
-  OrderRequestId!: number;
+  orderRequestId!: number;
 
   @Field(() => OrderRequestDetailCountAggregate, { nullable: true })
   _count?: OrderRequestDetailCountAggregate;

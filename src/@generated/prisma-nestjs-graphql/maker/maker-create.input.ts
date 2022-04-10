@@ -4,6 +4,7 @@ import * as Validator from 'class-validator';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { OrderEntryCreateNestedManyWithoutMakerInput } from '../order-entry/order-entry-create-nested-many-without-maker.input';
+import { ProductCreateNestedManyWithoutMakerInput } from '../product/product-create-nested-many-without-maker.input';
 
 @InputType()
 export class MakerCreateInput {
@@ -29,5 +30,8 @@ export class MakerCreateInput {
   updatedAt?: Date | string;
 
   @Field(() => OrderEntryCreateNestedManyWithoutMakerInput, { nullable: true })
-  OrderEntry?: OrderEntryCreateNestedManyWithoutMakerInput;
+  orderEntry?: OrderEntryCreateNestedManyWithoutMakerInput;
+
+  @Field(() => ProductCreateNestedManyWithoutMakerInput, { nullable: true })
+  product?: ProductCreateNestedManyWithoutMakerInput;
 }

@@ -8,6 +8,9 @@ export class ProductMaxAggregateInput {
   prodCd?: true;
 
   @Field(() => Boolean, { nullable: true })
+  makerCd?: true;
+
+  @Field(() => Boolean, { nullable: true })
   prodName?: true;
 
   @Field(() => Boolean, { nullable: true })

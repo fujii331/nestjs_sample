@@ -23,8 +23,8 @@ export class OrderRequest {
   @Field(() => Date, { nullable: false })
   deliveryDate!: Date;
 
-  @Field(() => Date, { nullable: false })
-  poRequestDate!: Date;
+  @Field(() => Date, { nullable: true })
+  poRequestDate!: Date | null;
 
   @Field(() => OrderRequest_deliveryPort, {
     nullable: false,
@@ -45,13 +45,13 @@ export class OrderRequest {
   updatedAt!: Date;
 
   @Field(() => Int, { nullable: false })
-  OrderEntryId!: number;
+  orderEntryId!: number;
 
   @Field(() => OrderEntry, { nullable: false })
   orderEntry?: OrderEntry;
 
   @Field(() => [OrderRequestDetail], { nullable: true })
-  OrderRequestDetail?: Array<OrderRequestDetail>;
+  orderRequestDetail?: Array<OrderRequestDetail>;
 
   @Field(() => OrderRequestCount, { nullable: false })
   _count?: OrderRequestCount;

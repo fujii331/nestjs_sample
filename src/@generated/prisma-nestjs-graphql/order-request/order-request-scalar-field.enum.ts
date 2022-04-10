@@ -11,7 +11,7 @@ export enum OrderRequestScalarFieldEnum {
   discarded = 'discarded',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
-  OrderEntryId = 'OrderEntryId',
+  orderEntryId = 'orderEntryId',
 }
 
 registerEnumType(OrderRequestScalarFieldEnum, {

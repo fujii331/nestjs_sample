@@ -18,5 +18,5 @@ export class OrderRequestDetailSumAggregate {
   cbm?: number;
 
   @Field(() => Int, { nullable: true })
-  OrderRequestId?: number;
+  orderRequestId?: number;
 }

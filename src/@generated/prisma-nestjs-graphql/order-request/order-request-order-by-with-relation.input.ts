@@ -38,7 +38,7 @@ export class OrderRequestOrderByWithRelationInput {
   updatedAt?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
-  OrderEntryId?: keyof typeof SortOrder;
+  orderEntryId?: keyof typeof SortOrder;
 
   @Field(() => OrderEntryOrderByWithRelationInput, { nullable: true })
   orderEntry?: OrderEntryOrderByWithRelationInput;
@@ -46,5 +46,5 @@ export class OrderRequestOrderByWithRelationInput {
   @Field(() => OrderRequestDetailOrderByRelationAggregateInput, {
     nullable: true,
   })
-  OrderRequestDetail?: OrderRequestDetailOrderByRelationAggregateInput;
+  orderRequestDetail?: OrderRequestDetailOrderByRelationAggregateInput;
 }

@@ -10,5 +10,5 @@ export class OrderRequestSumAggregateInput {
   containerNo?: true;
 
   @Field(() => Boolean, { nullable: true })
-  OrderEntryId?: true;
+  orderEntryId?: true;
 }

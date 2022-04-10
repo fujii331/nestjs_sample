@@ -5,5 +5,8 @@ import { Int } from '@nestjs/graphql';
 @ObjectType()
 export class MakerCount {
   @Field(() => Int, { nullable: false })
-  OrderEntry?: number;
+  orderEntry?: number;
+
+  @Field(() => Int, { nullable: false })
+  product?: number;
 }

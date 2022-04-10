@@ -15,6 +15,10 @@ export class ProductUncheckedCreateInput {
 
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
+  makerCd!: string;
+
+  @Field(() => String, { nullable: false })
+  @Validator.IsNotEmpty()
   prodName!: string;
 
   @Field(() => Float, { nullable: true })
@@ -39,10 +43,10 @@ export class ProductUncheckedCreateInput {
   @Field(() => OrderArrivalDataUncheckedCreateNestedManyWithoutProductInput, {
     nullable: true,
   })
-  OrderArrivalData?: OrderArrivalDataUncheckedCreateNestedManyWithoutProductInput;
+  orderArrivalData?: OrderArrivalDataUncheckedCreateNestedManyWithoutProductInput;
 
   @Field(() => OrderRequestDetailUncheckedCreateNestedManyWithoutProductInput, {
     nullable: true,
   })
-  OrderRequestDetail?: OrderRequestDetailUncheckedCreateNestedManyWithoutProductInput;
+  orderRequestDetail?: OrderRequestDetailUncheckedCreateNestedManyWithoutProductInput;
 }

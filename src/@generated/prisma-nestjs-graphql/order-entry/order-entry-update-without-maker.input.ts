@@ -13,5 +13,5 @@ export class OrderEntryUpdateWithoutMakerInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput;
 
   @Field(() => OrderRequestUpdateManyWithoutOrderEntryInput, { nullable: true })
-  OrderRequest?: OrderRequestUpdateManyWithoutOrderEntryInput;
+  orderRequest?: OrderRequestUpdateManyWithoutOrderEntryInput;
 }

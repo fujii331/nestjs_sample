@@ -30,7 +30,7 @@ export class OrderRequestDetailCountAggregate {
   updatedAt!: number;
 
   @Field(() => Int, { nullable: false })
-  OrderRequestId!: number;
+  orderRequestId!: number;
 
   @Field(() => Int, { nullable: false })
   _all!: number;

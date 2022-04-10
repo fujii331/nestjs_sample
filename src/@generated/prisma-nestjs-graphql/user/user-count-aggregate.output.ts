@@ -18,16 +18,16 @@ export class UserCountAggregate {
   password!: number;
 
   @HideField()
-  hashedRefreshToken!: number;
+  createdAt!: number;
+
+  @HideField()
+  updatedAt!: number;
 
   @Field(() => Int, { nullable: false })
   authority!: number;
 
   @HideField()
-  createdAt!: number;
-
-  @HideField()
-  updatedAt!: number;
+  hashedRefreshToken!: number;
 
   @Field(() => Int, { nullable: false })
   _all!: number;

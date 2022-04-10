@@ -36,5 +36,5 @@ export class OrderRequestDetailCreateManyInput {
 
   @Field(() => Int, { nullable: false })
   @Validator.IsNotEmpty()
-  OrderRequestId!: number;
+  orderRequestId!: number;
 }

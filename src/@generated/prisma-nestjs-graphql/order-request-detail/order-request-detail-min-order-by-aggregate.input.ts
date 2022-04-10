@@ -30,5 +30,5 @@ export class OrderRequestDetailMinOrderByAggregateInput {
   updatedAt?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
-  OrderRequestId?: keyof typeof SortOrder;
+  orderRequestId?: keyof typeof SortOrder;
 }

@@ -4,6 +4,7 @@ import * as Validator from 'class-validator';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { OrderEntryUncheckedCreateNestedManyWithoutMakerInput } from '../order-entry/order-entry-unchecked-create-nested-many-without-maker.input';
+import { ProductUncheckedCreateNestedManyWithoutMakerInput } from '../product/product-unchecked-create-nested-many-without-maker.input';
 
 @InputType()
 export class MakerUncheckedCreateInput {
@@ -31,5 +32,10 @@ export class MakerUncheckedCreateInput {
   @Field(() => OrderEntryUncheckedCreateNestedManyWithoutMakerInput, {
     nullable: true,
   })
-  OrderEntry?: OrderEntryUncheckedCreateNestedManyWithoutMakerInput;
+  orderEntry?: OrderEntryUncheckedCreateNestedManyWithoutMakerInput;
+
+  @Field(() => ProductUncheckedCreateNestedManyWithoutMakerInput, {
+    nullable: true,
+  })
+  product?: ProductUncheckedCreateNestedManyWithoutMakerInput;
 }

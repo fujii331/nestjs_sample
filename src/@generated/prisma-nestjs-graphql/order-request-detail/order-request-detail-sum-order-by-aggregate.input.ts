@@ -17,5 +17,5 @@ export class OrderRequestDetailSumOrderByAggregateInput {
   cbm?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
-  OrderRequestId?: keyof typeof SortOrder;
+  orderRequestId?: keyof typeof SortOrder;
 }

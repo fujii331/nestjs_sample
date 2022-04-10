@@ -5,10 +5,10 @@ export enum UserScalarFieldEnum {
   email = 'email',
   name = 'name',
   password = 'password',
-  hashedRefreshToken = 'hashedRefreshToken',
-  authority = 'authority',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  authority = 'authority',
+  hashedRefreshToken = 'hashedRefreshToken',
 }
 
 registerEnumType(UserScalarFieldEnum, {

@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
+import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
 import { EnumOrderRequest_deliveryPortWithAggregatesFilter } from '../prisma/enum-order-request-delivery-port-with-aggregates-filter.input';
 import { EnumPoStatusWithAggregatesFilter } from '../prisma/enum-po-status-with-aggregates-filter.input';
 import { BoolWithAggregatesFilter } from '../prisma/bool-with-aggregates-filter.input';
@@ -31,8 +32,8 @@ export class OrderRequestScalarWhereWithAggregatesInput {
   @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
   deliveryDate?: DateTimeWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  poRequestDate?: DateTimeWithAggregatesFilter;
+  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
+  poRequestDate?: DateTimeNullableWithAggregatesFilter;
 
   @Field(() => EnumOrderRequest_deliveryPortWithAggregatesFilter, {
     nullable: true,
@@ -52,5 +53,5 @@ export class OrderRequestScalarWhereWithAggregatesInput {
   updatedAt?: DateTimeWithAggregatesFilter;
 
   @Field(() => IntWithAggregatesFilter, { nullable: true })
-  OrderEntryId?: IntWithAggregatesFilter;
+  orderEntryId?: IntWithAggregatesFilter;
 }

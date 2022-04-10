@@ -24,16 +24,16 @@ export class UserGroupBy {
   password!: string;
 
   @HideField()
-  hashedRefreshToken?: string;
+  createdAt!: Date | string;
+
+  @HideField()
+  updatedAt!: Date | string;
 
   @Field(() => Authority, { nullable: false })
   authority!: keyof typeof Authority;
 
   @HideField()
-  createdAt!: Date | string;
-
-  @HideField()
-  updatedAt!: Date | string;
+  hashedRefreshToken?: string;
 
   @Field(() => UserCountAggregate, { nullable: true })
   _count?: UserCountAggregate;

@@ -13,6 +13,10 @@ export class ProductCreateManyInput {
 
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
+  makerCd!: string;
+
+  @Field(() => String, { nullable: false })
+  @Validator.IsNotEmpty()
   prodName!: string;
 
   @Field(() => Float, { nullable: true })

@@ -45,7 +45,7 @@ export class OrderRequestDetailWhereInput {
   updatedAt?: DateTimeFilter;
 
   @Field(() => IntFilter, { nullable: true })
-  OrderRequestId?: IntFilter;
+  orderRequestId?: IntFilter;
 
   @Field(() => OrderRequestRelationFilter, { nullable: true })
   orderRequest?: OrderRequestRelationFilter;

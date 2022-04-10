@@ -16,5 +16,5 @@ export class OrderRequestDetailSumAggregateInput {
   cbm?: true;
 
   @Field(() => Boolean, { nullable: true })
-  OrderRequestId?: true;
+  orderRequestId?: true;
 }

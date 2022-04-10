@@ -17,16 +17,16 @@ export class UserCountAggregateInput {
   password?: true;
 
   @HideField()
-  hashedRefreshToken?: true;
+  createdAt?: true;
+
+  @HideField()
+  updatedAt?: true;
 
   @Field(() => Boolean, { nullable: true })
   authority?: true;
 
   @HideField()
-  createdAt?: true;
-
-  @HideField()
-  updatedAt?: true;
+  hashedRefreshToken?: true;
 
   @Field(() => Boolean, { nullable: true })
   _all?: true;

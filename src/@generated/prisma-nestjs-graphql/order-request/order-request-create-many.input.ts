@@ -23,9 +23,9 @@ export class OrderRequestCreateManyInput {
   @Validator.IsNotEmpty()
   deliveryDate!: Date | string;
 
-  @Field(() => Date, { nullable: false })
+  @Field(() => Date, { nullable: true })
   @Validator.IsNotEmpty()
-  poRequestDate!: Date | string;
+  poRequestDate?: Date | string;
 
   @Field(() => OrderRequest_deliveryPort, { nullable: true })
   deliveryPort?: keyof typeof OrderRequest_deliveryPort;
@@ -45,5 +45,5 @@ export class OrderRequestCreateManyInput {
 
   @Field(() => Int, { nullable: false })
   @Validator.IsNotEmpty()
-  OrderEntryId!: number;
+  orderEntryId!: number;
 }

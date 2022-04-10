@@ -11,5 +11,5 @@ export class OrderRequestAvgOrderByAggregateInput {
   containerNo?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
-  OrderEntryId?: keyof typeof SortOrder;
+  orderEntryId?: keyof typeof SortOrder;
 }

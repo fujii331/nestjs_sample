@@ -10,6 +10,9 @@ export class ProductMinAggregate {
   prodCd?: string;
 
   @Field(() => String, { nullable: true })
+  makerCd?: string;
+
+  @Field(() => String, { nullable: true })
   prodName?: string;
 
   @Field(() => Float, { nullable: true })

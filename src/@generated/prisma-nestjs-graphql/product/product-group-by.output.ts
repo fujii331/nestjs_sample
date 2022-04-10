@@ -15,6 +15,9 @@ export class ProductGroupBy {
   prodCd!: string;
 
   @Field(() => String, { nullable: false })
+  makerCd!: string;
+
+  @Field(() => String, { nullable: false })
   prodName!: string;
 
   @Field(() => Float, { nullable: true })

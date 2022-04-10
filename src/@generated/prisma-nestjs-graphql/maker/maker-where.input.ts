@@ -6,6 +6,7 @@ import { BoolFilter } from '../prisma/bool-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { HideField } from '@nestjs/graphql';
 import { OrderEntryListRelationFilter } from '../order-entry/order-entry-list-relation-filter.input';
+import { ProductListRelationFilter } from '../product/product-list-relation-filter.input';
 
 @InputType()
 export class MakerWhereInput {
@@ -37,5 +38,8 @@ export class MakerWhereInput {
   updatedAt?: DateTimeFilter;
 
   @Field(() => OrderEntryListRelationFilter, { nullable: true })
-  OrderEntry?: OrderEntryListRelationFilter;
+  orderEntry?: OrderEntryListRelationFilter;
+
+  @Field(() => ProductListRelationFilter, { nullable: true })
+  product?: ProductListRelationFilter;
 }

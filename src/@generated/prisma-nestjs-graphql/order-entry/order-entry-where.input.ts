@@ -34,5 +34,5 @@ export class OrderEntryWhereInput {
   maker?: MakerRelationFilter;
 
   @Field(() => OrderRequestListRelationFilter, { nullable: true })
-  OrderRequest?: OrderRequestListRelationFilter;
+  orderRequest?: OrderRequestListRelationFilter;
 }

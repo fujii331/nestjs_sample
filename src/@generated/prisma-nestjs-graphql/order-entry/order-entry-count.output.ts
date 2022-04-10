@@ -5,5 +5,5 @@ import { Int } from '@nestjs/graphql';
 @ObjectType()
 export class OrderEntryCount {
   @Field(() => Int, { nullable: false })
-  OrderRequest?: number;
+  orderRequest?: number;
 }

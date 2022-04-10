@@ -9,7 +9,7 @@ export enum OrderRequestDetailScalarFieldEnum {
   wasOrderAlerted = 'wasOrderAlerted',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
-  OrderRequestId = 'OrderRequestId',
+  orderRequestId = 'orderRequestId',
 }
 
 registerEnumType(OrderRequestDetailScalarFieldEnum, {

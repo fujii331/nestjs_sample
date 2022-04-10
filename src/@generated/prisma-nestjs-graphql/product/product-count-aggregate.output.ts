@@ -9,6 +9,9 @@ export class ProductCountAggregate {
   prodCd!: number;
 
   @Field(() => Int, { nullable: false })
+  makerCd!: number;
+
+  @Field(() => Int, { nullable: false })
   prodName!: number;
 
   @Field(() => Int, { nullable: false })

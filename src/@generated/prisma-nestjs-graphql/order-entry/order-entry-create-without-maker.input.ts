@@ -14,5 +14,5 @@ export class OrderEntryCreateWithoutMakerInput {
   @Field(() => OrderRequestCreateNestedManyWithoutOrderEntryInput, {
     nullable: true,
   })
-  OrderRequest?: OrderRequestCreateNestedManyWithoutOrderEntryInput;
+  orderRequest?: OrderRequestCreateNestedManyWithoutOrderEntryInput;
 }

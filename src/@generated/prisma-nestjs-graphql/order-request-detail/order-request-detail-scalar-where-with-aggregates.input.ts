@@ -49,5 +49,5 @@ export class OrderRequestDetailScalarWhereWithAggregatesInput {
   updatedAt?: DateTimeWithAggregatesFilter;
 
   @Field(() => IntWithAggregatesFilter, { nullable: true })
-  OrderRequestId?: IntWithAggregatesFilter;
+  orderRequestId?: IntWithAggregatesFilter;
 }

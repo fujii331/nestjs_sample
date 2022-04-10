@@ -23,5 +23,5 @@ export class OrderEntryUncheckedCreateInput {
   @Field(() => OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput, {
     nullable: true,
   })
-  OrderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
+  orderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
 }

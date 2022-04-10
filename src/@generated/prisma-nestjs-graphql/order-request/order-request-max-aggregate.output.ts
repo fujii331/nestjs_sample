@@ -38,5 +38,5 @@ export class OrderRequestMaxAggregate {
   updatedAt?: Date | string;
 
   @Field(() => Int, { nullable: true })
-  OrderEntryId?: number;
+  orderEntryId?: number;
 }

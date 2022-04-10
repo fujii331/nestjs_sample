@@ -15,6 +15,9 @@ export class ProductUncheckedUpdateInput {
   prodCd?: StringFieldUpdateOperationsInput;
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  makerCd?: StringFieldUpdateOperationsInput;
+
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   prodName?: StringFieldUpdateOperationsInput;
 
   @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
@@ -38,10 +41,10 @@ export class ProductUncheckedUpdateInput {
   @Field(() => OrderArrivalDataUncheckedUpdateManyWithoutProductInput, {
     nullable: true,
   })
-  OrderArrivalData?: OrderArrivalDataUncheckedUpdateManyWithoutProductInput;
+  orderArrivalData?: OrderArrivalDataUncheckedUpdateManyWithoutProductInput;
 
   @Field(() => OrderRequestDetailUncheckedUpdateManyWithoutProductInput, {
     nullable: true,
   })
-  OrderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutProductInput;
+  orderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutProductInput;
 }

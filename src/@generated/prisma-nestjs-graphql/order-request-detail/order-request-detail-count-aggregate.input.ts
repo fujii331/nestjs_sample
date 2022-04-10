@@ -29,7 +29,7 @@ export class OrderRequestDetailCountAggregateInput {
   updatedAt?: true;
 
   @Field(() => Boolean, { nullable: true })
-  OrderRequestId?: true;
+  orderRequestId?: true;
 
   @Field(() => Boolean, { nullable: true })
   _all?: true;

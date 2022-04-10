@@ -23,5 +23,5 @@ export class OrderEntryOrderByWithRelationInput {
   maker?: MakerOrderByWithRelationInput;
 
   @Field(() => OrderRequestOrderByRelationAggregateInput, { nullable: true })
-  OrderRequest?: OrderRequestOrderByRelationAggregateInput;
+  orderRequest?: OrderRequestOrderByRelationAggregateInput;
 }

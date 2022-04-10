@@ -22,14 +22,14 @@ export class UserUncheckedCreateInput {
   password!: string;
 
   @HideField()
-  hashedRefreshToken?: string;
+  createdAt?: Date | string;
+
+  @HideField()
+  updatedAt?: Date | string;
 
   @Field(() => Authority, { nullable: true })
   authority?: keyof typeof Authority;
 
   @HideField()
-  createdAt?: Date | string;
-
-  @HideField()
-  updatedAt?: Date | string;
+  hashedRefreshToken?: string;
 }

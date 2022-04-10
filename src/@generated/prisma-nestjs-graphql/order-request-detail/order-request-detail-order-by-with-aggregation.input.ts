@@ -35,7 +35,7 @@ export class OrderRequestDetailOrderByWithAggregationInput {
   updatedAt?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
-  OrderRequestId?: keyof typeof SortOrder;
+  orderRequestId?: keyof typeof SortOrder;
 
   @Field(() => OrderRequestDetailCountOrderByAggregateInput, { nullable: true })
   _count?: OrderRequestDetailCountOrderByAggregateInput;

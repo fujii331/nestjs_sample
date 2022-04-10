@@ -11,5 +11,5 @@ export class OrderRequestAvgAggregate {
   containerNo?: number;
 
   @Field(() => Float, { nullable: true })
-  OrderEntryId?: number;
+  orderEntryId?: number;
 }

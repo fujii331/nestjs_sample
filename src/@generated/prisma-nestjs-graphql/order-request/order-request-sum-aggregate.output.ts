@@ -11,5 +11,5 @@ export class OrderRequestSumAggregate {
   containerNo?: number;
 
   @Field(() => Int, { nullable: true })
-  OrderEntryId?: number;
+  orderEntryId?: number;
 }

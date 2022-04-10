@@ -22,6 +22,9 @@ export class ProductScalarWhereWithAggregatesInput {
   prodCd?: StringWithAggregatesFilter;
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
+  makerCd?: StringWithAggregatesFilter;
+
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
   prodName?: StringWithAggregatesFilter;
 
   @Field(() => FloatNullableWithAggregatesFilter, { nullable: true })

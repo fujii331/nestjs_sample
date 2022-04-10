@@ -24,7 +24,7 @@ export class OrderEntry {
   maker?: Maker;
 
   @Field(() => [OrderRequest], { nullable: true })
-  OrderRequest?: Array<OrderRequest>;
+  orderRequest?: Array<OrderRequest>;
 
   @Field(() => OrderEntryCount, { nullable: false })
   _count?: OrderEntryCount;

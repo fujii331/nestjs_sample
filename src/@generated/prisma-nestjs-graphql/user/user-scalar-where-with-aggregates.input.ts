@@ -2,10 +2,10 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
+import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 import { HideField } from '@nestjs/graphql';
 import { EnumAuthorityWithAggregatesFilter } from '../prisma/enum-authority-with-aggregates-filter.input';
-import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
+import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class UserScalarWhereWithAggregatesInput {
@@ -31,14 +31,14 @@ export class UserScalarWhereWithAggregatesInput {
   password?: StringWithAggregatesFilter;
 
   @HideField()
-  hashedRefreshToken?: StringNullableWithAggregatesFilter;
+  createdAt?: DateTimeWithAggregatesFilter;
+
+  @HideField()
+  updatedAt?: DateTimeWithAggregatesFilter;
 
   @Field(() => EnumAuthorityWithAggregatesFilter, { nullable: true })
   authority?: EnumAuthorityWithAggregatesFilter;
 
   @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
-
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+  hashedRefreshToken?: StringNullableWithAggregatesFilter;
 }

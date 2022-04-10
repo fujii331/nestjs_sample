@@ -43,5 +43,5 @@ export class OrderRequestDetailScalarWhereInput {
   updatedAt?: DateTimeFilter;
 
   @Field(() => IntFilter, { nullable: true })
-  OrderRequestId?: IntFilter;
+  orderRequestId?: IntFilter;
 }

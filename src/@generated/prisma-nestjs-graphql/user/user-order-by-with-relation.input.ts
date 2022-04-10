@@ -18,14 +18,14 @@ export class UserOrderByWithRelationInput {
   password?: keyof typeof SortOrder;
 
   @HideField()
-  hashedRefreshToken?: keyof typeof SortOrder;
+  createdAt?: keyof typeof SortOrder;
+
+  @HideField()
+  updatedAt?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
   authority?: keyof typeof SortOrder;
 
   @HideField()
-  createdAt?: keyof typeof SortOrder;
-
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+  hashedRefreshToken?: keyof typeof SortOrder;
 }

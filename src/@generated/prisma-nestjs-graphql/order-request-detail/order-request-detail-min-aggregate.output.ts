@@ -31,5 +31,5 @@ export class OrderRequestDetailMinAggregate {
   updatedAt?: Date | string;
 
   @Field(() => Int, { nullable: true })
-  OrderRequestId?: number;
+  orderRequestId?: number;
 }

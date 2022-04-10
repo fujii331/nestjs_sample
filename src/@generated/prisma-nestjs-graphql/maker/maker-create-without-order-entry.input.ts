@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
+import { ProductCreateNestedManyWithoutMakerInput } from '../product/product-create-nested-many-without-maker.input';
 
 @InputType()
 export class MakerCreateWithoutOrderEntryInput {
@@ -26,4 +27,7 @@ export class MakerCreateWithoutOrderEntryInput {
 
   @HideField()
   updatedAt?: Date | string;
+
+  @Field(() => ProductCreateNestedManyWithoutMakerInput, { nullable: true })
+  product?: ProductCreateNestedManyWithoutMakerInput;
 }

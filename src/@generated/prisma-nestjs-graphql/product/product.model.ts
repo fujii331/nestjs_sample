@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
+import { Maker } from '../maker/maker.model';
 import { OrderArrivalData } from '../order-arrival-data/order-arrival-data.model';
 import { OrderRequestDetail } from '../order-request-detail/order-request-detail.model';
 import { ProductCount } from './product-count.output';
@@ -11,6 +12,9 @@ import { ProductCount } from './product-count.output';
 export class Product {
   @Field(() => String, { nullable: false })
   prodCd!: string;
+
+  @Field(() => String, { nullable: false })
+  makerCd!: string;
 
   @Field(() => String, { nullable: false })
   prodName!: string;
@@ -33,11 +37,14 @@ export class Product {
   @HideField()
   updatedAt!: Date;
 
+  @Field(() => Maker, { nullable: false })
+  maker?: Maker;
+
   @Field(() => [OrderArrivalData], { nullable: true })
-  OrderArrivalData?: Array<OrderArrivalData>;
+  orderArrivalData?: Array<OrderArrivalData>;
 
   @Field(() => [OrderRequestDetail], { nullable: true })
-  OrderRequestDetail?: Array<OrderRequestDetail>;
+  orderRequestDetail?: Array<OrderRequestDetail>;
 
   @Field(() => ProductCount, { nullable: false })
   _count?: ProductCount;

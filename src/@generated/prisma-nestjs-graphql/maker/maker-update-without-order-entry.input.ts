@@ -5,6 +5,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
+import { ProductUpdateManyWithoutMakerInput } from '../product/product-update-many-without-maker.input';
 
 @InputType()
 export class MakerUpdateWithoutOrderEntryInput {
@@ -25,4 +26,7 @@ export class MakerUpdateWithoutOrderEntryInput {
 
   @HideField()
   updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+  @Field(() => ProductUpdateManyWithoutMakerInput, { nullable: true })
+  product?: ProductUpdateManyWithoutMakerInput;
 }

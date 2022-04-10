@@ -9,6 +9,9 @@ export class ProductMinOrderByAggregateInput {
   prodCd?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })
+  makerCd?: keyof typeof SortOrder;
+
+  @Field(() => SortOrder, { nullable: true })
   prodName?: keyof typeof SortOrder;
 
   @Field(() => SortOrder, { nullable: true })

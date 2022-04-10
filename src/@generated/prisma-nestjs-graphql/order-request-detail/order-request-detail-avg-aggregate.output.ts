@@ -17,5 +17,5 @@ export class OrderRequestDetailAvgAggregate {
   cbm?: number;
 
   @Field(() => Float, { nullable: true })
-  OrderRequestId?: number;
+  orderRequestId?: number;
 }

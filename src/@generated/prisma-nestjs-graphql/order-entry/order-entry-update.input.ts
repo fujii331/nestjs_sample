@@ -17,5 +17,5 @@ export class OrderEntryUpdateInput {
   maker?: MakerUpdateOneRequiredWithoutOrderEntryInput;
 
   @Field(() => OrderRequestUpdateManyWithoutOrderEntryInput, { nullable: true })
-  OrderRequest?: OrderRequestUpdateManyWithoutOrderEntryInput;
+  orderRequest?: OrderRequestUpdateManyWithoutOrderEntryInput;
 }

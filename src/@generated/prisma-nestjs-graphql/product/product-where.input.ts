@@ -6,6 +6,7 @@ import { IntFilter } from '../prisma/int-filter.input';
 import { BoolFilter } from '../prisma/bool-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { HideField } from '@nestjs/graphql';
+import { MakerRelationFilter } from '../maker/maker-relation-filter.input';
 import { OrderArrivalDataListRelationFilter } from '../order-arrival-data/order-arrival-data-list-relation-filter.input';
 import { OrderRequestDetailListRelationFilter } from '../order-request-detail/order-request-detail-list-relation-filter.input';
 
@@ -22,6 +23,9 @@ export class ProductWhereInput {
 
   @Field(() => StringFilter, { nullable: true })
   prodCd?: StringFilter;
+
+  @Field(() => StringFilter, { nullable: true })
+  makerCd?: StringFilter;
 
   @Field(() => StringFilter, { nullable: true })
   prodName?: StringFilter;
@@ -44,9 +48,12 @@ export class ProductWhereInput {
   @HideField()
   updatedAt?: DateTimeFilter;
 
+  @Field(() => MakerRelationFilter, { nullable: true })
+  maker?: MakerRelationFilter;
+
   @Field(() => OrderArrivalDataListRelationFilter, { nullable: true })
-  OrderArrivalData?: OrderArrivalDataListRelationFilter;
+  orderArrivalData?: OrderArrivalDataListRelationFilter;
 
   @Field(() => OrderRequestDetailListRelationFilter, { nullable: true })
-  OrderRequestDetail?: OrderRequestDetailListRelationFilter;
+  orderRequestDetail?: OrderRequestDetailListRelationFilter;
 }

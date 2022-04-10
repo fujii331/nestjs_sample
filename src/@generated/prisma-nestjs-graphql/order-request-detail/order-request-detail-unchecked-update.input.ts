@@ -34,5 +34,5 @@ export class OrderRequestDetailUncheckedUpdateInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput;
 
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  OrderRequestId?: IntFieldUpdateOperationsInput;
+  orderRequestId?: IntFieldUpdateOperationsInput;
 }

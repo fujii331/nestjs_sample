@@ -23,5 +23,5 @@ export class OrderEntryUncheckedUpdateInput {
   @Field(() => OrderRequestUncheckedUpdateManyWithoutOrderEntryInput, {
     nullable: true,
   })
-  OrderRequest?: OrderRequestUncheckedUpdateManyWithoutOrderEntryInput;
+  orderRequest?: OrderRequestUncheckedUpdateManyWithoutOrderEntryInput;
 }

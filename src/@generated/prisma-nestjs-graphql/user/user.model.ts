@@ -23,14 +23,14 @@ export class User {
   password!: string;
 
   @HideField()
-  hashedRefreshToken!: string | null;
+  createdAt!: Date;
+
+  @HideField()
+  updatedAt!: Date;
 
   @Field(() => Authority, { nullable: false, defaultValue: 'THIRD' })
   authority!: keyof typeof Authority;
 
   @HideField()
-  createdAt!: Date;
-
-  @HideField()
-  updatedAt!: Date;
+  hashedRefreshToken!: string | null;
 }

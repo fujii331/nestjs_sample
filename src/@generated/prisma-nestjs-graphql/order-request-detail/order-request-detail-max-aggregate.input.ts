@@ -29,5 +29,5 @@ export class OrderRequestDetailMaxAggregateInput {
   updatedAt?: true;
 
   @Field(() => Boolean, { nullable: true })
-  OrderRequestId?: true;
+  orderRequestId?: true;
 }

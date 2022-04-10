@@ -6,6 +6,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
+import { MakerUpdateOneRequiredWithoutProductInput } from '../maker/maker-update-one-required-without-product.input';
 import { OrderArrivalDataUpdateManyWithoutProductInput } from '../order-arrival-data/order-arrival-data-update-many-without-product.input';
 
 @InputType()
@@ -34,8 +35,11 @@ export class ProductUpdateWithoutOrderRequestDetailInput {
   @HideField()
   updatedAt?: DateTimeFieldUpdateOperationsInput;
 
+  @Field(() => MakerUpdateOneRequiredWithoutProductInput, { nullable: true })
+  maker?: MakerUpdateOneRequiredWithoutProductInput;
+
   @Field(() => OrderArrivalDataUpdateManyWithoutProductInput, {
     nullable: true,
   })
-  OrderArrivalData?: OrderArrivalDataUpdateManyWithoutProductInput;
+  orderArrivalData?: OrderArrivalDataUpdateManyWithoutProductInput;
 }
