@@ -35,13 +35,13 @@ model User {
   /// @Validator.MinLength(8)
   password           String
   /// @HideField({ input: true, output: true })
-  hashedRefreshToken String?
-  /// @Field(() => Authority)
-  authority          Authority @default(THIRD)
-  /// @HideField({ input: true, output: true })
   createdAt          DateTime  @default(now())
   /// @HideField({ input: true, output: true })
   updatedAt          DateTime  @updatedAt
+  /// @Field(() => Authority)
+  authority          Authority @default(THIRD)
+  /// @HideField({ input: true, output: true })
+  hashedRefreshToken String?
 }
 
 model OrderEntry {
@@ -54,7 +54,7 @@ model OrderEntry {
   /// @HideField({ input: true, output: true })
   updatedAt    DateTime       @updatedAt
   maker        Maker          @relation(fields: [makerCd], references: [makerCd])
-  OrderRequest OrderRequest[]
+  orderRequest OrderRequest[]
 
   @@index([makerCd], map: "OrderEntry_makerCd_fkey")
 }
@@ -69,7 +69,7 @@ model OrderRequest {
   /// @Validator.IsNotEmpty()
   deliveryDate       DateTime                  @db.Date
   /// @Validator.IsNotEmpty()
-  poRequestDate      DateTime                  @db.Date
+  poRequestDate      DateTime?                 @db.Date
   /// @Field(() => DeliveryPort)
   deliveryPort       OrderRequest_deliveryPort @default(OTHER)
   /// @Field(() => PoStatus)
@@ -81,19 +81,19 @@ model OrderRequest {
   /// @HideField({ input: true, output: true })
   updatedAt          DateTime                  @updatedAt
   /// @Validator.IsNotEmpty()
-  OrderEntryId       Int
-  orderEntry         OrderEntry                @relation(fields: [OrderEntryId], references: [id])
-  OrderRequestDetail OrderRequestDetail[]
+  orderEntryId       Int
+  orderEntry         OrderEntry                @relation(fields: [orderEntryId], references: [id])
+  orderRequestDetail OrderRequestDetail[]
 
-  @@index([OrderEntryId], map: "OrderRequest_OrderEntryId_fkey")
   @@index([deliveryDate])
+  @@index([orderEntryId], map: "OrderRequest_orderEntryId_fkey")
 }
 
 model OrderRequestDetail {
   /// @Field(() => ID)
   id              Int          @id @default(autoincrement())
   /// @Validator.IsNotEmpty()
-  prodCd          String
+  prodCd          String       @db.VarChar(20)
   /// @Validator.IsNotEmpty()
   orderQuantity   Int
   ssp             Float?
@@ -105,11 +105,11 @@ model OrderRequestDetail {
   /// @HideField({ input: true, output: true })
   updatedAt       DateTime     @updatedAt
   /// @Validator.IsNotEmpty()
-  OrderRequestId  Int
-  orderRequest    OrderRequest @relation(fields: [OrderRequestId], references: [id])
+  orderRequestId  Int
+  orderRequest    OrderRequest @relation(fields: [orderRequestId], references: [id])
   product         Product      @relation(fields: [prodCd], references: [prodCd])
 
-  @@index([OrderRequestId], map: "OrderRequestDetail_OrderRequestId_fkey")
+  @@index([orderRequestId], map: "OrderRequestDetail_orderRequestId_fkey")
   @@index([prodCd], map: "OrderRequestDetail_prodCd_fkey")
 }
 
@@ -125,12 +125,15 @@ model Maker {
   createdAt  DateTime     @default(now())
   /// @HideField({ input: true, output: true })
   updatedAt  DateTime     @updatedAt
-  OrderEntry OrderEntry[]
+  orderEntry OrderEntry[]
+  product    Product[]
 }
 
 model Product {
   /// @Validator.IsNotEmpty()
   prodCd             String               @unique
+  /// @Validator.IsNotEmpty()
+  makerCd            String               @db.VarChar(20)
   /// @Validator.IsNotEmpty()
   prodName           String
   ssp180Days         Float?
@@ -142,8 +145,11 @@ model Product {
   createdAt          DateTime             @default(now())
   /// @HideField({ input: true, output: true })
   updatedAt          DateTime             @updatedAt
-  OrderArrivalData   OrderArrivalData[]
-  OrderRequestDetail OrderRequestDetail[]
+  maker              Maker                @relation(fields: [makerCd], references: [makerCd])
+  orderArrivalData   OrderArrivalData[]
+  orderRequestDetail OrderRequestDetail[]
+
+  @@index([makerCd], map: "Product_makerCd_fkey")
 }
 
 model OrderArrivalData {

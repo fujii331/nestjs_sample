@@ -23,10 +23,124 @@ type LoginResponse {
   refresh_token: String!
 }
 
+type OrderArrivalData {
+  id: ID!
+  prodCd: String!
+  orderQuantity: Int!
+  deliveryDate: DateTime
+  deliveryPort: DeliveryPort!
+  product: Product!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum DeliveryPort {
+  INZAI
+  TOYOKAWA
+  KOBE
+  MOJI
+  OTHER
+}
+
+type OrderRequestCount {
+  orderRequestDetail: Int!
+}
+
+type OrderRequest {
+  id: ID!
+  containerNo: Int!
+  orderRequestNo: String!
+  deliveryDate: DateTime!
+  poRequestDate: DateTime
+  deliveryPort: OrderRequest_deliveryPort!
+  poStatus: PoStatus!
+  discarded: Boolean!
+  orderEntryId: Int!
+  orderEntry: OrderEntry!
+  orderRequestDetail: [OrderRequestDetail!]
+  _count: OrderRequestCount!
+}
+
+enum OrderRequest_deliveryPort {
+  INZAI
+  TOYOKAWA
+  KOBE
+  MOJI
+  OTHER
+}
+
+enum PoStatus {
+  NOTISSUED
+  ISSUED
+}
+
+type OrderRequestDetail {
+  id: ID!
+  prodCd: String!
+  orderQuantity: Int!
+  ssp: Float
+  cbm: Float
+  wasOrderAlerted: Boolean!
+  orderRequestId: Int!
+  orderRequest: OrderRequest!
+  product: Product!
+}
+
+type ProductCount {
+  orderArrivalData: Int!
+  orderRequestDetail: Int!
+}
+
+type Product {
+  prodCd: String!
+  makerCd: String!
+  prodName: String!
+  ssp180Days: Float
+  carton3SideSize: Float
+  minOrderQuantity: Int!
+  isValid: Boolean!
+  maker: Maker!
+  orderArrivalData: [OrderArrivalData!]
+  orderRequestDetail: [OrderRequestDetail!]
+  _count: ProductCount!
+}
+
+type MakerCount {
+  orderEntry: Int!
+  product: Int!
+}
+
+type Maker {
+  makerCd: String!
+  makerName: String!
+  leadtime: Int!
+  isValid: Boolean!
+  orderEntry: [OrderEntry!]
+  product: [Product!]
+  _count: MakerCount!
+}
+
+type OrderEntryCount {
+  orderRequest: Int!
+}
+
+type OrderEntry {
+  id: ID!
+  makerCd: String!
+  maker: Maker!
+  orderRequest: [OrderRequest!]
+  _count: OrderEntryCount!
+}
+
 type Query {
   users(usersInput: UsersInput!): [User!]
   firstUser(firstUserInput: FirstUserInput!): User
   uniqueUser(uniqueUserInput: UserWhereUniqueInput!): User
+  orderEntries(orderEntriesInput: OrderEntriesInput!): [OrderEntry!]
+  firstOrderEntry(firstOrderEntryInput: FirstOrderEntryInput!): OrderEntry
 }
 
 input UsersInput {
@@ -53,8 +167,32 @@ input FirstUserInput {
   authority: String
 }
 
+input OrderEntriesInput {
+  orderEntriesWhereInput: OrderEntriesWhereInput
+  skip: Float
+  take: Float
+  cursor: OrderEntryWhereUniqueInput
+}
+
+input OrderEntriesWhereInput {
+  makerCd: String
+  orderRequestNo: String
+  prodCd: String
+}
+
+input OrderEntryWhereUniqueInput {
+  id: Int
+}
+
+input FirstOrderEntryInput {
+  makerCd: String
+  orderRequestNo: String
+  prodCd: String
+}
+
 type Mutation {
   createUser(data: UserCreateInput!): User!
+  createOrderEntry(data: OrderEntryCreateInput!): OrderEntry!
   login(loginUserInput: LoginUserInput!): LoginResponse!
   refreshToken: LoginResponse!
   logout: Boolean!
@@ -65,6 +203,327 @@ input UserCreateInput {
   name: String!
   password: String!
   authority: Authority
+}
+
+input OrderEntryCreateInput {
+  maker: MakerCreateNestedOneWithoutOrderEntryInput!
+  orderRequest: OrderRequestCreateNestedManyWithoutOrderEntryInput
+}
+
+input MakerCreateNestedOneWithoutOrderEntryInput {
+  create: MakerCreateWithoutOrderEntryInput
+  connectOrCreate: MakerCreateOrConnectWithoutOrderEntryInput
+  connect: MakerWhereUniqueInput
+}
+
+input MakerCreateWithoutOrderEntryInput {
+  makerCd: String!
+  makerName: String!
+  leadtime: Int!
+  isValid: Boolean
+  product: ProductCreateNestedManyWithoutMakerInput
+}
+
+input ProductCreateNestedManyWithoutMakerInput {
+  create: [ProductCreateWithoutMakerInput!]
+  connectOrCreate: [ProductCreateOrConnectWithoutMakerInput!]
+  createMany: ProductCreateManyMakerInputEnvelope
+  connect: [ProductWhereUniqueInput!]
+}
+
+input ProductCreateWithoutMakerInput {
+  prodCd: String!
+  prodName: String!
+  ssp180Days: Float
+  carton3SideSize: Float
+  minOrderQuantity: Int!
+  isValid: Boolean
+  orderArrivalData: OrderArrivalDataCreateNestedManyWithoutProductInput
+  orderRequestDetail: OrderRequestDetailCreateNestedManyWithoutProductInput
+}
+
+input OrderArrivalDataCreateNestedManyWithoutProductInput {
+  create: [OrderArrivalDataCreateWithoutProductInput!]
+  connectOrCreate: [OrderArrivalDataCreateOrConnectWithoutProductInput!]
+  createMany: OrderArrivalDataCreateManyProductInputEnvelope
+  connect: [OrderArrivalDataWhereUniqueInput!]
+}
+
+input OrderArrivalDataCreateWithoutProductInput {
+  orderQuantity: Int!
+  deliveryDate: DateTime
+  deliveryPort: DeliveryPort
+}
+
+input OrderArrivalDataCreateOrConnectWithoutProductInput {
+  where: OrderArrivalDataWhereUniqueInput!
+  create: OrderArrivalDataCreateWithoutProductInput!
+}
+
+input OrderArrivalDataWhereUniqueInput {
+  id: Int
+}
+
+input OrderArrivalDataCreateManyProductInputEnvelope {
+  data: [OrderArrivalDataCreateManyProductInput!]!
+  skipDuplicates: Boolean
+}
+
+input OrderArrivalDataCreateManyProductInput {
+  id: Int
+  orderQuantity: Int!
+  deliveryDate: DateTime
+  deliveryPort: DeliveryPort
+}
+
+input OrderRequestDetailCreateNestedManyWithoutProductInput {
+  create: [OrderRequestDetailCreateWithoutProductInput!]
+  connectOrCreate: [OrderRequestDetailCreateOrConnectWithoutProductInput!]
+  createMany: OrderRequestDetailCreateManyProductInputEnvelope
+  connect: [OrderRequestDetailWhereUniqueInput!]
+}
+
+input OrderRequestDetailCreateWithoutProductInput {
+  orderQuantity: Int!
+  ssp: Float
+  cbm: Float
+  wasOrderAlerted: Boolean
+  orderRequest: OrderRequestCreateNestedOneWithoutOrderRequestDetailInput!
+}
+
+input OrderRequestCreateNestedOneWithoutOrderRequestDetailInput {
+  create: OrderRequestCreateWithoutOrderRequestDetailInput
+  connectOrCreate: OrderRequestCreateOrConnectWithoutOrderRequestDetailInput
+  connect: OrderRequestWhereUniqueInput
+}
+
+input OrderRequestCreateWithoutOrderRequestDetailInput {
+  containerNo: Int!
+  orderRequestNo: String!
+  deliveryDate: DateTime!
+  poRequestDate: DateTime
+  deliveryPort: OrderRequest_deliveryPort
+  poStatus: PoStatus
+  discarded: Boolean
+  orderEntry: OrderEntryCreateNestedOneWithoutOrderRequestInput!
+}
+
+input OrderEntryCreateNestedOneWithoutOrderRequestInput {
+  create: OrderEntryCreateWithoutOrderRequestInput
+  connectOrCreate: OrderEntryCreateOrConnectWithoutOrderRequestInput
+  connect: OrderEntryWhereUniqueInput
+}
+
+input OrderEntryCreateWithoutOrderRequestInput {
+  maker: MakerCreateNestedOneWithoutOrderEntryInput!
+}
+
+input OrderEntryCreateOrConnectWithoutOrderRequestInput {
+  where: OrderEntryWhereUniqueInput!
+  create: OrderEntryCreateWithoutOrderRequestInput!
+}
+
+input OrderRequestCreateOrConnectWithoutOrderRequestDetailInput {
+  where: OrderRequestWhereUniqueInput!
+  create: OrderRequestCreateWithoutOrderRequestDetailInput!
+}
+
+input OrderRequestWhereUniqueInput {
+  id: Int
+}
+
+input OrderRequestDetailCreateOrConnectWithoutProductInput {
+  where: OrderRequestDetailWhereUniqueInput!
+  create: OrderRequestDetailCreateWithoutProductInput!
+}
+
+input OrderRequestDetailWhereUniqueInput {
+  id: Int
+}
+
+input OrderRequestDetailCreateManyProductInputEnvelope {
+  data: [OrderRequestDetailCreateManyProductInput!]!
+  skipDuplicates: Boolean
+}
+
+input OrderRequestDetailCreateManyProductInput {
+  id: Int
+  orderQuantity: Int!
+  ssp: Float
+  cbm: Float
+  wasOrderAlerted: Boolean
+  orderRequestId: Int!
+}
+
+input ProductCreateOrConnectWithoutMakerInput {
+  where: ProductWhereUniqueInput!
+  create: ProductCreateWithoutMakerInput!
+}
+
+input ProductWhereUniqueInput {
+  prodCd: String
+}
+
+input ProductCreateManyMakerInputEnvelope {
+  data: [ProductCreateManyMakerInput!]!
+  skipDuplicates: Boolean
+}
+
+input ProductCreateManyMakerInput {
+  prodCd: String!
+  prodName: String!
+  ssp180Days: Float
+  carton3SideSize: Float
+  minOrderQuantity: Int!
+  isValid: Boolean
+}
+
+input MakerCreateOrConnectWithoutOrderEntryInput {
+  where: MakerWhereUniqueInput!
+  create: MakerCreateWithoutOrderEntryInput!
+}
+
+input MakerWhereUniqueInput {
+  makerCd: String
+}
+
+input OrderRequestCreateNestedManyWithoutOrderEntryInput {
+  create: [OrderRequestCreateWithoutOrderEntryInput!]
+  connectOrCreate: [OrderRequestCreateOrConnectWithoutOrderEntryInput!]
+  createMany: OrderRequestCreateManyOrderEntryInputEnvelope
+  connect: [OrderRequestWhereUniqueInput!]
+}
+
+input OrderRequestCreateWithoutOrderEntryInput {
+  containerNo: Int!
+  orderRequestNo: String!
+  deliveryDate: DateTime!
+  poRequestDate: DateTime
+  deliveryPort: OrderRequest_deliveryPort
+  poStatus: PoStatus
+  discarded: Boolean
+  orderRequestDetail: OrderRequestDetailCreateNestedManyWithoutOrderRequestInput
+}
+
+input OrderRequestDetailCreateNestedManyWithoutOrderRequestInput {
+  create: [OrderRequestDetailCreateWithoutOrderRequestInput!]
+  connectOrCreate: [OrderRequestDetailCreateOrConnectWithoutOrderRequestInput!]
+  createMany: OrderRequestDetailCreateManyOrderRequestInputEnvelope
+  connect: [OrderRequestDetailWhereUniqueInput!]
+}
+
+input OrderRequestDetailCreateWithoutOrderRequestInput {
+  orderQuantity: Int!
+  ssp: Float
+  cbm: Float
+  wasOrderAlerted: Boolean
+  product: ProductCreateNestedOneWithoutOrderRequestDetailInput!
+}
+
+input ProductCreateNestedOneWithoutOrderRequestDetailInput {
+  create: ProductCreateWithoutOrderRequestDetailInput
+  connectOrCreate: ProductCreateOrConnectWithoutOrderRequestDetailInput
+  connect: ProductWhereUniqueInput
+}
+
+input ProductCreateWithoutOrderRequestDetailInput {
+  prodCd: String!
+  prodName: String!
+  ssp180Days: Float
+  carton3SideSize: Float
+  minOrderQuantity: Int!
+  isValid: Boolean
+  maker: MakerCreateNestedOneWithoutProductInput!
+  orderArrivalData: OrderArrivalDataCreateNestedManyWithoutProductInput
+}
+
+input MakerCreateNestedOneWithoutProductInput {
+  create: MakerCreateWithoutProductInput
+  connectOrCreate: MakerCreateOrConnectWithoutProductInput
+  connect: MakerWhereUniqueInput
+}
+
+input MakerCreateWithoutProductInput {
+  makerCd: String!
+  makerName: String!
+  leadtime: Int!
+  isValid: Boolean
+  orderEntry: OrderEntryCreateNestedManyWithoutMakerInput
+}
+
+input OrderEntryCreateNestedManyWithoutMakerInput {
+  create: [OrderEntryCreateWithoutMakerInput!]
+  connectOrCreate: [OrderEntryCreateOrConnectWithoutMakerInput!]
+  createMany: OrderEntryCreateManyMakerInputEnvelope
+  connect: [OrderEntryWhereUniqueInput!]
+}
+
+input OrderEntryCreateWithoutMakerInput {
+  orderRequest: OrderRequestCreateNestedManyWithoutOrderEntryInput
+}
+
+input OrderEntryCreateOrConnectWithoutMakerInput {
+  where: OrderEntryWhereUniqueInput!
+  create: OrderEntryCreateWithoutMakerInput!
+}
+
+input OrderEntryCreateManyMakerInputEnvelope {
+  data: [OrderEntryCreateManyMakerInput!]!
+  skipDuplicates: Boolean
+}
+
+input OrderEntryCreateManyMakerInput {
+  id: Int
+}
+
+input MakerCreateOrConnectWithoutProductInput {
+  where: MakerWhereUniqueInput!
+  create: MakerCreateWithoutProductInput!
+}
+
+input ProductCreateOrConnectWithoutOrderRequestDetailInput {
+  where: ProductWhereUniqueInput!
+  create: ProductCreateWithoutOrderRequestDetailInput!
+}
+
+input OrderRequestDetailCreateOrConnectWithoutOrderRequestInput {
+  where: OrderRequestDetailWhereUniqueInput!
+  create: OrderRequestDetailCreateWithoutOrderRequestInput!
+}
+
+input OrderRequestDetailCreateManyOrderRequestInputEnvelope {
+  data: [OrderRequestDetailCreateManyOrderRequestInput!]!
+  skipDuplicates: Boolean
+}
+
+input OrderRequestDetailCreateManyOrderRequestInput {
+  id: Int
+  prodCd: String!
+  orderQuantity: Int!
+  ssp: Float
+  cbm: Float
+  wasOrderAlerted: Boolean
+}
+
+input OrderRequestCreateOrConnectWithoutOrderEntryInput {
+  where: OrderRequestWhereUniqueInput!
+  create: OrderRequestCreateWithoutOrderEntryInput!
+}
+
+input OrderRequestCreateManyOrderEntryInputEnvelope {
+  data: [OrderRequestCreateManyOrderEntryInput!]!
+  skipDuplicates: Boolean
+}
+
+input OrderRequestCreateManyOrderEntryInput {
+  id: Int
+  containerNo: Int!
+  orderRequestNo: String!
+  deliveryDate: DateTime!
+  poRequestDate: DateTime
+  deliveryPort: OrderRequest_deliveryPort
+  poStatus: PoStatus
+  discarded: Boolean
 }
 
 input LoginUserInput {
