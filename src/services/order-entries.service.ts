@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { OrderEntriesRepository } from 'src/repositories/order-entries.repository';
-import { CreateOneOrderEntryArgs } from 'src/@generated/prisma-nestjs-graphql/order-entry/create-one-order-entry.args';
-import { OrderEntry } from 'src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
-import { UpdateOneOrderEntryArgs } from 'src/@generated/prisma-nestjs-graphql/order-entry/update-one-order-entry.args';
-import { OrderEntriesInput } from 'src/interfaces/order-entries/order-entries.input';
-import { FirstOrderEntryInput } from 'src/interfaces/order-entries/first-order-entry.input';
+import { OrderEntriesRepository } from '../../src/repositories/order-entries.repository';
+import { CreateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/create-one-order-entry.args';
+import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
+import { UpdateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/update-one-order-entry.args';
+import { OrderEntriesInput } from '../../src/interfaces/order-entries/order-entries.input';
+import { FirstOrderEntryInput } from '../../src/interfaces/order-entries/first-order-entry.input';
 
 @Injectable()
 export class OrderEntriesService {

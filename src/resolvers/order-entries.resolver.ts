@@ -1,11 +1,11 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
 import { SkipAuth } from '../../src/common/decorators/metadata/skip_auth.metadata';
-import { OrderEntry } from 'src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
-import { OrderEntriesService } from 'src/services/order-entries.service';
-import { OrderEntriesInput } from 'src/interfaces/order-entries/order-entries.input';
-import { CreateOneOrderEntryArgs } from 'src/@generated/prisma-nestjs-graphql/order-entry/create-one-order-entry.args';
-import { FirstOrderEntryInput } from 'src/interfaces/order-entries/first-order-entry.input';
+import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
+import { OrderEntriesService } from '../../src/services/order-entries.service';
+import { OrderEntriesInput } from '../../src/interfaces/order-entries/order-entries.input';
+import { CreateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/create-one-order-entry.args';
+import { FirstOrderEntryInput } from '../../src/interfaces/order-entries/first-order-entry.input';
 
 @Resolver(() => OrderEntry)
 export class OrderEntriesResolver {

@@ -10,7 +10,11 @@ export const cleanupDatabase = async (): Promise<void> => {
   const modelNames = Prisma.dmmf.datamodel.models.map((model) => model.name);
 
   await Promise.all(
-    modelNames.map((modelName) => prisma[modelName.toLowerCase()].deleteMany()),
+    modelNames.map((modelName) => {
+      const convertedModelName =
+        modelName.charAt(0).toLowerCase() + modelName.slice(1);
+      prisma[convertedModelName].deleteMany();
+    }),
   );
 
   prisma.$disconnect();

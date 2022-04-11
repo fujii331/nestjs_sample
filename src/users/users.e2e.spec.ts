@@ -5,7 +5,7 @@ import { AppModule } from '../../src/app.module';
 import { userFactory } from '../../test/factories/users.factory';
 import { AuthService } from '../../src/auth/auth.service';
 import { cleanupDatabase } from '../../test/cleanup-database';
-import { LoginResponse } from 'src/auth/dto/login-response';
+import { LoginResponse } from '../../src/auth/dto/login-response';
 
 describe('Users', () => {
   let authService: AuthService;

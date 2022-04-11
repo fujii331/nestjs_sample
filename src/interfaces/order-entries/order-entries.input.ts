@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { OrderEntryWhereUniqueInput } from 'src/@generated/prisma-nestjs-graphql/order-entry/order-entry-where-unique.input';
+import { OrderEntryWhereUniqueInput } from '../../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry-where-unique.input';
 
 @InputType()
 class OrderEntriesWhereInput {
