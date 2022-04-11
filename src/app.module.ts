@@ -12,6 +12,8 @@ import { AuthoritiesGuard } from '../src/common/guards/authorities.guard';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { LoggingPlugin } from './common/plugins/logging.plugin';
 import { ComplexityPlugin } from './common/plugins/complexity.plugin';
+import { OrderEntriesModule } from './modules/order-entries.module';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -19,8 +21,10 @@ import { ComplexityPlugin } from './common/plugins/complexity.plugin';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     ScheduleModule.forRoot(),
     UsersModule,
+    OrderEntriesModule,
     AuthModule,
     TasksModule,
   ],
