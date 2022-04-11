@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - staging
+      - production
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout pushed commit
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: run test on docker-compose
+        run: |
+          docker-compose -f ./docker/test/docker-compose.yml up --abort-on-container-exit
+        # working-directory: ./

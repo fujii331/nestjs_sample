@@ -1,0 +1,47 @@
+#==================================================
+# Build Layer
+FROM node:16.14-slim as build
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --non-interactive --frozen-lockfile
+
+COPY . .
+
+RUN yarn build
+
+#==================================================
+# Package install Layer
+FROM node:16.14-slim as node_modules
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+# apolloの依存関係エラーになるのでコメントアウト
+# RUN yarn install --non-interactive --frozen-lockfile --prod
+RUN yarn install --non-interactive --frozen-lockfile
+
+#==================================================
+# Run Layer
+# yarnを使うためにnode:16.14-slimを使う
+# FROM gcr.io/distroless/nodejs:16
+FROM node:16.14-slim 
+
+WORKDIR /app
+
+# パフォーマンスやセキュリティ関連の最適化を有効にするため
+ENV NODE_ENV=production
+
+# prisma generateの実行に必要
+RUN apt-get -qy update && apt-get -qy install openssl
+
+COPY --from=build /app/dist /app/dist
+COPY --from=node_modules /app/node_modules /app/node_modules
+
+COPY package.json .env prisma/schema.prisma ./
+
+RUN yarn prisma generate
+RUN yarn prisma migrate deploy

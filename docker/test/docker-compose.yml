@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  api:
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - /app/node_modules
+    working_dir: /app
+    depends_on:
+      - mysql
+    ports:
+      - '3000:3000'
+    command: ["jest", "--runInBand", "--forceExit", "--detectOpenHandles"]
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - '3306:3306'
