@@ -1,7 +1,7 @@
 import { createFactory } from './create-factory';
-import { OrderEntry } from '@prisma/client';
 import { DeliveryPort } from '../../src/@generated/prisma-nestjs-graphql/prisma/delivery-port.enum';
 import { OrderEntryCreateInput } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry-create.input';
+import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
 
 const defaultAttributes: OrderEntryCreateInput = {
   maker: {

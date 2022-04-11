@@ -1,6 +1,6 @@
 import { createFactory } from './create-factory';
 import { MakerCreateInput } from '../../src/@generated/prisma-nestjs-graphql/maker/maker-create.input';
-import { Maker } from '@prisma/client';
+import { Maker } from '../../src/@generated/prisma-nestjs-graphql/maker/maker.model';
 
 const defaultAttributes: MakerCreateInput = {
   makerCd: '0001',

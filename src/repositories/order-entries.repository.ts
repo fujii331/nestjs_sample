@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { OrderEntriesInput } from '../../src/interfaces/order-entries/order-entries.input';
 import { CreateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/create-one-order-entry.args';
-import { OrderEntry, Prisma } from '@prisma/client';
+// import { Prisma } from '@prisma/client';
 import { UpdateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/update-one-order-entry.args';
 import { FirstOrderEntryInput } from '../../src/interfaces/order-entries/first-order-entry.input';
+import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
 
 @Injectable()
 export class OrderEntriesRepository {
