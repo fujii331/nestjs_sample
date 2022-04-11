@@ -7,7 +7,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - ../:/app
+      - ../../:/app
       - /app/node_modules
     working_dir: /app
     depends_on:
