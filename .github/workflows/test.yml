@@ -20,4 +20,3 @@ jobs:
       - name: run test on docker-compose
         run: |
           docker-compose -f ./docker/test/docker-compose.yml up --abort-on-container-exit
-        working-directory: ./
