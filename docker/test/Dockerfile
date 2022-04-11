@@ -4,7 +4,7 @@ FROM node:16.14-slim as build
 
 WORKDIR /app
 
-COPY ../../package.json ../../yarn.lock ./
+COPY package.json yarn.lock ./
 
 RUN yarn install --non-interactive --frozen-lockfile
 
