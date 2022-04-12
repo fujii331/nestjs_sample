@@ -11,20 +11,43 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.14]
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: database
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
-      - name: checkout pushed commit
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
 
-      # - name: restore env file
-      #   run: |
-      #     echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.gpg"
-
-      - name: restore test-env file
+      - name: restore env file
         run: |
-          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.ci-test.gpg"
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.gpg"
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env.test" --decrypt "env/.env.ci-test.gpg"
 
-      - name: run test on docker-compose
+      - name: yarn install, build, and test
         run: |
-          docker-compose -f ./docker/test/docker-compose-test.yml up --abort-on-container-exit
+          yarn install --non-interactive --frozen-lockfile
+          yarn build
+          yarn prisma generate
+          yarn test:db
+          yarn test
