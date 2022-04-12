@@ -19,7 +19,8 @@ jobs:
 
       - name: restore env file
         run: |
-          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt ".env.gpg"
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.gpg"
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env.test" --decrypt "env/.env.ci-test.gpg"
 
       - name: run test on docker-compose
         run: |
