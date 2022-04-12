@@ -17,6 +17,10 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: restore env file
+        run: |
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt ".env.gpg"
+
       - name: run test on docker-compose
         run: |
           docker-compose -f ./docker/test/docker-compose-test.yml up --abort-on-container-exit
