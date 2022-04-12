@@ -16,8 +16,6 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_DATABASE: database
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: password
         ports:
           - 3306:3306
@@ -39,7 +37,6 @@ jobs:
       - name: restore env file
         run: |
           echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.gpg"
-          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env.test" --decrypt "env/.env.ci-test.gpg"
 
       - name: yarn install, build, and test
         run: |
