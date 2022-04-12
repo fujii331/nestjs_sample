@@ -9,28 +9,15 @@ on:
 
 jobs:
   test:
-    # services:
-    #   mysql:
-    #     image: mysql:5.7
-    #     env:
-    #       MYSQL_DATABASE: database
-    #       MYSQL_USER: user
-    #       MYSQL_PASSWORD: password
-    #     ports:
-    #       - 3306
-    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     runs-on: ubuntu-latest
-
-    # env:
-    #   DATABASE_HOST: localhost
-    #   DATABASE_USERNAME: root
-    #   DATABASE_PASSWORD: root
-    #   DATABASE_NAME: vpa-backend_test
 
     services:
       mysql:
         image: mysql:5.7
         env:
+          MYSQL_DATABASE: database
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: root
         ports:
           - 3306
