@@ -9,22 +9,42 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.14]
+    # strategy:
+    #   matrix:
+    #     node-version: [16.14]
+
+    # services:
+    #   mysql:
+    #     image: mysql:5.7
+    #     env:
+    #       MYSQL_DATABASE: database
+    #       MYSQL_USER: user
+    #       MYSQL_PASSWORD: password
+    #     ports:
+    #       - 3306
+    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    runs-on: ubuntu-18.04
+
+    env:
+      DATABASE_HOST: localhost
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+      DATABASE_NAME: vpa-backend_test
 
     services:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_DATABASE: database
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: root
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    strategy:
+      matrix:
+        node-version: [16.14]
 
     steps:
       - uses: actions/checkout@v3
