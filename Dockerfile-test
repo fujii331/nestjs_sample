@@ -44,4 +44,4 @@ COPY --from=node_modules /app/node_modules /app/node_modules
 COPY package.json .env prisma/schema.prisma ./
 
 RUN yarn prisma generate
-RUN yarn prisma migrate deploy
+RUN yarn test:db
