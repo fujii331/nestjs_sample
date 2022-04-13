@@ -22,8 +22,8 @@ describe('Users', () => {
     await app.init();
   });
 
-  // 全テスト終了後の処理
-  afterAll(async () => {
+  // テスト終了後の処理
+  afterEach(async () => {
     await app.close();
   });
 
