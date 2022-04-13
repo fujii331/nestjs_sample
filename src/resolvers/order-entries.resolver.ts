@@ -1,5 +1,4 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
 import { SkipAuth } from '../../src/common/decorators/metadata/skip_auth.metadata';
 import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
 import { OrderEntriesService } from '../../src/services/order-entries.service';
