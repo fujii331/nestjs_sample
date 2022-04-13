@@ -27,8 +27,6 @@ describe('Users', () => {
     await app.close();
   });
 
-  let loginInfo: LoginResponse;
-
   describe('firstUser', () => {
     it('authorization error', async () => {
       const user = await userFactory.create({
@@ -65,7 +63,7 @@ describe('Users', () => {
         authority: 'SECOND',
       });
 
-      loginInfo = await authService.login(user);
+      const loginInfo = await authService.login(user);
 
       return request(app.getHttpServer())
         .post('/graphql')
@@ -96,7 +94,7 @@ describe('Users', () => {
         authority: 'FIRST',
       });
 
-      loginInfo = await authService.login(user);
+      const loginInfo = await authService.login(user);
 
       return request(app.getHttpServer())
         .post('/graphql')
