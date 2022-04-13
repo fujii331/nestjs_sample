@@ -1,21 +1,19 @@
-import { Prisma } from '@prisma/client';
-import { PrismaService } from '../src/prisma.service';
+import { PrismaClient } from '@prisma/client';
 
 /**
  * 全てのテーブルのデータを削除する
- * 参考: https://github.com/prisma/docs/issues/451
  */
 export const cleanupDatabase = async (): Promise<void> => {
-  const prisma = new PrismaService();
-  const modelNames = Prisma.dmmf.datamodel.models.map((model) => model.name);
+  const prisma = new PrismaClient();
 
-  await Promise.all(
-    modelNames.map((modelName) => {
-      const convertedModelName =
-        modelName.charAt(0).toLowerCase() + modelName.slice(1);
-      prisma[convertedModelName].deleteMany();
-    }),
-  );
+  // relationを加味して順番に削除
+  await prisma.user.deleteMany();
+  await prisma.orderArrivalData.deleteMany();
+  await prisma.product.deleteMany();
+  await prisma.orderRequestDetail.deleteMany();
+  await prisma.maker.deleteMany();
+  await prisma.orderRequest.deleteMany();
+  await prisma.orderEntry.deleteMany();
 
   prisma.$disconnect();
 };
