@@ -6,6 +6,7 @@ import { CreateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-grap
 import { UpdateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-graphql/order-entry/update-one-order-entry.args';
 import { FirstOrderEntryInput } from '../../src/interfaces/order-entries/first-order-entry.input';
 import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
+// import { stringify } from 'csv-stringify';
 
 @Injectable()
 export class OrderEntriesRepository {
@@ -27,6 +28,27 @@ export class OrderEntriesRepository {
     //   '0001',
     // );
     // console.log(result);
+
+    // csv作成
+    // const data = [
+    //   {
+    //     id: 1,
+    //     name: 'hoge',
+    //     age: 17,
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 'fuga',
+    //     age: 21,
+    //   },
+    //   {
+    //     id: 3,
+    //     name: 'piyo',
+    //     age: 13,
+    //   },
+    // ];
+
+    // const csvData = stringify(data, { header: true });
 
     return this.prisma.orderEntry.findMany({
       skip,
