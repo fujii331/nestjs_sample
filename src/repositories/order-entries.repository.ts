@@ -21,6 +21,13 @@ export class OrderEntriesRepository {
     params: OrderEntriesInput,
   ): Promise<OrderEntry[] | null> {
     const { skip, take, orderEntriesWhereInput, cursor } = params;
+    // 直接SQL実行
+    // const result = await this.prisma.$queryRawUnsafe<OrderEntry[]>(
+    //   'SELECT * FROM OrderEntry WHERE (makerCd = ?)',
+    //   '0001',
+    // );
+    // console.log(result);
+
     return this.prisma.orderEntry.findMany({
       skip,
       take,
