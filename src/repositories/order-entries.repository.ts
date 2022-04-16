@@ -57,7 +57,10 @@ export class OrderEntriesRepository {
       include: {
         orderRequest: {
           include: {
-            orderRequestDetail: true,
+            // orderRequestDetail: true,
+            _count: {
+              select: { orderRequestDetail: true },
+            },
           },
         },
         maker: {
