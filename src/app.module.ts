@@ -14,6 +14,7 @@ import { LoggingPlugin } from './common/plugins/logging.plugin';
 import { ComplexityPlugin } from './common/plugins/complexity.plugin';
 import { OrderEntriesModule } from './modules/order-entries.module';
 import { PassportModule } from '@nestjs/passport';
+import { GoogleOauthModule } from './auth/google/google-oauth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { PassportModule } from '@nestjs/passport';
     OrderEntriesModule,
     AuthModule,
     TasksModule,
+    GoogleOauthModule,
   ],
   providers: [
     PrismaService,

@@ -39,14 +39,4 @@ export class AuthResolver {
   async logout(@Context() context) {
     return this.authService.logout(context.req.user);
   }
-
-  // @Mutation()
-  // @UseGuards(AuthGuard('google'))
-  // async googleAuth(@Req() req) {}
-
-  // @Get('redirect')
-  // @UseGuards(AuthGuard('google'))
-  // googleAuthRedirect(@Req() req) {
-  //   return this.appService.googleLogin(req)
-  // }
 }
