@@ -10,7 +10,7 @@ import { Request } from 'express';
 import { AuthService } from '../auth.service';
 import { GoogleOauthGuard } from '../guards/google-oauth.guard';
 import { SkipAuth } from 'src/common/decorators/metadata/skip_auth.metadata';
-import { Authority } from '@prisma/client';
+import { Authority } from '../../../src/@generated/prisma-nestjs-graphql/prisma/authority.enum';
 import { LoginResponse } from '../dto/login-response';
 
 @Controller('google')
