@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { User } from '@prisma/client';
+import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
 import { CreateOneUserArgs } from '../../src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
 import { UsersModule } from './users.module';
 import { UsersRepository } from './users.repository';
