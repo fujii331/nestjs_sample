@@ -1,4 +1,19 @@
 #==================================================
+# Package install Layer
+FROM node:16.14-slim as node_modules
+
+WORKDIR /app
+
+# prisma generateの実行に必要
+RUN apt-get -qy update && apt-get -qy install openssl
+
+COPY package.json yarn.lock ./
+RUN yarn install --non-interactive --frozen-lockfile --prod
+
+COPY ./prisma ./prisma
+RUN yarn prisma generate
+
+#==================================================
 # Build Layer
 FROM node:16.14-slim as build
 
@@ -13,20 +28,9 @@ COPY . .
 RUN yarn build
 
 #==================================================
-# Package install Layer
-FROM node:16.14-slim as node_modules
-
-WORKDIR /app
-
-COPY package.json yarn.lock ./
-
-# apolloの依存関係エラーになるのでコメントアウト
-# RUN yarn install --non-interactive --frozen-lockfile --prod
-RUN yarn install --non-interactive --frozen-lockfile
-
-#==================================================
 # Run Layer
-# yarnを使うためにnode:16.14-slimを使う
+# distrolessは軽量だがopensslのインストールができず、入れる労力に見合わないためdocker公式推奨のslimを使う
+# 参考 https://hub.docker.com/_/node https://zenn.dev/unasuke/articles/5ee6e2067ab1ba
 # FROM gcr.io/distroless/nodejs:16
 FROM node:16.14-slim 
 
@@ -41,6 +45,4 @@ RUN apt-get -qy update && apt-get -qy install openssl
 COPY --from=build /app/dist /app/dist
 COPY --from=node_modules /app/node_modules /app/node_modules
 
-COPY package.json .env prisma/schema.prisma ./
-
-RUN yarn prisma generate
+COPY .env ./
