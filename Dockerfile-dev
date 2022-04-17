@@ -1,3 +1,4 @@
+# localもdockerなしでいいかもhttps://mizchi.hatenablog.com/entry/2019/04/07/074634
 FROM node:16.14-slim
 WORKDIR /app
 
