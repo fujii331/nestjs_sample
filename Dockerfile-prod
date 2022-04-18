@@ -5,7 +5,11 @@ FROM node:16.14-slim as node_modules
 WORKDIR /app
 
 # prismaの実行に必要
-RUN apt-get -qy update && apt-get -qy install openssl --no-install-recommends && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get -qy update && \
+  apt-get -qy install \
+  openssl --no-install-recommends && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 COPY package.json yarn.lock ./
 RUN yarn install --non-interactive --frozen-lockfile --production

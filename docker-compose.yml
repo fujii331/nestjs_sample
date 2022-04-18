@@ -16,19 +16,19 @@ services:
   #   ports:
   #     - '3000:3000'
   #   command: ["node", "dist/src/main"]
-  app:
-    build:
-      context: .
-      dockerfile: ./Dockerfile-dev
-    tty: true
-    depends_on:
-      - mysql
-    ports:
-      - 3000:3000
-    volumes:
-      - .:/app
-      - node_modules_volume:/app/node_modules
-    command: ["yarn", "nodemon", "--watch", "src", "--ext", "ts", "dist/src/main"]
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile-dev
+  #   tty: true
+  #   depends_on:
+  #     - mysql
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - .:/app
+  #     - node_modules_volume:/app/node_modules
+  #   command: ["yarn", "nodemon", "--watch", "src", "--ext", "ts", "dist/src/main"]
 
   mysql:
     image: mysql:8.0
@@ -43,6 +43,6 @@ services:
       - '3306:3306'
 
 volumes:
-  node_modules_volume:
+  # node_modules_volume:
   mysql-data:
     driver: local
