@@ -27,9 +27,7 @@ RUN yarn install --non-interactive --frozen-lockfile
 
 COPY . .
 
-RUN yarn build
-
-RUN yarn prisma generate
+RUN yarn build && yarn prisma generate
 
 #==================================================
 # Run Layer
