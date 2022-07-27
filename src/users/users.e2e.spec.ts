@@ -5,6 +5,7 @@ import { AppModule } from '../../src/app.module';
 import { userFactory } from '../../test/factories/users.factory';
 import { AuthService } from '../../src/auth/auth.service';
 import { cleanupDatabase } from '../../test/cleanup-database';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 describe('Users', () => {
   let authService: AuthService;
@@ -14,7 +15,10 @@ describe('Users', () => {
     await cleanupDatabase();
     const module: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+      // .overrideGuard(JwtAuthGuard) // JwtGuardを上書き
+      // .useClass(JwtForTestGuard)
+      .compile();
 
     authService = module.get<AuthService>(AuthService);
     app = module.createNestApplication();

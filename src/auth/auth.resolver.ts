@@ -2,9 +2,9 @@ import { UseGuards } from '@nestjs/common';
 import { Resolver, Mutation, Args, Context } from '@nestjs/graphql';
 import { AuthService } from '../../src/auth/auth.service';
 import { LoginResponse } from '../../src/auth/dto/login-response';
-import { LoginUserInput } from '../../src/auth/dto/login-user.input';
 import { GqlAuthGuard } from '../../src/auth/guards/gql-auth.guard';
 import { SkipAuth } from '../../src/common/decorators/metadata/skip_auth.metadata';
+import { LoginUserArgs } from './dto/login-user.args.';
 import { JwtRefreshAuthGuard } from './guards/jwt-refresh-auth.guard';
 
 @Resolver()
@@ -15,10 +15,12 @@ export class AuthResolver {
   @UseGuards(GqlAuthGuard)
   @SkipAuth()
   async login(
-    @Args('loginUserInput') loginUserInput: LoginUserInput, // GqlAuthGuardにて使用
+    @Args() args: LoginUserArgs, // GqlAuthGuardにて使用
     @Context() context,
   ) {
-    return this.authService.login(context.user);
+    const tokens = await this.authService.login(context.user.data);
+    context.req.res?.cookie('atlasToken', tokens.access_token);
+    return tokens;
   }
 
   // ①Authorization:Bearer access_tokenの形でaxiosを叩く

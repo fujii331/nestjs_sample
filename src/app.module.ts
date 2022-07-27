@@ -21,6 +21,10 @@ import { GoogleOauthModule } from './auth/google/google-oauth.module';
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      // formatError: (error) => {
+      //   console.log(error);
+      //   return error;
+      // },
     }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     ScheduleModule.forRoot(),
