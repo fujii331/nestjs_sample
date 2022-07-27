@@ -193,7 +193,7 @@ input FirstOrderEntryInput {
 type Mutation {
   createUser(data: UserCreateInput!): User!
   createOrderEntry(data: OrderEntryCreateInput!): OrderEntry!
-  login(loginUserInput: LoginUserInput!): LoginResponse!
+  login(idToken: String!): LoginResponse!
   refreshToken: LoginResponse!
   logout: Boolean!
 }
@@ -524,9 +524,4 @@ input OrderRequestCreateManyOrderEntryInput {
   deliveryPort: OrderRequest_deliveryPort
   poStatus: PoStatus
   discarded: Boolean
-}
-
-input LoginUserInput {
-  email: String!
-  password: String!
 }
