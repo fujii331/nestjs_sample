@@ -5,6 +5,7 @@ on:
     branches-ignore:
       - staging*
       - production*
+      - main
 
 jobs:
   test:
