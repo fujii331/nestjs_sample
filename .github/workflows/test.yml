@@ -1,11 +1,7 @@
-name: Test backend
+name: Test
 
 on:
   pull_request:
-    branches-ignore:
-      - staging*
-      - production*
-      - main
 
 jobs:
   test:
