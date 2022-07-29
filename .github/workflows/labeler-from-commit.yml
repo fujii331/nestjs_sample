@@ -1,0 +1,51 @@
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add_labels:
+    if: github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/github-script@v4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const ret = await github.issues.listLabelsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const definitions = ret.data
+              .filter(value => value.name
+              .includes(': '))
+              .map(value => value.name.split(':')[1].toLowerCase().trim());
+
+            const commits = await github.pulls.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+            const chunk = Array.from(new Set(commits.data
+              .map(data => data.commit.message)
+              .filter(msg => msg.includes(': '))
+              .map(msg => msg.startsWith('chore: release') ? msg : msg.split(': ')[0])));
+
+            const prefixes = chunk.map(value => {
+              if (value === 'docs') { return 'documentation'; }
+              if (value === 'chore') { return 'updates'; }
+              return value;
+            }).filter(value => 1 <= value.length);
+
+            const labels = definitions
+              .filter(definition => prefixes.filter(prefix => definition.startsWith(prefix)).length !== 0)
+              .map(value => `${value}`);
+
+            if (labels && labels.length !== 0) {
+              github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels
+              });
+            }
