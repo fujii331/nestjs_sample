@@ -7,6 +7,7 @@ import { AuthResolver } from './auth.resolver';
 import { LocalStrategy } from '../../src/auth/strategies/local.strategy';
 import { JwtStrategy } from '../../src/auth/strategies/jwt.strategy';
 import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
+import { JwtForTestStrategy } from './strategies/jwt-for-test.strategy';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
     AuthResolver,
     LocalStrategy,
     JwtStrategy,
+    JwtForTestStrategy,
     JwtRefreshStrategy,
   ],
   exports: [AuthService],

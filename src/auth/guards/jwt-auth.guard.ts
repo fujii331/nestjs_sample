@@ -5,7 +5,9 @@ import { AuthGuard } from '@nestjs/passport';
 import { IS_SKIP_AUTH_KEY } from '../../../src/common/decorators/metadata/skip_auth.metadata';
 
 @Injectable()
-export class JwtAuthGuard extends AuthGuard('jwt') {
+export class JwtAuthGuard extends AuthGuard(
+  process.env.NODE_ENV === 'test' ? 'jwt-for-test' : 'jwt',
+) {
   constructor(private reflector: Reflector) {
     super();
   }
@@ -23,8 +25,6 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
   getRequest(context: ExecutionContext) {
     const ctx = GqlExecutionContext.create(context);
-    // console.log('d殴打');
-    // console.log(ctx.getContext().req);
     return ctx.getContext().req;
   }
 }
