@@ -1,22 +1,22 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { Int } from '@nestjs/graphql';
+import * as Validator from 'class-validator';
 import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryUncheckedUpdateWithoutOrderRequestInput {
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    id?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    makerCd?: StringFieldUpdateOperationsInput;
-
-    @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    makerCd?: string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

@@ -1,33 +1,33 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { EnumDeliveryPortFieldUpdateOperationsInput } from '../prisma/enum-delivery-port-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { Int } from '@nestjs/graphql';
+import * as Validator from 'class-validator';
+import { DeliveryPort } from '../prisma/delivery-port.enum';
 import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderArrivalDataUncheckedUpdateManyInput {
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    id?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    prodCd?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    prodCd?: string;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    orderQuantity?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    @Validator.IsNotEmpty()
+    orderQuantity?: number;
 
-    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
-    deliveryDate?: NullableDateTimeFieldUpdateOperationsInput;
+    @Field(() => Date, {nullable:true})
+    deliveryDate?: Date | string;
 
-    @Field(() => EnumDeliveryPortFieldUpdateOperationsInput, {nullable:true})
-    deliveryPort?: EnumDeliveryPortFieldUpdateOperationsInput;
+    @Field(() => DeliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof DeliveryPort;
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 }

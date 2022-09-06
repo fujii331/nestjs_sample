@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
 import { MakerUpdateOneRequiredWithoutOrderEntryNestedInput } from '../maker/maker-update-one-required-without-order-entry-nested.input';
 
@@ -8,10 +7,10 @@ import { MakerUpdateOneRequiredWithoutOrderEntryNestedInput } from '../maker/mak
 export class OrderEntryUpdateWithoutOrderRequestInput {
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 
     @Field(() => MakerUpdateOneRequiredWithoutOrderEntryNestedInput, {nullable:true})
     maker?: MakerUpdateOneRequiredWithoutOrderEntryNestedInput;

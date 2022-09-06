@@ -1,32 +1,32 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import * as Validator from 'class-validator';
 import { HideField } from '@nestjs/graphql';
-import { EnumAuthorityFieldUpdateOperationsInput } from '../prisma/enum-authority-field-update-operations.input';
-import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
+import { Authority } from '../prisma/authority.enum';
 
 @InputType()
 export class UserUpdateInput {
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    email?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    email?: string;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    name?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    name?: string;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    password?: StringFieldUpdateOperationsInput;
-
-    @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
-
-    @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
-
-    @Field(() => EnumAuthorityFieldUpdateOperationsInput, {nullable:true})
-    authority?: EnumAuthorityFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.MinLength(8)
+    password?: string;
 
     @HideField()
-    hashedRefreshToken?: NullableStringFieldUpdateOperationsInput;
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => Authority, {nullable:true})
+    authority?: keyof typeof Authority;
+
+    @HideField()
+    hashedRefreshToken?: string;
 }

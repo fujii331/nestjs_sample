@@ -1,32 +1,33 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import * as Validator from 'class-validator';
+import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { OrderEntryUncheckedUpdateManyWithoutMakerNestedInput } from '../order-entry/order-entry-unchecked-update-many-without-maker-nested.input';
 
 @InputType()
 export class MakerUncheckedUpdateWithoutProductInput {
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    makerCd?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    makerCd?: string;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    makerName?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    makerName?: string;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    leadtime?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    leadtime?: number;
 
-    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
-    isValid?: BoolFieldUpdateOperationsInput;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    isValid?: boolean;
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 
     @Field(() => OrderEntryUncheckedUpdateManyWithoutMakerNestedInput, {nullable:true})
     orderEntry?: OrderEntryUncheckedUpdateManyWithoutMakerNestedInput;

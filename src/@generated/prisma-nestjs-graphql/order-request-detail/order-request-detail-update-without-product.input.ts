@@ -1,32 +1,33 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { NullableFloatFieldUpdateOperationsInput } from '../prisma/nullable-float-field-update-operations.input';
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { Int } from '@nestjs/graphql';
+import * as Validator from 'class-validator';
+import { Float } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput } from '../order-request/order-request-update-one-required-without-order-request-detail-nested.input';
 
 @InputType()
 export class OrderRequestDetailUpdateWithoutProductInput {
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    orderQuantity?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    @Validator.IsNotEmpty()
+    orderQuantity?: number;
 
-    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
-    ssp?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => Float, {nullable:true})
+    ssp?: number;
 
-    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
-    cbm?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => Float, {nullable:true})
+    cbm?: number;
 
-    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
-    wasOrderAlerted?: BoolFieldUpdateOperationsInput;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    wasOrderAlerted?: boolean;
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 
     @Field(() => OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput, {nullable:true})
     orderRequest?: OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput;

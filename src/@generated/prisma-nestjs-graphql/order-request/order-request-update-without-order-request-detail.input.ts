@@ -1,44 +1,46 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { EnumOrderRequest_deliveryPortFieldUpdateOperationsInput } from '../prisma/enum-order-request-delivery-port-field-update-operations.input';
-import { EnumPoStatusFieldUpdateOperationsInput } from '../prisma/enum-po-status-field-update-operations.input';
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
+import { Int } from '@nestjs/graphql';
+import * as Validator from 'class-validator';
+import { OrderRequest_deliveryPort } from './order-request-delivery-port.enum';
+import { PoStatus } from '../prisma/po-status.enum';
 import { HideField } from '@nestjs/graphql';
 import { OrderEntryUpdateOneRequiredWithoutOrderRequestNestedInput } from '../order-entry/order-entry-update-one-required-without-order-request-nested.input';
 
 @InputType()
 export class OrderRequestUpdateWithoutOrderRequestDetailInput {
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    containerNo?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    @Validator.IsNotEmpty()
+    containerNo?: number;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    orderRequestNo?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    orderRequestNo?: string;
 
-    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
-    deliveryDate?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => Date, {nullable:true})
+    @Validator.IsNotEmpty()
+    deliveryDate?: Date | string;
 
-    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
-    poRequestDate?: NullableDateTimeFieldUpdateOperationsInput;
+    @Field(() => Date, {nullable:true})
+    @Validator.IsNotEmpty()
+    poRequestDate?: Date | string;
 
-    @Field(() => EnumOrderRequest_deliveryPortFieldUpdateOperationsInput, {nullable:true})
-    deliveryPort?: EnumOrderRequest_deliveryPortFieldUpdateOperationsInput;
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof OrderRequest_deliveryPort;
 
-    @Field(() => EnumPoStatusFieldUpdateOperationsInput, {nullable:true})
-    poStatus?: EnumPoStatusFieldUpdateOperationsInput;
+    @Field(() => PoStatus, {nullable:true})
+    poStatus?: keyof typeof PoStatus;
 
-    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
-    discarded?: BoolFieldUpdateOperationsInput;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    discarded?: boolean;
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 
     @Field(() => OrderEntryUpdateOneRequiredWithoutOrderRequestNestedInput, {nullable:true})
     orderEntry?: OrderEntryUpdateOneRequiredWithoutOrderRequestNestedInput;

@@ -1,36 +1,37 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { NullableFloatFieldUpdateOperationsInput } from '../prisma/nullable-float-field-update-operations.input';
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import * as Validator from 'class-validator';
+import { Float } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class ProductUpdateManyMutationInput {
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    prodCd?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    prodCd?: string;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    prodName?: StringFieldUpdateOperationsInput;
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    prodName?: string;
 
-    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
-    ssp180Days?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => Float, {nullable:true})
+    ssp180Days?: number;
 
-    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
-    carton3SideSize?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => Float, {nullable:true})
+    carton3SideSize?: number;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    minOrderQuantity?: IntFieldUpdateOperationsInput;
+    @Field(() => Int, {nullable:true})
+    minOrderQuantity?: number;
 
-    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
-    isValid?: BoolFieldUpdateOperationsInput;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    isValid?: boolean;
 
     @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+    createdAt?: Date | string;
 
     @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: Date | string;
 }
