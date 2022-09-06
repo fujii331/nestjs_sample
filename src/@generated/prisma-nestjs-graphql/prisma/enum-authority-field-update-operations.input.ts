@@ -4,6 +4,7 @@ import { Authority } from './authority.enum';
 
 @InputType()
 export class EnumAuthorityFieldUpdateOperationsInput {
-  @Field(() => Authority, { nullable: true })
-  set?: keyof typeof Authority;
+
+    @Field(() => Authority, {nullable:true})
+    set?: keyof typeof Authority;
 }

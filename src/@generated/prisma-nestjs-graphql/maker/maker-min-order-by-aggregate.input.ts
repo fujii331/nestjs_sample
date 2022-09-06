@@ -5,21 +5,22 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MakerMinOrderByAggregateInput {
-  @Field(() => SortOrder, { nullable: true })
-  makerCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  makerName?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  leadtime?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerName?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  isValid?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    leadtime?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    isValid?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
+
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 }

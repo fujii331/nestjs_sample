@@ -10,30 +10,31 @@ import { OrderEntrySumOrderByAggregateInput } from './order-entry-sum-order-by-a
 
 @InputType()
 export class OrderEntryOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  makerCd?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerCd?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderEntryCountOrderByAggregateInput, { nullable: true })
-  _count?: OrderEntryCountOrderByAggregateInput;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderEntryAvgOrderByAggregateInput, { nullable: true })
-  _avg?: OrderEntryAvgOrderByAggregateInput;
+    @Field(() => OrderEntryCountOrderByAggregateInput, {nullable:true})
+    _count?: OrderEntryCountOrderByAggregateInput;
 
-  @Field(() => OrderEntryMaxOrderByAggregateInput, { nullable: true })
-  _max?: OrderEntryMaxOrderByAggregateInput;
+    @Field(() => OrderEntryAvgOrderByAggregateInput, {nullable:true})
+    _avg?: OrderEntryAvgOrderByAggregateInput;
 
-  @Field(() => OrderEntryMinOrderByAggregateInput, { nullable: true })
-  _min?: OrderEntryMinOrderByAggregateInput;
+    @Field(() => OrderEntryMaxOrderByAggregateInput, {nullable:true})
+    _max?: OrderEntryMaxOrderByAggregateInput;
 
-  @Field(() => OrderEntrySumOrderByAggregateInput, { nullable: true })
-  _sum?: OrderEntrySumOrderByAggregateInput;
+    @Field(() => OrderEntryMinOrderByAggregateInput, {nullable:true})
+    _min?: OrderEntryMinOrderByAggregateInput;
+
+    @Field(() => OrderEntrySumOrderByAggregateInput, {nullable:true})
+    _sum?: OrderEntrySumOrderByAggregateInput;
 }

@@ -10,42 +10,43 @@ import { ProductCount } from './product-count.output';
 
 @ObjectType()
 export class Product {
-  @Field(() => String, { nullable: false })
-  prodCd!: string;
 
-  @Field(() => String, { nullable: false })
-  makerCd!: string;
+    @Field(() => String, {nullable:false})
+    prodCd!: string;
 
-  @Field(() => String, { nullable: false })
-  prodName!: string;
+    @Field(() => String, {nullable:false})
+    makerCd!: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp180Days!: number | null;
+    @Field(() => String, {nullable:false})
+    prodName!: string;
 
-  @Field(() => Float, { nullable: true })
-  carton3SideSize!: number | null;
+    @Field(() => Float, {nullable:true})
+    ssp180Days!: number | null;
 
-  @Field(() => Int, { nullable: false })
-  minOrderQuantity!: number;
+    @Field(() => Float, {nullable:true})
+    carton3SideSize!: number | null;
 
-  @Field(() => Boolean, { nullable: false, defaultValue: true })
-  isValid!: boolean;
+    @Field(() => Int, {nullable:false})
+    minOrderQuantity!: number;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => Boolean, {nullable:false,defaultValue:true})
+    isValid!: boolean;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Maker, { nullable: false })
-  maker?: Maker;
+    @HideField()
+    updatedAt!: Date;
 
-  @Field(() => [OrderArrivalData], { nullable: true })
-  orderArrivalData?: Array<OrderArrivalData>;
+    @Field(() => Maker, {nullable:false})
+    maker?: Maker;
 
-  @Field(() => [OrderRequestDetail], { nullable: true })
-  orderRequestDetail?: Array<OrderRequestDetail>;
+    @Field(() => [OrderArrivalData], {nullable:true})
+    orderArrivalData?: Array<OrderArrivalData>;
 
-  @Field(() => ProductCount, { nullable: false })
-  _count?: ProductCount;
+    @Field(() => [OrderRequestDetail], {nullable:true})
+    orderRequestDetail?: Array<OrderRequestDetail>;
+
+    @Field(() => ProductCount, {nullable:false})
+    _count?: ProductCount;
 }

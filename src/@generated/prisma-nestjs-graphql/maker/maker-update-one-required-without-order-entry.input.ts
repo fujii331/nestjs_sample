@@ -8,18 +8,19 @@ import { MakerUpdateWithoutOrderEntryInput } from './maker-update-without-order-
 
 @InputType()
 export class MakerUpdateOneRequiredWithoutOrderEntryInput {
-  @Field(() => MakerCreateWithoutOrderEntryInput, { nullable: true })
-  create?: MakerCreateWithoutOrderEntryInput;
 
-  @Field(() => MakerCreateOrConnectWithoutOrderEntryInput, { nullable: true })
-  connectOrCreate?: MakerCreateOrConnectWithoutOrderEntryInput;
+    @Field(() => MakerCreateWithoutOrderEntryInput, {nullable:true})
+    create?: MakerCreateWithoutOrderEntryInput;
 
-  @Field(() => MakerUpsertWithoutOrderEntryInput, { nullable: true })
-  upsert?: MakerUpsertWithoutOrderEntryInput;
+    @Field(() => MakerCreateOrConnectWithoutOrderEntryInput, {nullable:true})
+    connectOrCreate?: MakerCreateOrConnectWithoutOrderEntryInput;
 
-  @Field(() => MakerWhereUniqueInput, { nullable: true })
-  connect?: MakerWhereUniqueInput;
+    @Field(() => MakerUpsertWithoutOrderEntryInput, {nullable:true})
+    upsert?: MakerUpsertWithoutOrderEntryInput;
 
-  @Field(() => MakerUpdateWithoutOrderEntryInput, { nullable: true })
-  update?: MakerUpdateWithoutOrderEntryInput;
+    @Field(() => MakerWhereUniqueInput, {nullable:true})
+    connect?: MakerWhereUniqueInput;
+
+    @Field(() => MakerUpdateWithoutOrderEntryInput, {nullable:true})
+    update?: MakerUpdateWithoutOrderEntryInput;
 }

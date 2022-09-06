@@ -12,51 +12,52 @@ import { OrderRequestMaxAggregate } from './order-request-max-aggregate.output';
 
 @ObjectType()
 export class OrderRequestGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => Int, { nullable: false })
-  containerNo!: number;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  orderRequestNo!: string;
+    @Field(() => Int, {nullable:false})
+    containerNo!: number;
 
-  @Field(() => Date, { nullable: false })
-  deliveryDate!: Date | string;
+    @Field(() => String, {nullable:false})
+    orderRequestNo!: string;
 
-  @Field(() => Date, { nullable: true })
-  poRequestDate?: Date | string;
+    @Field(() => Date, {nullable:false})
+    deliveryDate!: Date | string;
 
-  @Field(() => OrderRequest_deliveryPort, { nullable: false })
-  deliveryPort!: keyof typeof OrderRequest_deliveryPort;
+    @Field(() => Date, {nullable:true})
+    poRequestDate?: Date | string;
 
-  @Field(() => PoStatus, { nullable: false })
-  poStatus!: keyof typeof PoStatus;
+    @Field(() => OrderRequest_deliveryPort, {nullable:false})
+    deliveryPort!: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => Boolean, { nullable: false })
-  discarded!: boolean;
+    @Field(() => PoStatus, {nullable:false})
+    poStatus!: keyof typeof PoStatus;
 
-  @HideField()
-  createdAt!: Date | string;
+    @Field(() => Boolean, {nullable:false})
+    discarded!: boolean;
 
-  @HideField()
-  updatedAt!: Date | string;
+    @HideField()
+    createdAt!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  orderEntryId!: number;
+    @HideField()
+    updatedAt!: Date | string;
 
-  @Field(() => OrderRequestCountAggregate, { nullable: true })
-  _count?: OrderRequestCountAggregate;
+    @Field(() => Int, {nullable:false})
+    orderEntryId!: number;
 
-  @Field(() => OrderRequestAvgAggregate, { nullable: true })
-  _avg?: OrderRequestAvgAggregate;
+    @Field(() => OrderRequestCountAggregate, {nullable:true})
+    _count?: OrderRequestCountAggregate;
 
-  @Field(() => OrderRequestSumAggregate, { nullable: true })
-  _sum?: OrderRequestSumAggregate;
+    @Field(() => OrderRequestAvgAggregate, {nullable:true})
+    _avg?: OrderRequestAvgAggregate;
 
-  @Field(() => OrderRequestMinAggregate, { nullable: true })
-  _min?: OrderRequestMinAggregate;
+    @Field(() => OrderRequestSumAggregate, {nullable:true})
+    _sum?: OrderRequestSumAggregate;
 
-  @Field(() => OrderRequestMaxAggregate, { nullable: true })
-  _max?: OrderRequestMaxAggregate;
+    @Field(() => OrderRequestMinAggregate, {nullable:true})
+    _min?: OrderRequestMinAggregate;
+
+    @Field(() => OrderRequestMaxAggregate, {nullable:true})
+    _max?: OrderRequestMaxAggregate;
 }

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderArrivalDataWhereInput } from './order-arrival-data-where.input';
+import { Type } from 'class-transformer';
 import { OrderArrivalDataOrderByWithAggregationInput } from './order-arrival-data-order-by-with-aggregation.input';
 import { OrderArrivalDataScalarFieldEnum } from './order-arrival-data-scalar-field.enum';
 import { OrderArrivalDataScalarWhereWithAggregatesInput } from './order-arrival-data-scalar-where-with-aggregates.input';
@@ -13,40 +14,38 @@ import { OrderArrivalDataMaxAggregateInput } from './order-arrival-data-max-aggr
 
 @ArgsType()
 export class OrderArrivalDataGroupByArgs {
-  @Field(() => OrderArrivalDataWhereInput, { nullable: true })
-  where?: OrderArrivalDataWhereInput;
 
-  @Field(() => [OrderArrivalDataOrderByWithAggregationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<OrderArrivalDataOrderByWithAggregationInput>;
+    @Field(() => OrderArrivalDataWhereInput, {nullable:true})
+    @Type(() => OrderArrivalDataWhereInput)
+    where?: OrderArrivalDataWhereInput;
 
-  @Field(() => [OrderArrivalDataScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof OrderArrivalDataScalarFieldEnum>;
+    @Field(() => [OrderArrivalDataOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<OrderArrivalDataOrderByWithAggregationInput>;
 
-  @Field(() => OrderArrivalDataScalarWhereWithAggregatesInput, {
-    nullable: true,
-  })
-  having?: OrderArrivalDataScalarWhereWithAggregatesInput;
+    @Field(() => [OrderArrivalDataScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof OrderArrivalDataScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => OrderArrivalDataScalarWhereWithAggregatesInput, {nullable:true})
+    having?: OrderArrivalDataScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => OrderArrivalDataCountAggregateInput, { nullable: true })
-  _count?: OrderArrivalDataCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => OrderArrivalDataAvgAggregateInput, { nullable: true })
-  _avg?: OrderArrivalDataAvgAggregateInput;
+    @Field(() => OrderArrivalDataCountAggregateInput, {nullable:true})
+    _count?: OrderArrivalDataCountAggregateInput;
 
-  @Field(() => OrderArrivalDataSumAggregateInput, { nullable: true })
-  _sum?: OrderArrivalDataSumAggregateInput;
+    @Field(() => OrderArrivalDataAvgAggregateInput, {nullable:true})
+    _avg?: OrderArrivalDataAvgAggregateInput;
 
-  @Field(() => OrderArrivalDataMinAggregateInput, { nullable: true })
-  _min?: OrderArrivalDataMinAggregateInput;
+    @Field(() => OrderArrivalDataSumAggregateInput, {nullable:true})
+    _sum?: OrderArrivalDataSumAggregateInput;
 
-  @Field(() => OrderArrivalDataMaxAggregateInput, { nullable: true })
-  _max?: OrderArrivalDataMaxAggregateInput;
+    @Field(() => OrderArrivalDataMinAggregateInput, {nullable:true})
+    _min?: OrderArrivalDataMinAggregateInput;
+
+    @Field(() => OrderArrivalDataMaxAggregateInput, {nullable:true})
+    _max?: OrderArrivalDataMaxAggregateInput;
 }

@@ -5,12 +5,13 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryCreateManyMakerInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

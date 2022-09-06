@@ -5,34 +5,33 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { OrderEntryUncheckedUpdateManyWithoutMakerInput } from '../order-entry/order-entry-unchecked-update-many-without-maker.input';
-import { ProductUncheckedUpdateManyWithoutMakerInput } from '../product/product-unchecked-update-many-without-maker.input';
+import { OrderEntryUncheckedUpdateManyWithoutMakerNestedInput } from '../order-entry/order-entry-unchecked-update-many-without-maker-nested.input';
+import { ProductUncheckedUpdateManyWithoutMakerNestedInput } from '../product/product-unchecked-update-many-without-maker-nested.input';
 
 @InputType()
 export class MakerUncheckedUpdateInput {
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerName?: StringFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  leadtime?: IntFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerName?: StringFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  isValid?: BoolFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    leadtime?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isValid?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => OrderEntryUncheckedUpdateManyWithoutMakerInput, {
-    nullable: true,
-  })
-  orderEntry?: OrderEntryUncheckedUpdateManyWithoutMakerInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => ProductUncheckedUpdateManyWithoutMakerInput, { nullable: true })
-  product?: ProductUncheckedUpdateManyWithoutMakerInput;
+    @Field(() => OrderEntryUncheckedUpdateManyWithoutMakerNestedInput, {nullable:true})
+    orderEntry?: OrderEntryUncheckedUpdateManyWithoutMakerNestedInput;
+
+    @Field(() => ProductUncheckedUpdateManyWithoutMakerNestedInput, {nullable:true})
+    product?: ProductUncheckedUpdateManyWithoutMakerNestedInput;
 }

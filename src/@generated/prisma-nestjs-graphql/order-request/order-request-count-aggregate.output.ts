@@ -5,39 +5,40 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderRequestCountAggregate {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => Int, { nullable: false })
-  containerNo!: number;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderRequestNo!: number;
+    @Field(() => Int, {nullable:false})
+    containerNo!: number;
 
-  @Field(() => Int, { nullable: false })
-  deliveryDate!: number;
+    @Field(() => Int, {nullable:false})
+    orderRequestNo!: number;
 
-  @Field(() => Int, { nullable: false })
-  poRequestDate!: number;
+    @Field(() => Int, {nullable:false})
+    deliveryDate!: number;
 
-  @Field(() => Int, { nullable: false })
-  deliveryPort!: number;
+    @Field(() => Int, {nullable:false})
+    poRequestDate!: number;
 
-  @Field(() => Int, { nullable: false })
-  poStatus!: number;
+    @Field(() => Int, {nullable:false})
+    deliveryPort!: number;
 
-  @Field(() => Int, { nullable: false })
-  discarded!: number;
+    @Field(() => Int, {nullable:false})
+    poStatus!: number;
 
-  @HideField()
-  createdAt!: number;
+    @Field(() => Int, {nullable:false})
+    discarded!: number;
 
-  @HideField()
-  updatedAt!: number;
+    @HideField()
+    createdAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderEntryId!: number;
+    @HideField()
+    updatedAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  _all!: number;
+    @Field(() => Int, {nullable:false})
+    orderEntryId!: number;
+
+    @Field(() => Int, {nullable:false})
+    _all!: number;
 }

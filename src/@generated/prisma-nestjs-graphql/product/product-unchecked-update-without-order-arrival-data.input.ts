@@ -6,39 +6,38 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { OrderRequestDetailUncheckedUpdateManyWithoutProductInput } from '../order-request-detail/order-request-detail-unchecked-update-many-without-product.input';
+import { OrderRequestDetailUncheckedUpdateManyWithoutProductNestedInput } from '../order-request-detail/order-request-detail-unchecked-update-many-without-product-nested.input';
 
 @InputType()
 export class ProductUncheckedUpdateWithoutOrderArrivalDataInput {
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  prodCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerCd?: StringFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    prodCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  prodName?: StringFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  ssp180Days?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    prodName?: StringFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  carton3SideSize?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    ssp180Days?: NullableFloatFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  minOrderQuantity?: IntFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    carton3SideSize?: NullableFloatFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  isValid?: BoolFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    minOrderQuantity?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isValid?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => OrderRequestDetailUncheckedUpdateManyWithoutProductInput, {
-    nullable: true,
-  })
-  orderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutProductInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => OrderRequestDetailUncheckedUpdateManyWithoutProductNestedInput, {nullable:true})
+    orderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutProductNestedInput;
 }

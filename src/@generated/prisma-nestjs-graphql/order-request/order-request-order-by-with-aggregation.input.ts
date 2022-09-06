@@ -10,51 +10,52 @@ import { OrderRequestSumOrderByAggregateInput } from './order-request-sum-order-
 
 @InputType()
 export class OrderRequestOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  containerNo?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderRequestNo?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    containerNo?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  deliveryDate?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    orderRequestNo?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  poRequestDate?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    deliveryDate?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  deliveryPort?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    poRequestDate?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  poStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    deliveryPort?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  discarded?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    poStatus?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    discarded?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderEntryId?: keyof typeof SortOrder;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestCountOrderByAggregateInput, { nullable: true })
-  _count?: OrderRequestCountOrderByAggregateInput;
+    @Field(() => SortOrder, {nullable:true})
+    orderEntryId?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestAvgOrderByAggregateInput, { nullable: true })
-  _avg?: OrderRequestAvgOrderByAggregateInput;
+    @Field(() => OrderRequestCountOrderByAggregateInput, {nullable:true})
+    _count?: OrderRequestCountOrderByAggregateInput;
 
-  @Field(() => OrderRequestMaxOrderByAggregateInput, { nullable: true })
-  _max?: OrderRequestMaxOrderByAggregateInput;
+    @Field(() => OrderRequestAvgOrderByAggregateInput, {nullable:true})
+    _avg?: OrderRequestAvgOrderByAggregateInput;
 
-  @Field(() => OrderRequestMinOrderByAggregateInput, { nullable: true })
-  _min?: OrderRequestMinOrderByAggregateInput;
+    @Field(() => OrderRequestMaxOrderByAggregateInput, {nullable:true})
+    _max?: OrderRequestMaxOrderByAggregateInput;
 
-  @Field(() => OrderRequestSumOrderByAggregateInput, { nullable: true })
-  _sum?: OrderRequestSumOrderByAggregateInput;
+    @Field(() => OrderRequestMinOrderByAggregateInput, {nullable:true})
+    _min?: OrderRequestMinOrderByAggregateInput;
+
+    @Field(() => OrderRequestSumOrderByAggregateInput, {nullable:true})
+    _sum?: OrderRequestSumOrderByAggregateInput;
 }

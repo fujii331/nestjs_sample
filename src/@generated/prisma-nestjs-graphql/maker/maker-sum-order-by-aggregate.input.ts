@@ -4,6 +4,7 @@ import { SortOrder } from '../prisma/sort-order.enum';
 
 @InputType()
 export class MakerSumOrderByAggregateInput {
-  @Field(() => SortOrder, { nullable: true })
-  leadtime?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    leadtime?: keyof typeof SortOrder;
 }

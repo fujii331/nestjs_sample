@@ -7,21 +7,20 @@ import { OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput } from '../
 
 @InputType()
 export class OrderEntryUncheckedCreateInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  makerCd!: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    makerCd!: string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput, {
-    nullable: true,
-  })
-  orderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput, {nullable:true})
+    orderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
 }

@@ -5,12 +5,13 @@ import { MakerCreateNestedOneWithoutOrderEntryInput } from '../maker/maker-creat
 
 @InputType()
 export class OrderEntryCreateWithoutOrderRequestInput {
-  @HideField()
-  createdAt?: Date | string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => MakerCreateNestedOneWithoutOrderEntryInput, { nullable: false })
-  maker!: MakerCreateNestedOneWithoutOrderEntryInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => MakerCreateNestedOneWithoutOrderEntryInput, {nullable:false})
+    maker!: MakerCreateNestedOneWithoutOrderEntryInput;
 }

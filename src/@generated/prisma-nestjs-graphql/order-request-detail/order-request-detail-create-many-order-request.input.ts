@@ -7,30 +7,31 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestDetailCreateManyOrderRequestInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  prodCd!: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => Int, { nullable: false })
-  @Validator.IsNotEmpty()
-  orderQuantity!: number;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    prodCd!: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp?: number;
+    @Field(() => Int, {nullable:false})
+    @Validator.IsNotEmpty()
+    orderQuantity!: number;
 
-  @Field(() => Float, { nullable: true })
-  cbm?: number;
+    @Field(() => Float, {nullable:true})
+    ssp?: number;
 
-  @Field(() => Boolean, { nullable: true })
-  @Validator.IsNotEmpty()
-  wasOrderAlerted?: boolean;
+    @Field(() => Float, {nullable:true})
+    cbm?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    wasOrderAlerted?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

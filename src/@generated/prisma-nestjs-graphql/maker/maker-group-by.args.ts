@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { MakerWhereInput } from './maker-where.input';
+import { Type } from 'class-transformer';
 import { MakerOrderByWithAggregationInput } from './maker-order-by-with-aggregation.input';
 import { MakerScalarFieldEnum } from './maker-scalar-field.enum';
 import { MakerScalarWhereWithAggregatesInput } from './maker-scalar-where-with-aggregates.input';
@@ -13,36 +14,38 @@ import { MakerMaxAggregateInput } from './maker-max-aggregate.input';
 
 @ArgsType()
 export class MakerGroupByArgs {
-  @Field(() => MakerWhereInput, { nullable: true })
-  where?: MakerWhereInput;
 
-  @Field(() => [MakerOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<MakerOrderByWithAggregationInput>;
+    @Field(() => MakerWhereInput, {nullable:true})
+    @Type(() => MakerWhereInput)
+    where?: MakerWhereInput;
 
-  @Field(() => [MakerScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof MakerScalarFieldEnum>;
+    @Field(() => [MakerOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<MakerOrderByWithAggregationInput>;
 
-  @Field(() => MakerScalarWhereWithAggregatesInput, { nullable: true })
-  having?: MakerScalarWhereWithAggregatesInput;
+    @Field(() => [MakerScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof MakerScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => MakerScalarWhereWithAggregatesInput, {nullable:true})
+    having?: MakerScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => MakerCountAggregateInput, { nullable: true })
-  _count?: MakerCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => MakerAvgAggregateInput, { nullable: true })
-  _avg?: MakerAvgAggregateInput;
+    @Field(() => MakerCountAggregateInput, {nullable:true})
+    _count?: MakerCountAggregateInput;
 
-  @Field(() => MakerSumAggregateInput, { nullable: true })
-  _sum?: MakerSumAggregateInput;
+    @Field(() => MakerAvgAggregateInput, {nullable:true})
+    _avg?: MakerAvgAggregateInput;
 
-  @Field(() => MakerMinAggregateInput, { nullable: true })
-  _min?: MakerMinAggregateInput;
+    @Field(() => MakerSumAggregateInput, {nullable:true})
+    _sum?: MakerSumAggregateInput;
 
-  @Field(() => MakerMaxAggregateInput, { nullable: true })
-  _max?: MakerMaxAggregateInput;
+    @Field(() => MakerMinAggregateInput, {nullable:true})
+    _min?: MakerMinAggregateInput;
+
+    @Field(() => MakerMaxAggregateInput, {nullable:true})
+    _max?: MakerMaxAggregateInput;
 }

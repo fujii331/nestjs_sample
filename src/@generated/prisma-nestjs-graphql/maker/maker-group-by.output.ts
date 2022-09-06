@@ -10,36 +10,37 @@ import { MakerMaxAggregate } from './maker-max-aggregate.output';
 
 @ObjectType()
 export class MakerGroupBy {
-  @Field(() => String, { nullable: false })
-  makerCd!: string;
 
-  @Field(() => String, { nullable: false })
-  makerName!: string;
+    @Field(() => String, {nullable:false})
+    makerCd!: string;
 
-  @Field(() => Int, { nullable: false })
-  leadtime!: number;
+    @Field(() => String, {nullable:false})
+    makerName!: string;
 
-  @Field(() => Boolean, { nullable: false })
-  isValid!: boolean;
+    @Field(() => Int, {nullable:false})
+    leadtime!: number;
 
-  @HideField()
-  createdAt!: Date | string;
+    @Field(() => Boolean, {nullable:false})
+    isValid!: boolean;
 
-  @HideField()
-  updatedAt!: Date | string;
+    @HideField()
+    createdAt!: Date | string;
 
-  @Field(() => MakerCountAggregate, { nullable: true })
-  _count?: MakerCountAggregate;
+    @HideField()
+    updatedAt!: Date | string;
 
-  @Field(() => MakerAvgAggregate, { nullable: true })
-  _avg?: MakerAvgAggregate;
+    @Field(() => MakerCountAggregate, {nullable:true})
+    _count?: MakerCountAggregate;
 
-  @Field(() => MakerSumAggregate, { nullable: true })
-  _sum?: MakerSumAggregate;
+    @Field(() => MakerAvgAggregate, {nullable:true})
+    _avg?: MakerAvgAggregate;
 
-  @Field(() => MakerMinAggregate, { nullable: true })
-  _min?: MakerMinAggregate;
+    @Field(() => MakerSumAggregate, {nullable:true})
+    _sum?: MakerSumAggregate;
 
-  @Field(() => MakerMaxAggregate, { nullable: true })
-  _max?: MakerMaxAggregate;
+    @Field(() => MakerMinAggregate, {nullable:true})
+    _min?: MakerMinAggregate;
+
+    @Field(() => MakerMaxAggregate, {nullable:true})
+    _max?: MakerMaxAggregate;
 }

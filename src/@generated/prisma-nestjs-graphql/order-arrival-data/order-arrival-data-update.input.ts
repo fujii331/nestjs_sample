@@ -5,27 +5,26 @@ import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-d
 import { EnumDeliveryPortFieldUpdateOperationsInput } from '../prisma/enum-delivery-port-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { ProductUpdateOneRequiredWithoutOrderArrivalDataInput } from '../product/product-update-one-required-without-order-arrival-data.input';
+import { ProductUpdateOneRequiredWithoutOrderArrivalDataNestedInput } from '../product/product-update-one-required-without-order-arrival-data-nested.input';
 
 @InputType()
 export class OrderArrivalDataUpdateInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => NullableDateTimeFieldUpdateOperationsInput, { nullable: true })
-  deliveryDate?: NullableDateTimeFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => EnumDeliveryPortFieldUpdateOperationsInput, { nullable: true })
-  deliveryPort?: EnumDeliveryPortFieldUpdateOperationsInput;
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    deliveryDate?: NullableDateTimeFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => EnumDeliveryPortFieldUpdateOperationsInput, {nullable:true})
+    deliveryPort?: EnumDeliveryPortFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => ProductUpdateOneRequiredWithoutOrderArrivalDataInput, {
-    nullable: true,
-  })
-  product?: ProductUpdateOneRequiredWithoutOrderArrivalDataInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => ProductUpdateOneRequiredWithoutOrderArrivalDataNestedInput, {nullable:true})
+    product?: ProductUpdateOneRequiredWithoutOrderArrivalDataNestedInput;
 }

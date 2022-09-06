@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class MakerSumAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  leadtime?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    leadtime?: true;
 }

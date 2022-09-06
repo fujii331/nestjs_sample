@@ -6,17 +6,16 @@ import { OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput } from '../
 
 @InputType()
 export class OrderEntryUncheckedCreateWithoutMakerInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput, {
-    nullable: true,
-  })
-  orderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput, {nullable:true})
+    orderRequest?: OrderRequestUncheckedCreateNestedManyWithoutOrderEntryInput;
 }

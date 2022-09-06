@@ -5,33 +5,34 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderRequestDetailCountAggregate {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => Int, { nullable: false })
-  prodCd!: number;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderQuantity!: number;
+    @Field(() => Int, {nullable:false})
+    prodCd!: number;
 
-  @Field(() => Int, { nullable: false })
-  ssp!: number;
+    @Field(() => Int, {nullable:false})
+    orderQuantity!: number;
 
-  @Field(() => Int, { nullable: false })
-  cbm!: number;
+    @Field(() => Int, {nullable:false})
+    ssp!: number;
 
-  @Field(() => Int, { nullable: false })
-  wasOrderAlerted!: number;
+    @Field(() => Int, {nullable:false})
+    cbm!: number;
 
-  @HideField()
-  createdAt!: number;
+    @Field(() => Int, {nullable:false})
+    wasOrderAlerted!: number;
 
-  @HideField()
-  updatedAt!: number;
+    @HideField()
+    createdAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderRequestId!: number;
+    @HideField()
+    updatedAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  _all!: number;
+    @Field(() => Int, {nullable:false})
+    orderRequestId!: number;
+
+    @Field(() => Int, {nullable:false})
+    _all!: number;
 }

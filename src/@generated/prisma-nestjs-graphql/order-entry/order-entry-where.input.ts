@@ -9,30 +9,31 @@ import { OrderRequestListRelationFilter } from '../order-request/order-request-l
 
 @InputType()
 export class OrderEntryWhereInput {
-  @Field(() => [OrderEntryWhereInput], { nullable: true })
-  AND?: Array<OrderEntryWhereInput>;
 
-  @Field(() => [OrderEntryWhereInput], { nullable: true })
-  OR?: Array<OrderEntryWhereInput>;
+    @Field(() => [OrderEntryWhereInput], {nullable:true})
+    AND?: Array<OrderEntryWhereInput>;
 
-  @Field(() => [OrderEntryWhereInput], { nullable: true })
-  NOT?: Array<OrderEntryWhereInput>;
+    @Field(() => [OrderEntryWhereInput], {nullable:true})
+    OR?: Array<OrderEntryWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderEntryWhereInput], {nullable:true})
+    NOT?: Array<OrderEntryWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerCd?: StringFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => MakerRelationFilter, { nullable: true })
-  maker?: MakerRelationFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => OrderRequestListRelationFilter, { nullable: true })
-  orderRequest?: OrderRequestListRelationFilter;
+    @Field(() => MakerRelationFilter, {nullable:true})
+    maker?: MakerRelationFilter;
+
+    @Field(() => OrderRequestListRelationFilter, {nullable:true})
+    orderRequest?: OrderRequestListRelationFilter;
 }

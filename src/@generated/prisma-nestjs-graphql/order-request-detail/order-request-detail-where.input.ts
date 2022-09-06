@@ -11,45 +11,46 @@ import { ProductRelationFilter } from '../product/product-relation-filter.input'
 
 @InputType()
 export class OrderRequestDetailWhereInput {
-  @Field(() => [OrderRequestDetailWhereInput], { nullable: true })
-  AND?: Array<OrderRequestDetailWhereInput>;
 
-  @Field(() => [OrderRequestDetailWhereInput], { nullable: true })
-  OR?: Array<OrderRequestDetailWhereInput>;
+    @Field(() => [OrderRequestDetailWhereInput], {nullable:true})
+    AND?: Array<OrderRequestDetailWhereInput>;
 
-  @Field(() => [OrderRequestDetailWhereInput], { nullable: true })
-  NOT?: Array<OrderRequestDetailWhereInput>;
+    @Field(() => [OrderRequestDetailWhereInput], {nullable:true})
+    OR?: Array<OrderRequestDetailWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderRequestDetailWhereInput], {nullable:true})
+    NOT?: Array<OrderRequestDetailWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderQuantity?: IntFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  ssp?: FloatNullableFilter;
+    @Field(() => IntFilter, {nullable:true})
+    orderQuantity?: IntFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  cbm?: FloatNullableFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    ssp?: FloatNullableFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  wasOrderAlerted?: BoolFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    cbm?: FloatNullableFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    wasOrderAlerted?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderRequestId?: IntFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => OrderRequestRelationFilter, { nullable: true })
-  orderRequest?: OrderRequestRelationFilter;
+    @Field(() => IntFilter, {nullable:true})
+    orderRequestId?: IntFilter;
 
-  @Field(() => ProductRelationFilter, { nullable: true })
-  product?: ProductRelationFilter;
+    @Field(() => OrderRequestRelationFilter, {nullable:true})
+    orderRequest?: OrderRequestRelationFilter;
+
+    @Field(() => ProductRelationFilter, {nullable:true})
+    product?: ProductRelationFilter;
 }

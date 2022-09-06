@@ -4,9 +4,10 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class ProductCount {
-  @Field(() => Int, { nullable: false })
-  orderArrivalData?: number;
 
-  @Field(() => Int, { nullable: false })
-  orderRequestDetail?: number;
+    @Field(() => Int, {nullable:false})
+    orderArrivalData?: number;
+
+    @Field(() => Int, {nullable:false})
+    orderRequestDetail?: number;
 }

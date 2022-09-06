@@ -8,30 +8,31 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MakerScalarWhereWithAggregatesInput {
-  @Field(() => [MakerScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<MakerScalarWhereWithAggregatesInput>;
 
-  @Field(() => [MakerScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<MakerScalarWhereWithAggregatesInput>;
+    @Field(() => [MakerScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<MakerScalarWhereWithAggregatesInput>;
 
-  @Field(() => [MakerScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<MakerScalarWhereWithAggregatesInput>;
+    @Field(() => [MakerScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<MakerScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  makerCd?: StringWithAggregatesFilter;
+    @Field(() => [MakerScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<MakerScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  makerName?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    makerCd?: StringWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  leadtime?: IntWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    makerName?: StringWithAggregatesFilter;
 
-  @Field(() => BoolWithAggregatesFilter, { nullable: true })
-  isValid?: BoolWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    leadtime?: IntWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    isValid?: BoolWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
+
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
 }

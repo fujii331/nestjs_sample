@@ -11,35 +11,34 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestUncheckedUpdateManyWithoutOrderRequestInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  containerNo?: IntFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  orderRequestNo?: StringFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    containerNo?: IntFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  deliveryDate?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    orderRequestNo?: StringFieldUpdateOperationsInput;
 
-  @Field(() => NullableDateTimeFieldUpdateOperationsInput, { nullable: true })
-  poRequestDate?: NullableDateTimeFieldUpdateOperationsInput;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    deliveryDate?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => EnumOrderRequest_deliveryPortFieldUpdateOperationsInput, {
-    nullable: true,
-  })
-  deliveryPort?: EnumOrderRequest_deliveryPortFieldUpdateOperationsInput;
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    poRequestDate?: NullableDateTimeFieldUpdateOperationsInput;
 
-  @Field(() => EnumPoStatusFieldUpdateOperationsInput, { nullable: true })
-  poStatus?: EnumPoStatusFieldUpdateOperationsInput;
+    @Field(() => EnumOrderRequest_deliveryPortFieldUpdateOperationsInput, {nullable:true})
+    deliveryPort?: EnumOrderRequest_deliveryPortFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  discarded?: BoolFieldUpdateOperationsInput;
+    @Field(() => EnumPoStatusFieldUpdateOperationsInput, {nullable:true})
+    poStatus?: EnumPoStatusFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    discarded?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

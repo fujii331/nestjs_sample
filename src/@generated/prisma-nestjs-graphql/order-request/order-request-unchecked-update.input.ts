@@ -8,47 +8,44 @@ import { EnumOrderRequest_deliveryPortFieldUpdateOperationsInput } from '../pris
 import { EnumPoStatusFieldUpdateOperationsInput } from '../prisma/enum-po-status-field-update-operations.input';
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestInput } from '../order-request-detail/order-request-detail-unchecked-update-many-without-order-request.input';
+import { OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestNestedInput } from '../order-request-detail/order-request-detail-unchecked-update-many-without-order-request-nested.input';
 
 @InputType()
 export class OrderRequestUncheckedUpdateInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  containerNo?: IntFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  orderRequestNo?: StringFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    containerNo?: IntFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  deliveryDate?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    orderRequestNo?: StringFieldUpdateOperationsInput;
 
-  @Field(() => NullableDateTimeFieldUpdateOperationsInput, { nullable: true })
-  poRequestDate?: NullableDateTimeFieldUpdateOperationsInput;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    deliveryDate?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => EnumOrderRequest_deliveryPortFieldUpdateOperationsInput, {
-    nullable: true,
-  })
-  deliveryPort?: EnumOrderRequest_deliveryPortFieldUpdateOperationsInput;
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    poRequestDate?: NullableDateTimeFieldUpdateOperationsInput;
 
-  @Field(() => EnumPoStatusFieldUpdateOperationsInput, { nullable: true })
-  poStatus?: EnumPoStatusFieldUpdateOperationsInput;
+    @Field(() => EnumOrderRequest_deliveryPortFieldUpdateOperationsInput, {nullable:true})
+    deliveryPort?: EnumOrderRequest_deliveryPortFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  discarded?: BoolFieldUpdateOperationsInput;
+    @Field(() => EnumPoStatusFieldUpdateOperationsInput, {nullable:true})
+    poStatus?: EnumPoStatusFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    discarded?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  orderEntryId?: IntFieldUpdateOperationsInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestInput, {
-    nullable: true,
-  })
-  orderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    orderEntryId?: IntFieldUpdateOperationsInput;
+
+    @Field(() => OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestNestedInput, {nullable:true})
+    orderRequestDetail?: OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestNestedInput;
 }

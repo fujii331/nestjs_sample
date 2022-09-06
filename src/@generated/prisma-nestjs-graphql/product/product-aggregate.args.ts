@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ProductWhereInput } from './product-where.input';
+import { Type } from 'class-transformer';
 import { ProductOrderByWithRelationInput } from './product-order-by-with-relation.input';
 import { ProductWhereUniqueInput } from './product-where-unique.input';
 import { Int } from '@nestjs/graphql';
@@ -12,33 +13,35 @@ import { ProductMaxAggregateInput } from './product-max-aggregate.input';
 
 @ArgsType()
 export class ProductAggregateArgs {
-  @Field(() => ProductWhereInput, { nullable: true })
-  where?: ProductWhereInput;
 
-  @Field(() => [ProductOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<ProductOrderByWithRelationInput>;
+    @Field(() => ProductWhereInput, {nullable:true})
+    @Type(() => ProductWhereInput)
+    where?: ProductWhereInput;
 
-  @Field(() => ProductWhereUniqueInput, { nullable: true })
-  cursor?: ProductWhereUniqueInput;
+    @Field(() => [ProductOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<ProductOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => ProductWhereUniqueInput, {nullable:true})
+    cursor?: ProductWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => ProductCountAggregateInput, { nullable: true })
-  _count?: ProductCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => ProductAvgAggregateInput, { nullable: true })
-  _avg?: ProductAvgAggregateInput;
+    @Field(() => ProductCountAggregateInput, {nullable:true})
+    _count?: ProductCountAggregateInput;
 
-  @Field(() => ProductSumAggregateInput, { nullable: true })
-  _sum?: ProductSumAggregateInput;
+    @Field(() => ProductAvgAggregateInput, {nullable:true})
+    _avg?: ProductAvgAggregateInput;
 
-  @Field(() => ProductMinAggregateInput, { nullable: true })
-  _min?: ProductMinAggregateInput;
+    @Field(() => ProductSumAggregateInput, {nullable:true})
+    _sum?: ProductSumAggregateInput;
 
-  @Field(() => ProductMaxAggregateInput, { nullable: true })
-  _max?: ProductMaxAggregateInput;
+    @Field(() => ProductMinAggregateInput, {nullable:true})
+    _min?: ProductMinAggregateInput;
+
+    @Field(() => ProductMaxAggregateInput, {nullable:true})
+    _max?: ProductMaxAggregateInput;
 }

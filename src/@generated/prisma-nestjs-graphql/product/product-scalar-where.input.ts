@@ -9,39 +9,40 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class ProductScalarWhereInput {
-  @Field(() => [ProductScalarWhereInput], { nullable: true })
-  AND?: Array<ProductScalarWhereInput>;
 
-  @Field(() => [ProductScalarWhereInput], { nullable: true })
-  OR?: Array<ProductScalarWhereInput>;
+    @Field(() => [ProductScalarWhereInput], {nullable:true})
+    AND?: Array<ProductScalarWhereInput>;
 
-  @Field(() => [ProductScalarWhereInput], { nullable: true })
-  NOT?: Array<ProductScalarWhereInput>;
+    @Field(() => [ProductScalarWhereInput], {nullable:true})
+    OR?: Array<ProductScalarWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => [ProductScalarWhereInput], {nullable:true})
+    NOT?: Array<ProductScalarWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerCd?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodName?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerCd?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  ssp180Days?: FloatNullableFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodName?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  carton3SideSize?: FloatNullableFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    ssp180Days?: FloatNullableFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  minOrderQuantity?: IntFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    carton3SideSize?: FloatNullableFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  isValid?: BoolFilter;
+    @Field(() => IntFilter, {nullable:true})
+    minOrderQuantity?: IntFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    isValid?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
+
+    @HideField()
+    updatedAt?: DateTimeFilter;
 }

@@ -5,15 +5,16 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderEntryMaxAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: true })
-  makerCd?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    makerCd?: string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

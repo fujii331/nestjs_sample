@@ -7,36 +7,37 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderRequestMinAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => Int, { nullable: true })
-  containerNo?: number;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => String, { nullable: true })
-  orderRequestNo?: string;
+    @Field(() => Int, {nullable:true})
+    containerNo?: number;
 
-  @Field(() => Date, { nullable: true })
-  deliveryDate?: Date | string;
+    @Field(() => String, {nullable:true})
+    orderRequestNo?: string;
 
-  @Field(() => Date, { nullable: true })
-  poRequestDate?: Date | string;
+    @Field(() => Date, {nullable:true})
+    deliveryDate?: Date | string;
 
-  @Field(() => OrderRequest_deliveryPort, { nullable: true })
-  deliveryPort?: keyof typeof OrderRequest_deliveryPort;
+    @Field(() => Date, {nullable:true})
+    poRequestDate?: Date | string;
 
-  @Field(() => PoStatus, { nullable: true })
-  poStatus?: keyof typeof PoStatus;
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => Boolean, { nullable: true })
-  discarded?: boolean;
+    @Field(() => PoStatus, {nullable:true})
+    poStatus?: keyof typeof PoStatus;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    discarded?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => Int, { nullable: true })
-  orderEntryId?: number;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => Int, {nullable:true})
+    orderEntryId?: number;
 }

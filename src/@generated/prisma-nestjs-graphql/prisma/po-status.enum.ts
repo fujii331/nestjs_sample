@@ -1,8 +1,9 @@
 import { registerEnumType } from '@nestjs/graphql';
 
 export enum PoStatus {
-  NOTISSUED = 'NOTISSUED',
-  ISSUED = 'ISSUED',
+    NOTISSUED = "NOTISSUED",
+    ISSUED = "ISSUED"
 }
 
-registerEnumType(PoStatus, { name: 'PoStatus', description: undefined });
+
+registerEnumType(PoStatus, { name: 'PoStatus', description: undefined })

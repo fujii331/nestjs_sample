@@ -8,20 +8,19 @@ import { ProductUpdateWithoutOrderArrivalDataInput } from './product-update-with
 
 @InputType()
 export class ProductUpdateOneRequiredWithoutOrderArrivalDataInput {
-  @Field(() => ProductCreateWithoutOrderArrivalDataInput, { nullable: true })
-  create?: ProductCreateWithoutOrderArrivalDataInput;
 
-  @Field(() => ProductCreateOrConnectWithoutOrderArrivalDataInput, {
-    nullable: true,
-  })
-  connectOrCreate?: ProductCreateOrConnectWithoutOrderArrivalDataInput;
+    @Field(() => ProductCreateWithoutOrderArrivalDataInput, {nullable:true})
+    create?: ProductCreateWithoutOrderArrivalDataInput;
 
-  @Field(() => ProductUpsertWithoutOrderArrivalDataInput, { nullable: true })
-  upsert?: ProductUpsertWithoutOrderArrivalDataInput;
+    @Field(() => ProductCreateOrConnectWithoutOrderArrivalDataInput, {nullable:true})
+    connectOrCreate?: ProductCreateOrConnectWithoutOrderArrivalDataInput;
 
-  @Field(() => ProductWhereUniqueInput, { nullable: true })
-  connect?: ProductWhereUniqueInput;
+    @Field(() => ProductUpsertWithoutOrderArrivalDataInput, {nullable:true})
+    upsert?: ProductUpsertWithoutOrderArrivalDataInput;
 
-  @Field(() => ProductUpdateWithoutOrderArrivalDataInput, { nullable: true })
-  update?: ProductUpdateWithoutOrderArrivalDataInput;
+    @Field(() => ProductWhereUniqueInput, {nullable:true})
+    connect?: ProductWhereUniqueInput;
+
+    @Field(() => ProductUpdateWithoutOrderArrivalDataInput, {nullable:true})
+    update?: ProductUpdateWithoutOrderArrivalDataInput;
 }

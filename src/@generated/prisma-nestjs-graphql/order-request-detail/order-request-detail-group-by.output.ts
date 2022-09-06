@@ -11,45 +11,46 @@ import { OrderRequestDetailMaxAggregate } from './order-request-detail-max-aggre
 
 @ObjectType()
 export class OrderRequestDetailGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  prodCd!: string;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderQuantity!: number;
+    @Field(() => String, {nullable:false})
+    prodCd!: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp?: number;
+    @Field(() => Int, {nullable:false})
+    orderQuantity!: number;
 
-  @Field(() => Float, { nullable: true })
-  cbm?: number;
+    @Field(() => Float, {nullable:true})
+    ssp?: number;
 
-  @Field(() => Boolean, { nullable: false })
-  wasOrderAlerted!: boolean;
+    @Field(() => Float, {nullable:true})
+    cbm?: number;
 
-  @HideField()
-  createdAt!: Date | string;
+    @Field(() => Boolean, {nullable:false})
+    wasOrderAlerted!: boolean;
 
-  @HideField()
-  updatedAt!: Date | string;
+    @HideField()
+    createdAt!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  orderRequestId!: number;
+    @HideField()
+    updatedAt!: Date | string;
 
-  @Field(() => OrderRequestDetailCountAggregate, { nullable: true })
-  _count?: OrderRequestDetailCountAggregate;
+    @Field(() => Int, {nullable:false})
+    orderRequestId!: number;
 
-  @Field(() => OrderRequestDetailAvgAggregate, { nullable: true })
-  _avg?: OrderRequestDetailAvgAggregate;
+    @Field(() => OrderRequestDetailCountAggregate, {nullable:true})
+    _count?: OrderRequestDetailCountAggregate;
 
-  @Field(() => OrderRequestDetailSumAggregate, { nullable: true })
-  _sum?: OrderRequestDetailSumAggregate;
+    @Field(() => OrderRequestDetailAvgAggregate, {nullable:true})
+    _avg?: OrderRequestDetailAvgAggregate;
 
-  @Field(() => OrderRequestDetailMinAggregate, { nullable: true })
-  _min?: OrderRequestDetailMinAggregate;
+    @Field(() => OrderRequestDetailSumAggregate, {nullable:true})
+    _sum?: OrderRequestDetailSumAggregate;
 
-  @Field(() => OrderRequestDetailMaxAggregate, { nullable: true })
-  _max?: OrderRequestDetailMaxAggregate;
+    @Field(() => OrderRequestDetailMinAggregate, {nullable:true})
+    _min?: OrderRequestDetailMinAggregate;
+
+    @Field(() => OrderRequestDetailMaxAggregate, {nullable:true})
+    _max?: OrderRequestDetailMaxAggregate;
 }

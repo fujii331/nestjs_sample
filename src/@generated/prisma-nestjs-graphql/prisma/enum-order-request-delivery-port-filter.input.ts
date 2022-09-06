@@ -5,15 +5,16 @@ import { NestedEnumOrderRequest_deliveryPortFilter } from './nested-enum-order-r
 
 @InputType()
 export class EnumOrderRequest_deliveryPortFilter {
-  @Field(() => OrderRequest_deliveryPort, { nullable: true })
-  equals?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => [OrderRequest_deliveryPort], { nullable: true })
-  in?: Array<keyof typeof OrderRequest_deliveryPort>;
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    equals?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => [OrderRequest_deliveryPort], { nullable: true })
-  notIn?: Array<keyof typeof OrderRequest_deliveryPort>;
+    @Field(() => [OrderRequest_deliveryPort], {nullable:true})
+    in?: Array<keyof typeof OrderRequest_deliveryPort>;
 
-  @Field(() => NestedEnumOrderRequest_deliveryPortFilter, { nullable: true })
-  not?: NestedEnumOrderRequest_deliveryPortFilter;
+    @Field(() => [OrderRequest_deliveryPort], {nullable:true})
+    notIn?: Array<keyof typeof OrderRequest_deliveryPort>;
+
+    @Field(() => NestedEnumOrderRequest_deliveryPortFilter, {nullable:true})
+    not?: NestedEnumOrderRequest_deliveryPortFilter;
 }

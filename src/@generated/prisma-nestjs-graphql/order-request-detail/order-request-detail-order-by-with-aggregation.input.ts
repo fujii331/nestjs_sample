@@ -10,45 +10,46 @@ import { OrderRequestDetailSumOrderByAggregateInput } from './order-request-deta
 
 @InputType()
 export class OrderRequestDetailOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  prodCd?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderQuantity?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    prodCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  ssp?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    orderQuantity?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  cbm?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    ssp?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  wasOrderAlerted?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    cbm?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    wasOrderAlerted?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderRequestId?: keyof typeof SortOrder;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestDetailCountOrderByAggregateInput, { nullable: true })
-  _count?: OrderRequestDetailCountOrderByAggregateInput;
+    @Field(() => SortOrder, {nullable:true})
+    orderRequestId?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestDetailAvgOrderByAggregateInput, { nullable: true })
-  _avg?: OrderRequestDetailAvgOrderByAggregateInput;
+    @Field(() => OrderRequestDetailCountOrderByAggregateInput, {nullable:true})
+    _count?: OrderRequestDetailCountOrderByAggregateInput;
 
-  @Field(() => OrderRequestDetailMaxOrderByAggregateInput, { nullable: true })
-  _max?: OrderRequestDetailMaxOrderByAggregateInput;
+    @Field(() => OrderRequestDetailAvgOrderByAggregateInput, {nullable:true})
+    _avg?: OrderRequestDetailAvgOrderByAggregateInput;
 
-  @Field(() => OrderRequestDetailMinOrderByAggregateInput, { nullable: true })
-  _min?: OrderRequestDetailMinOrderByAggregateInput;
+    @Field(() => OrderRequestDetailMaxOrderByAggregateInput, {nullable:true})
+    _max?: OrderRequestDetailMaxOrderByAggregateInput;
 
-  @Field(() => OrderRequestDetailSumOrderByAggregateInput, { nullable: true })
-  _sum?: OrderRequestDetailSumOrderByAggregateInput;
+    @Field(() => OrderRequestDetailMinOrderByAggregateInput, {nullable:true})
+    _min?: OrderRequestDetailMinOrderByAggregateInput;
+
+    @Field(() => OrderRequestDetailSumOrderByAggregateInput, {nullable:true})
+    _sum?: OrderRequestDetailSumOrderByAggregateInput;
 }

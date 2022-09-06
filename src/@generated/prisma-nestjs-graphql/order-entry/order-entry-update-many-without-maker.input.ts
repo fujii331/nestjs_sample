@@ -11,42 +11,37 @@ import { OrderEntryScalarWhereInput } from './order-entry-scalar-where.input';
 
 @InputType()
 export class OrderEntryUpdateManyWithoutMakerInput {
-  @Field(() => [OrderEntryCreateWithoutMakerInput], { nullable: true })
-  create?: Array<OrderEntryCreateWithoutMakerInput>;
 
-  @Field(() => [OrderEntryCreateOrConnectWithoutMakerInput], { nullable: true })
-  connectOrCreate?: Array<OrderEntryCreateOrConnectWithoutMakerInput>;
+    @Field(() => [OrderEntryCreateWithoutMakerInput], {nullable:true})
+    create?: Array<OrderEntryCreateWithoutMakerInput>;
 
-  @Field(() => [OrderEntryUpsertWithWhereUniqueWithoutMakerInput], {
-    nullable: true,
-  })
-  upsert?: Array<OrderEntryUpsertWithWhereUniqueWithoutMakerInput>;
+    @Field(() => [OrderEntryCreateOrConnectWithoutMakerInput], {nullable:true})
+    connectOrCreate?: Array<OrderEntryCreateOrConnectWithoutMakerInput>;
 
-  @Field(() => OrderEntryCreateManyMakerInputEnvelope, { nullable: true })
-  createMany?: OrderEntryCreateManyMakerInputEnvelope;
+    @Field(() => [OrderEntryUpsertWithWhereUniqueWithoutMakerInput], {nullable:true})
+    upsert?: Array<OrderEntryUpsertWithWhereUniqueWithoutMakerInput>;
 
-  @Field(() => [OrderEntryWhereUniqueInput], { nullable: true })
-  set?: Array<OrderEntryWhereUniqueInput>;
+    @Field(() => OrderEntryCreateManyMakerInputEnvelope, {nullable:true})
+    createMany?: OrderEntryCreateManyMakerInputEnvelope;
 
-  @Field(() => [OrderEntryWhereUniqueInput], { nullable: true })
-  disconnect?: Array<OrderEntryWhereUniqueInput>;
+    @Field(() => [OrderEntryWhereUniqueInput], {nullable:true})
+    set?: Array<OrderEntryWhereUniqueInput>;
 
-  @Field(() => [OrderEntryWhereUniqueInput], { nullable: true })
-  delete?: Array<OrderEntryWhereUniqueInput>;
+    @Field(() => [OrderEntryWhereUniqueInput], {nullable:true})
+    disconnect?: Array<OrderEntryWhereUniqueInput>;
 
-  @Field(() => [OrderEntryWhereUniqueInput], { nullable: true })
-  connect?: Array<OrderEntryWhereUniqueInput>;
+    @Field(() => [OrderEntryWhereUniqueInput], {nullable:true})
+    delete?: Array<OrderEntryWhereUniqueInput>;
 
-  @Field(() => [OrderEntryUpdateWithWhereUniqueWithoutMakerInput], {
-    nullable: true,
-  })
-  update?: Array<OrderEntryUpdateWithWhereUniqueWithoutMakerInput>;
+    @Field(() => [OrderEntryWhereUniqueInput], {nullable:true})
+    connect?: Array<OrderEntryWhereUniqueInput>;
 
-  @Field(() => [OrderEntryUpdateManyWithWhereWithoutMakerInput], {
-    nullable: true,
-  })
-  updateMany?: Array<OrderEntryUpdateManyWithWhereWithoutMakerInput>;
+    @Field(() => [OrderEntryUpdateWithWhereUniqueWithoutMakerInput], {nullable:true})
+    update?: Array<OrderEntryUpdateWithWhereUniqueWithoutMakerInput>;
 
-  @Field(() => [OrderEntryScalarWhereInput], { nullable: true })
-  deleteMany?: Array<OrderEntryScalarWhereInput>;
+    @Field(() => [OrderEntryUpdateManyWithWhereWithoutMakerInput], {nullable:true})
+    updateMany?: Array<OrderEntryUpdateManyWithWhereWithoutMakerInput>;
+
+    @Field(() => [OrderEntryScalarWhereInput], {nullable:true})
+    deleteMany?: Array<OrderEntryScalarWhereInput>;
 }

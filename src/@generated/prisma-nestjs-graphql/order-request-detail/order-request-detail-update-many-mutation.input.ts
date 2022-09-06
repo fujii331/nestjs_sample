@@ -8,21 +8,22 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestDetailUpdateManyMutationInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  ssp?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  cbm?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    ssp?: NullableFloatFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  wasOrderAlerted?: BoolFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    cbm?: NullableFloatFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    wasOrderAlerted?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

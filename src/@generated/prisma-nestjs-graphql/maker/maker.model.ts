@@ -8,30 +8,31 @@ import { MakerCount } from './maker-count.output';
 
 @ObjectType()
 export class Maker {
-  @Field(() => String, { nullable: false })
-  makerCd!: string;
 
-  @Field(() => String, { nullable: false })
-  makerName!: string;
+    @Field(() => String, {nullable:false})
+    makerCd!: string;
 
-  @Field(() => Int, { nullable: false })
-  leadtime!: number;
+    @Field(() => String, {nullable:false})
+    makerName!: string;
 
-  @Field(() => Boolean, { nullable: false, defaultValue: true })
-  isValid!: boolean;
+    @Field(() => Int, {nullable:false})
+    leadtime!: number;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => Boolean, {nullable:false,defaultValue:true})
+    isValid!: boolean;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => [OrderEntry], { nullable: true })
-  orderEntry?: Array<OrderEntry>;
+    @HideField()
+    updatedAt!: Date;
 
-  @Field(() => [Product], { nullable: true })
-  product?: Array<Product>;
+    @Field(() => [OrderEntry], {nullable:true})
+    orderEntry?: Array<OrderEntry>;
 
-  @Field(() => MakerCount, { nullable: false })
-  _count?: MakerCount;
+    @Field(() => [Product], {nullable:true})
+    product?: Array<Product>;
+
+    @Field(() => MakerCount, {nullable:false})
+    _count?: MakerCount;
 }

@@ -11,42 +11,43 @@ import { UserMaxAggregate } from './user-max-aggregate.output';
 
 @ObjectType()
 export class UserGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  email!: string;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  name!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
 
-  @HideField()
-  password!: string;
+    @Field(() => String, {nullable:false})
+    name!: string;
 
-  @HideField()
-  createdAt!: Date | string;
+    @HideField()
+    password!: string;
 
-  @HideField()
-  updatedAt!: Date | string;
+    @HideField()
+    createdAt!: Date | string;
 
-  @Field(() => Authority, { nullable: false })
-  authority!: keyof typeof Authority;
+    @HideField()
+    updatedAt!: Date | string;
 
-  @HideField()
-  hashedRefreshToken?: string;
+    @Field(() => Authority, {nullable:false})
+    authority!: keyof typeof Authority;
 
-  @Field(() => UserCountAggregate, { nullable: true })
-  _count?: UserCountAggregate;
+    @HideField()
+    hashedRefreshToken?: string;
 
-  @Field(() => UserAvgAggregate, { nullable: true })
-  _avg?: UserAvgAggregate;
+    @Field(() => UserCountAggregate, {nullable:true})
+    _count?: UserCountAggregate;
 
-  @Field(() => UserSumAggregate, { nullable: true })
-  _sum?: UserSumAggregate;
+    @Field(() => UserAvgAggregate, {nullable:true})
+    _avg?: UserAvgAggregate;
 
-  @Field(() => UserMinAggregate, { nullable: true })
-  _min?: UserMinAggregate;
+    @Field(() => UserSumAggregate, {nullable:true})
+    _sum?: UserSumAggregate;
 
-  @Field(() => UserMaxAggregate, { nullable: true })
-  _max?: UserMaxAggregate;
+    @Field(() => UserMinAggregate, {nullable:true})
+    _min?: UserMinAggregate;
+
+    @Field(() => UserMaxAggregate, {nullable:true})
+    _max?: UserMaxAggregate;
 }

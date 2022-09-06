@@ -11,46 +11,37 @@ import { OrderArrivalDataScalarWhereInput } from './order-arrival-data-scalar-wh
 
 @InputType()
 export class OrderArrivalDataUncheckedUpdateManyWithoutProductInput {
-  @Field(() => [OrderArrivalDataCreateWithoutProductInput], { nullable: true })
-  create?: Array<OrderArrivalDataCreateWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataCreateOrConnectWithoutProductInput], {
-    nullable: true,
-  })
-  connectOrCreate?: Array<OrderArrivalDataCreateOrConnectWithoutProductInput>;
+    @Field(() => [OrderArrivalDataCreateWithoutProductInput], {nullable:true})
+    create?: Array<OrderArrivalDataCreateWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataUpsertWithWhereUniqueWithoutProductInput], {
-    nullable: true,
-  })
-  upsert?: Array<OrderArrivalDataUpsertWithWhereUniqueWithoutProductInput>;
+    @Field(() => [OrderArrivalDataCreateOrConnectWithoutProductInput], {nullable:true})
+    connectOrCreate?: Array<OrderArrivalDataCreateOrConnectWithoutProductInput>;
 
-  @Field(() => OrderArrivalDataCreateManyProductInputEnvelope, {
-    nullable: true,
-  })
-  createMany?: OrderArrivalDataCreateManyProductInputEnvelope;
+    @Field(() => [OrderArrivalDataUpsertWithWhereUniqueWithoutProductInput], {nullable:true})
+    upsert?: Array<OrderArrivalDataUpsertWithWhereUniqueWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataWhereUniqueInput], { nullable: true })
-  set?: Array<OrderArrivalDataWhereUniqueInput>;
+    @Field(() => OrderArrivalDataCreateManyProductInputEnvelope, {nullable:true})
+    createMany?: OrderArrivalDataCreateManyProductInputEnvelope;
 
-  @Field(() => [OrderArrivalDataWhereUniqueInput], { nullable: true })
-  disconnect?: Array<OrderArrivalDataWhereUniqueInput>;
+    @Field(() => [OrderArrivalDataWhereUniqueInput], {nullable:true})
+    set?: Array<OrderArrivalDataWhereUniqueInput>;
 
-  @Field(() => [OrderArrivalDataWhereUniqueInput], { nullable: true })
-  delete?: Array<OrderArrivalDataWhereUniqueInput>;
+    @Field(() => [OrderArrivalDataWhereUniqueInput], {nullable:true})
+    disconnect?: Array<OrderArrivalDataWhereUniqueInput>;
 
-  @Field(() => [OrderArrivalDataWhereUniqueInput], { nullable: true })
-  connect?: Array<OrderArrivalDataWhereUniqueInput>;
+    @Field(() => [OrderArrivalDataWhereUniqueInput], {nullable:true})
+    delete?: Array<OrderArrivalDataWhereUniqueInput>;
 
-  @Field(() => [OrderArrivalDataUpdateWithWhereUniqueWithoutProductInput], {
-    nullable: true,
-  })
-  update?: Array<OrderArrivalDataUpdateWithWhereUniqueWithoutProductInput>;
+    @Field(() => [OrderArrivalDataWhereUniqueInput], {nullable:true})
+    connect?: Array<OrderArrivalDataWhereUniqueInput>;
 
-  @Field(() => [OrderArrivalDataUpdateManyWithWhereWithoutProductInput], {
-    nullable: true,
-  })
-  updateMany?: Array<OrderArrivalDataUpdateManyWithWhereWithoutProductInput>;
+    @Field(() => [OrderArrivalDataUpdateWithWhereUniqueWithoutProductInput], {nullable:true})
+    update?: Array<OrderArrivalDataUpdateWithWhereUniqueWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataScalarWhereInput], { nullable: true })
-  deleteMany?: Array<OrderArrivalDataScalarWhereInput>;
+    @Field(() => [OrderArrivalDataUpdateManyWithWhereWithoutProductInput], {nullable:true})
+    updateMany?: Array<OrderArrivalDataUpdateManyWithWhereWithoutProductInput>;
+
+    @Field(() => [OrderArrivalDataScalarWhereInput], {nullable:true})
+    deleteMany?: Array<OrderArrivalDataScalarWhereInput>;
 }

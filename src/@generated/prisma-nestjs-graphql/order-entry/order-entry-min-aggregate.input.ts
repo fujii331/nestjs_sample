@@ -4,15 +4,16 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryMinAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  makerCd?: true;
+    @Field(() => Boolean, {nullable:true})
+    id?: true;
 
-  @HideField()
-  createdAt?: true;
+    @Field(() => Boolean, {nullable:true})
+    makerCd?: true;
 
-  @HideField()
-  updatedAt?: true;
+    @HideField()
+    createdAt?: true;
+
+    @HideField()
+    updatedAt?: true;
 }

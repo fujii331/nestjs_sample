@@ -11,47 +11,46 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestScalarWhereWithAggregatesInput {
-  @Field(() => [OrderRequestScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<OrderRequestScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderRequestScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<OrderRequestScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderRequestScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<OrderRequestScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderRequestScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<OrderRequestScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderRequestScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<OrderRequestScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  id?: IntWithAggregatesFilter;
+    @Field(() => [OrderRequestScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<OrderRequestScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  containerNo?: IntWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  orderRequestNo?: StringWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    containerNo?: IntWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  deliveryDate?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    orderRequestNo?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
-  poRequestDate?: DateTimeNullableWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    deliveryDate?: DateTimeWithAggregatesFilter;
 
-  @Field(() => EnumOrderRequest_deliveryPortWithAggregatesFilter, {
-    nullable: true,
-  })
-  deliveryPort?: EnumOrderRequest_deliveryPortWithAggregatesFilter;
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    poRequestDate?: DateTimeNullableWithAggregatesFilter;
 
-  @Field(() => EnumPoStatusWithAggregatesFilter, { nullable: true })
-  poStatus?: EnumPoStatusWithAggregatesFilter;
+    @Field(() => EnumOrderRequest_deliveryPortWithAggregatesFilter, {nullable:true})
+    deliveryPort?: EnumOrderRequest_deliveryPortWithAggregatesFilter;
 
-  @Field(() => BoolWithAggregatesFilter, { nullable: true })
-  discarded?: BoolWithAggregatesFilter;
+    @Field(() => EnumPoStatusWithAggregatesFilter, {nullable:true})
+    poStatus?: EnumPoStatusWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    discarded?: BoolWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  orderEntryId?: IntWithAggregatesFilter;
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
+
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    orderEntryId?: IntWithAggregatesFilter;
 }

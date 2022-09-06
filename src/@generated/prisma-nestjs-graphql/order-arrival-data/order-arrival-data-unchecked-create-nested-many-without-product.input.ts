@@ -1,25 +1,27 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { OrderArrivalDataCreateWithoutProductInput } from './order-arrival-data-create-without-product.input';
+import { Type } from 'class-transformer';
 import { OrderArrivalDataCreateOrConnectWithoutProductInput } from './order-arrival-data-create-or-connect-without-product.input';
 import { OrderArrivalDataCreateManyProductInputEnvelope } from './order-arrival-data-create-many-product-input-envelope.input';
 import { OrderArrivalDataWhereUniqueInput } from './order-arrival-data-where-unique.input';
 
 @InputType()
 export class OrderArrivalDataUncheckedCreateNestedManyWithoutProductInput {
-  @Field(() => [OrderArrivalDataCreateWithoutProductInput], { nullable: true })
-  create?: Array<OrderArrivalDataCreateWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataCreateOrConnectWithoutProductInput], {
-    nullable: true,
-  })
-  connectOrCreate?: Array<OrderArrivalDataCreateOrConnectWithoutProductInput>;
+    @Field(() => [OrderArrivalDataCreateWithoutProductInput], {nullable:true})
+    @Type(() => OrderArrivalDataCreateWithoutProductInput)
+    create?: Array<OrderArrivalDataCreateWithoutProductInput>;
 
-  @Field(() => OrderArrivalDataCreateManyProductInputEnvelope, {
-    nullable: true,
-  })
-  createMany?: OrderArrivalDataCreateManyProductInputEnvelope;
+    @Field(() => [OrderArrivalDataCreateOrConnectWithoutProductInput], {nullable:true})
+    @Type(() => OrderArrivalDataCreateOrConnectWithoutProductInput)
+    connectOrCreate?: Array<OrderArrivalDataCreateOrConnectWithoutProductInput>;
 
-  @Field(() => [OrderArrivalDataWhereUniqueInput], { nullable: true })
-  connect?: Array<OrderArrivalDataWhereUniqueInput>;
+    @Field(() => OrderArrivalDataCreateManyProductInputEnvelope, {nullable:true})
+    @Type(() => OrderArrivalDataCreateManyProductInputEnvelope)
+    createMany?: OrderArrivalDataCreateManyProductInputEnvelope;
+
+    @Field(() => [OrderArrivalDataWhereUniqueInput], {nullable:true})
+    @Type(() => OrderArrivalDataWhereUniqueInput)
+    connect?: Array<OrderArrivalDataWhereUniqueInput>;
 }

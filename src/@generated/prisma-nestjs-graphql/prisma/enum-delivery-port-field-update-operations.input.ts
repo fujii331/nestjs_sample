@@ -4,6 +4,7 @@ import { DeliveryPort } from './delivery-port.enum';
 
 @InputType()
 export class EnumDeliveryPortFieldUpdateOperationsInput {
-  @Field(() => DeliveryPort, { nullable: true })
-  set?: keyof typeof DeliveryPort;
+
+    @Field(() => DeliveryPort, {nullable:true})
+    set?: keyof typeof DeliveryPort;
 }

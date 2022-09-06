@@ -6,24 +6,25 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderArrivalDataMaxAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: true })
-  prodCd?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => Int, { nullable: true })
-  orderQuantity?: number;
+    @Field(() => String, {nullable:true})
+    prodCd?: string;
 
-  @Field(() => Date, { nullable: true })
-  deliveryDate?: Date | string;
+    @Field(() => Int, {nullable:true})
+    orderQuantity?: number;
 
-  @Field(() => DeliveryPort, { nullable: true })
-  deliveryPort?: keyof typeof DeliveryPort;
+    @Field(() => Date, {nullable:true})
+    deliveryDate?: Date | string;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => DeliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof DeliveryPort;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

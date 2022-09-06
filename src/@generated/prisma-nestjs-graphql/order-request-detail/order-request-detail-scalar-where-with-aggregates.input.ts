@@ -9,45 +9,40 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestDetailScalarWhereWithAggregatesInput {
-  @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  id?: IntWithAggregatesFilter;
+    @Field(() => [OrderRequestDetailScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<OrderRequestDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  prodCd?: StringWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  orderQuantity?: IntWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    prodCd?: StringWithAggregatesFilter;
 
-  @Field(() => FloatNullableWithAggregatesFilter, { nullable: true })
-  ssp?: FloatNullableWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    orderQuantity?: IntWithAggregatesFilter;
 
-  @Field(() => FloatNullableWithAggregatesFilter, { nullable: true })
-  cbm?: FloatNullableWithAggregatesFilter;
+    @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})
+    ssp?: FloatNullableWithAggregatesFilter;
 
-  @Field(() => BoolWithAggregatesFilter, { nullable: true })
-  wasOrderAlerted?: BoolWithAggregatesFilter;
+    @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})
+    cbm?: FloatNullableWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    wasOrderAlerted?: BoolWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  orderRequestId?: IntWithAggregatesFilter;
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
+
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    orderRequestId?: IntWithAggregatesFilter;
 }

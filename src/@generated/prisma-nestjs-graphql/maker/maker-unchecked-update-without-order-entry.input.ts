@@ -5,28 +5,29 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { ProductUncheckedUpdateManyWithoutMakerInput } from '../product/product-unchecked-update-many-without-maker.input';
+import { ProductUncheckedUpdateManyWithoutMakerNestedInput } from '../product/product-unchecked-update-many-without-maker-nested.input';
 
 @InputType()
 export class MakerUncheckedUpdateWithoutOrderEntryInput {
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerName?: StringFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerCd?: StringFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  leadtime?: IntFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerName?: StringFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  isValid?: BoolFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    leadtime?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isValid?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => ProductUncheckedUpdateManyWithoutMakerInput, { nullable: true })
-  product?: ProductUncheckedUpdateManyWithoutMakerInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => ProductUncheckedUpdateManyWithoutMakerNestedInput, {nullable:true})
+    product?: ProductUncheckedUpdateManyWithoutMakerNestedInput;
 }

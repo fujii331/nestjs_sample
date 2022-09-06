@@ -3,9 +3,10 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class OrderArrivalDataSumAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  orderQuantity?: true;
+    @Field(() => Boolean, {nullable:true})
+    id?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    orderQuantity?: true;
 }

@@ -11,48 +11,46 @@ import { OrderRequestCount } from './order-request-count.output';
 
 @ObjectType()
 export class OrderRequest {
-  @Field(() => ID, { nullable: false })
-  id!: number;
 
-  @Field(() => Int, { nullable: false })
-  containerNo!: number;
+    @Field(() => ID, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  orderRequestNo!: string;
+    @Field(() => Int, {nullable:false})
+    containerNo!: number;
 
-  @Field(() => Date, { nullable: false })
-  deliveryDate!: Date;
+    @Field(() => String, {nullable:false})
+    orderRequestNo!: string;
 
-  @Field(() => Date, { nullable: true })
-  poRequestDate!: Date | null;
+    @Field(() => Date, {nullable:false})
+    deliveryDate!: Date;
 
-  @Field(() => OrderRequest_deliveryPort, {
-    nullable: false,
-    defaultValue: 'OTHER',
-  })
-  deliveryPort!: keyof typeof OrderRequest_deliveryPort;
+    @Field(() => Date, {nullable:true})
+    poRequestDate!: Date | null;
 
-  @Field(() => PoStatus, { nullable: false, defaultValue: 'NOTISSUED' })
-  poStatus!: keyof typeof PoStatus;
+    @Field(() => OrderRequest_deliveryPort, {nullable:false,defaultValue:'OTHER'})
+    deliveryPort!: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => Boolean, { nullable: false, defaultValue: false })
-  discarded!: boolean;
+    @Field(() => PoStatus, {nullable:false,defaultValue:'NOTISSUED'})
+    poStatus!: keyof typeof PoStatus;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => Boolean, {nullable:false,defaultValue:false})
+    discarded!: boolean;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Int, { nullable: false })
-  orderEntryId!: number;
+    @HideField()
+    updatedAt!: Date;
 
-  @Field(() => OrderEntry, { nullable: false })
-  orderEntry?: OrderEntry;
+    @Field(() => Int, {nullable:false})
+    orderEntryId!: number;
 
-  @Field(() => [OrderRequestDetail], { nullable: true })
-  orderRequestDetail?: Array<OrderRequestDetail>;
+    @Field(() => OrderEntry, {nullable:false})
+    orderEntry?: OrderEntry;
 
-  @Field(() => OrderRequestCount, { nullable: false })
-  _count?: OrderRequestCount;
+    @Field(() => [OrderRequestDetail], {nullable:true})
+    orderRequestDetail?: Array<OrderRequestDetail>;
+
+    @Field(() => OrderRequestCount, {nullable:false})
+    _count?: OrderRequestCount;
 }

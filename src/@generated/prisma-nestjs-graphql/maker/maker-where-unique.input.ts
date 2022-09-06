@@ -4,7 +4,8 @@ import * as Validator from 'class-validator';
 
 @InputType()
 export class MakerWhereUniqueInput {
-  @Field(() => String, { nullable: true })
-  @Validator.IsNotEmpty()
-  makerCd?: string;
+
+    @Field(() => String, {nullable:true})
+    @Validator.IsNotEmpty()
+    makerCd?: string;
 }

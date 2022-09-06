@@ -6,31 +6,31 @@ import { Authority } from '../prisma/authority.enum';
 
 @ObjectType()
 export class User {
-  @Field(() => ID, { nullable: false })
-  id!: number;
 
-  /** @Validator.@IsEmail() */
-  @Field(() => String, {
-    nullable: false,
-    description: '@Validator.@IsEmail()',
-  })
-  email!: string;
+    @Field(() => ID, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  name!: string;
+    /**
+     * @Validator.@IsEmail()
+     */
+    @Field(() => String, {nullable:false,description:'@Validator.@IsEmail()'})
+    email!: string;
 
-  @HideField()
-  password!: string;
+    @Field(() => String, {nullable:false})
+    name!: string;
 
-  @HideField()
-  createdAt!: Date;
+    @HideField()
+    password!: string;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Authority, { nullable: false, defaultValue: 'THIRD' })
-  authority!: keyof typeof Authority;
+    @HideField()
+    updatedAt!: Date;
 
-  @HideField()
-  hashedRefreshToken!: string | null;
+    @Field(() => Authority, {nullable:false,defaultValue:'THIRD'})
+    authority!: keyof typeof Authority;
+
+    @HideField()
+    hashedRefreshToken!: string | null;
 }

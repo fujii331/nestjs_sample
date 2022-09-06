@@ -7,27 +7,28 @@ import { OrderEntryCreateNestedManyWithoutMakerInput } from '../order-entry/orde
 
 @InputType()
 export class MakerCreateWithoutProductInput {
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  makerCd!: string;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  makerName!: string;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    makerCd!: string;
 
-  @Field(() => Int, { nullable: false })
-  leadtime!: number;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    makerName!: string;
 
-  @Field(() => Boolean, { nullable: true })
-  @Validator.IsNotEmpty()
-  isValid?: boolean;
+    @Field(() => Int, {nullable:false})
+    leadtime!: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    isValid?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderEntryCreateNestedManyWithoutMakerInput, { nullable: true })
-  orderEntry?: OrderEntryCreateNestedManyWithoutMakerInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => OrderEntryCreateNestedManyWithoutMakerInput, {nullable:true})
+    orderEntry?: OrderEntryCreateNestedManyWithoutMakerInput;
 }

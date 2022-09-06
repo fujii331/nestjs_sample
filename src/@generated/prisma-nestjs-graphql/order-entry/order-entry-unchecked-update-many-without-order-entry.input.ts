@@ -6,12 +6,13 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryUncheckedUpdateManyWithoutOrderEntryInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

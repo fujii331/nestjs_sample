@@ -5,15 +5,16 @@ import { NestedEnumDeliveryPortFilter } from './nested-enum-delivery-port-filter
 
 @InputType()
 export class EnumDeliveryPortFilter {
-  @Field(() => DeliveryPort, { nullable: true })
-  equals?: keyof typeof DeliveryPort;
 
-  @Field(() => [DeliveryPort], { nullable: true })
-  in?: Array<keyof typeof DeliveryPort>;
+    @Field(() => DeliveryPort, {nullable:true})
+    equals?: keyof typeof DeliveryPort;
 
-  @Field(() => [DeliveryPort], { nullable: true })
-  notIn?: Array<keyof typeof DeliveryPort>;
+    @Field(() => [DeliveryPort], {nullable:true})
+    in?: Array<keyof typeof DeliveryPort>;
 
-  @Field(() => NestedEnumDeliveryPortFilter, { nullable: true })
-  not?: NestedEnumDeliveryPortFilter;
+    @Field(() => [DeliveryPort], {nullable:true})
+    notIn?: Array<keyof typeof DeliveryPort>;
+
+    @Field(() => NestedEnumDeliveryPortFilter, {nullable:true})
+    not?: NestedEnumDeliveryPortFilter;
 }

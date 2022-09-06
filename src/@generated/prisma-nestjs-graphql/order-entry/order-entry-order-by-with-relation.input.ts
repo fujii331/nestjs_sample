@@ -7,21 +7,22 @@ import { OrderRequestOrderByRelationAggregateInput } from '../order-request/orde
 
 @InputType()
 export class OrderEntryOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  makerCd?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerCd?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => MakerOrderByWithRelationInput, { nullable: true })
-  maker?: MakerOrderByWithRelationInput;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestOrderByRelationAggregateInput, { nullable: true })
-  orderRequest?: OrderRequestOrderByRelationAggregateInput;
+    @Field(() => MakerOrderByWithRelationInput, {nullable:true})
+    maker?: MakerOrderByWithRelationInput;
+
+    @Field(() => OrderRequestOrderByRelationAggregateInput, {nullable:true})
+    orderRequest?: OrderRequestOrderByRelationAggregateInput;
 }

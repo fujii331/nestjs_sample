@@ -5,36 +5,37 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestMaxOrderByAggregateInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  containerNo?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderRequestNo?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    containerNo?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  deliveryDate?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    orderRequestNo?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  poRequestDate?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    deliveryDate?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  deliveryPort?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    poRequestDate?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  poStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    deliveryPort?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  discarded?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    poStatus?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    discarded?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderEntryId?: keyof typeof SortOrder;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    orderEntryId?: keyof typeof SortOrder;
 }

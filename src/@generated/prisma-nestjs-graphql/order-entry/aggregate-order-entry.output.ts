@@ -8,18 +8,19 @@ import { OrderEntryMaxAggregate } from './order-entry-max-aggregate.output';
 
 @ObjectType()
 export class AggregateOrderEntry {
-  @Field(() => OrderEntryCountAggregate, { nullable: true })
-  _count?: OrderEntryCountAggregate;
 
-  @Field(() => OrderEntryAvgAggregate, { nullable: true })
-  _avg?: OrderEntryAvgAggregate;
+    @Field(() => OrderEntryCountAggregate, {nullable:true})
+    _count?: OrderEntryCountAggregate;
 
-  @Field(() => OrderEntrySumAggregate, { nullable: true })
-  _sum?: OrderEntrySumAggregate;
+    @Field(() => OrderEntryAvgAggregate, {nullable:true})
+    _avg?: OrderEntryAvgAggregate;
 
-  @Field(() => OrderEntryMinAggregate, { nullable: true })
-  _min?: OrderEntryMinAggregate;
+    @Field(() => OrderEntrySumAggregate, {nullable:true})
+    _sum?: OrderEntrySumAggregate;
 
-  @Field(() => OrderEntryMaxAggregate, { nullable: true })
-  _max?: OrderEntryMaxAggregate;
+    @Field(() => OrderEntryMinAggregate, {nullable:true})
+    _min?: OrderEntryMinAggregate;
+
+    @Field(() => OrderEntryMaxAggregate, {nullable:true})
+    _max?: OrderEntryMaxAggregate;
 }

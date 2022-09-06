@@ -10,45 +10,42 @@ import { OrderRequestDetailCreateNestedManyWithoutOrderRequestInput } from '../o
 
 @InputType()
 export class OrderRequestCreateInput {
-  @Field(() => Int, { nullable: false })
-  @Validator.IsNotEmpty()
-  containerNo!: number;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  orderRequestNo!: string;
+    @Field(() => Int, {nullable:false})
+    @Validator.IsNotEmpty()
+    containerNo!: number;
 
-  @Field(() => Date, { nullable: false })
-  @Validator.IsNotEmpty()
-  deliveryDate!: Date | string;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    orderRequestNo!: string;
 
-  @Field(() => Date, { nullable: true })
-  @Validator.IsNotEmpty()
-  poRequestDate?: Date | string;
+    @Field(() => Date, {nullable:false})
+    @Validator.IsNotEmpty()
+    deliveryDate!: Date | string;
 
-  @Field(() => OrderRequest_deliveryPort, { nullable: true })
-  deliveryPort?: keyof typeof OrderRequest_deliveryPort;
+    @Field(() => Date, {nullable:true})
+    @Validator.IsNotEmpty()
+    poRequestDate?: Date | string;
 
-  @Field(() => PoStatus, { nullable: true })
-  poStatus?: keyof typeof PoStatus;
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => Boolean, { nullable: true })
-  @Validator.IsNotEmpty()
-  discarded?: boolean;
+    @Field(() => PoStatus, {nullable:true})
+    poStatus?: keyof typeof PoStatus;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    discarded?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderEntryCreateNestedOneWithoutOrderRequestInput, {
-    nullable: false,
-  })
-  orderEntry!: OrderEntryCreateNestedOneWithoutOrderRequestInput;
+    @HideField()
+    updatedAt?: Date | string;
 
-  @Field(() => OrderRequestDetailCreateNestedManyWithoutOrderRequestInput, {
-    nullable: true,
-  })
-  orderRequestDetail?: OrderRequestDetailCreateNestedManyWithoutOrderRequestInput;
+    @Field(() => OrderEntryCreateNestedOneWithoutOrderRequestInput, {nullable:false})
+    orderEntry!: OrderEntryCreateNestedOneWithoutOrderRequestInput;
+
+    @Field(() => OrderRequestDetailCreateNestedManyWithoutOrderRequestInput, {nullable:true})
+    orderRequestDetail?: OrderRequestDetailCreateNestedManyWithoutOrderRequestInput;
 }

@@ -11,45 +11,46 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestScalarWhereInput {
-  @Field(() => [OrderRequestScalarWhereInput], { nullable: true })
-  AND?: Array<OrderRequestScalarWhereInput>;
 
-  @Field(() => [OrderRequestScalarWhereInput], { nullable: true })
-  OR?: Array<OrderRequestScalarWhereInput>;
+    @Field(() => [OrderRequestScalarWhereInput], {nullable:true})
+    AND?: Array<OrderRequestScalarWhereInput>;
 
-  @Field(() => [OrderRequestScalarWhereInput], { nullable: true })
-  NOT?: Array<OrderRequestScalarWhereInput>;
+    @Field(() => [OrderRequestScalarWhereInput], {nullable:true})
+    OR?: Array<OrderRequestScalarWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderRequestScalarWhereInput], {nullable:true})
+    NOT?: Array<OrderRequestScalarWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  containerNo?: IntFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  orderRequestNo?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    containerNo?: IntFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  deliveryDate?: DateTimeFilter;
+    @Field(() => StringFilter, {nullable:true})
+    orderRequestNo?: StringFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  poRequestDate?: DateTimeNullableFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    deliveryDate?: DateTimeFilter;
 
-  @Field(() => EnumOrderRequest_deliveryPortFilter, { nullable: true })
-  deliveryPort?: EnumOrderRequest_deliveryPortFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    poRequestDate?: DateTimeNullableFilter;
 
-  @Field(() => EnumPoStatusFilter, { nullable: true })
-  poStatus?: EnumPoStatusFilter;
+    @Field(() => EnumOrderRequest_deliveryPortFilter, {nullable:true})
+    deliveryPort?: EnumOrderRequest_deliveryPortFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  discarded?: BoolFilter;
+    @Field(() => EnumPoStatusFilter, {nullable:true})
+    poStatus?: EnumPoStatusFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    discarded?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderEntryId?: IntFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
+
+    @Field(() => IntFilter, {nullable:true})
+    orderEntryId?: IntFilter;
 }

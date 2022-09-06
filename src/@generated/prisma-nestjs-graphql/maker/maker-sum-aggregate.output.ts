@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class MakerSumAggregate {
-  @Field(() => Int, { nullable: true })
-  leadtime?: number;
+
+    @Field(() => Int, {nullable:true})
+    leadtime?: number;
 }

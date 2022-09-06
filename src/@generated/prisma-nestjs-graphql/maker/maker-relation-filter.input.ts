@@ -4,9 +4,10 @@ import { MakerWhereInput } from './maker-where.input';
 
 @InputType()
 export class MakerRelationFilter {
-  @Field(() => MakerWhereInput, { nullable: true })
-  is?: MakerWhereInput;
 
-  @Field(() => MakerWhereInput, { nullable: true })
-  isNot?: MakerWhereInput;
+    @Field(() => MakerWhereInput, {nullable:true})
+    is?: MakerWhereInput;
+
+    @Field(() => MakerWhereInput, {nullable:true})
+    isNot?: MakerWhereInput;
 }

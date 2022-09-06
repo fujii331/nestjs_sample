@@ -9,39 +9,40 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestDetailScalarWhereInput {
-  @Field(() => [OrderRequestDetailScalarWhereInput], { nullable: true })
-  AND?: Array<OrderRequestDetailScalarWhereInput>;
 
-  @Field(() => [OrderRequestDetailScalarWhereInput], { nullable: true })
-  OR?: Array<OrderRequestDetailScalarWhereInput>;
+    @Field(() => [OrderRequestDetailScalarWhereInput], {nullable:true})
+    AND?: Array<OrderRequestDetailScalarWhereInput>;
 
-  @Field(() => [OrderRequestDetailScalarWhereInput], { nullable: true })
-  NOT?: Array<OrderRequestDetailScalarWhereInput>;
+    @Field(() => [OrderRequestDetailScalarWhereInput], {nullable:true})
+    OR?: Array<OrderRequestDetailScalarWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderRequestDetailScalarWhereInput], {nullable:true})
+    NOT?: Array<OrderRequestDetailScalarWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderQuantity?: IntFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  ssp?: FloatNullableFilter;
+    @Field(() => IntFilter, {nullable:true})
+    orderQuantity?: IntFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  cbm?: FloatNullableFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    ssp?: FloatNullableFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  wasOrderAlerted?: BoolFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    cbm?: FloatNullableFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    wasOrderAlerted?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderRequestId?: IntFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
+
+    @Field(() => IntFilter, {nullable:true})
+    orderRequestId?: IntFilter;
 }

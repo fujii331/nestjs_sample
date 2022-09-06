@@ -4,24 +4,23 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { OrderRequestUncheckedUpdateManyWithoutOrderEntryInput } from '../order-request/order-request-unchecked-update-many-without-order-entry.input';
+import { OrderRequestUncheckedUpdateManyWithoutOrderEntryNestedInput } from '../order-request/order-request-unchecked-update-many-without-order-entry-nested.input';
 
 @InputType()
 export class OrderEntryUncheckedUpdateInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  makerCd?: StringFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    makerCd?: StringFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => OrderRequestUncheckedUpdateManyWithoutOrderEntryInput, {
-    nullable: true,
-  })
-  orderRequest?: OrderRequestUncheckedUpdateManyWithoutOrderEntryInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => OrderRequestUncheckedUpdateManyWithoutOrderEntryNestedInput, {nullable:true})
+    orderRequest?: OrderRequestUncheckedUpdateManyWithoutOrderEntryNestedInput;
 }

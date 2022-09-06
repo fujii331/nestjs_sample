@@ -4,6 +4,7 @@ import { Float } from '@nestjs/graphql';
 
 @ObjectType()
 export class MakerAvgAggregate {
-  @Field(() => Float, { nullable: true })
-  leadtime?: number;
+
+    @Field(() => Float, {nullable:true})
+    leadtime?: number;
 }

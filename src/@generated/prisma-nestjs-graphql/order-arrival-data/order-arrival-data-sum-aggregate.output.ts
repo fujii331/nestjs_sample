@@ -4,9 +4,10 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderArrivalDataSumAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => Int, { nullable: true })
-  orderQuantity?: number;
+    @Field(() => Int, {nullable:true})
+    id?: number;
+
+    @Field(() => Int, {nullable:true})
+    orderQuantity?: number;
 }

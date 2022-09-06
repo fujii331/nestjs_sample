@@ -7,30 +7,31 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class ProductCreateManyMakerInput {
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  prodCd!: string;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  prodName!: string;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    prodCd!: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp180Days?: number;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    prodName!: string;
 
-  @Field(() => Float, { nullable: true })
-  carton3SideSize?: number;
+    @Field(() => Float, {nullable:true})
+    ssp180Days?: number;
 
-  @Field(() => Int, { nullable: false })
-  minOrderQuantity!: number;
+    @Field(() => Float, {nullable:true})
+    carton3SideSize?: number;
 
-  @Field(() => Boolean, { nullable: true })
-  @Validator.IsNotEmpty()
-  isValid?: boolean;
+    @Field(() => Int, {nullable:false})
+    minOrderQuantity!: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    isValid?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

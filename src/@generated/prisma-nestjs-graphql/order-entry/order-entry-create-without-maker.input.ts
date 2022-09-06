@@ -5,14 +5,13 @@ import { OrderRequestCreateNestedManyWithoutOrderEntryInput } from '../order-req
 
 @InputType()
 export class OrderEntryCreateWithoutMakerInput {
-  @HideField()
-  createdAt?: Date | string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderRequestCreateNestedManyWithoutOrderEntryInput, {
-    nullable: true,
-  })
-  orderRequest?: OrderRequestCreateNestedManyWithoutOrderEntryInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => OrderRequestCreateNestedManyWithoutOrderEntryInput, {nullable:true})
+    orderRequest?: OrderRequestCreateNestedManyWithoutOrderEntryInput;
 }

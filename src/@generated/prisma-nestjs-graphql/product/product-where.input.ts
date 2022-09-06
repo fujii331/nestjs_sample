@@ -12,48 +12,49 @@ import { OrderRequestDetailListRelationFilter } from '../order-request-detail/or
 
 @InputType()
 export class ProductWhereInput {
-  @Field(() => [ProductWhereInput], { nullable: true })
-  AND?: Array<ProductWhereInput>;
 
-  @Field(() => [ProductWhereInput], { nullable: true })
-  OR?: Array<ProductWhereInput>;
+    @Field(() => [ProductWhereInput], {nullable:true})
+    AND?: Array<ProductWhereInput>;
 
-  @Field(() => [ProductWhereInput], { nullable: true })
-  NOT?: Array<ProductWhereInput>;
+    @Field(() => [ProductWhereInput], {nullable:true})
+    OR?: Array<ProductWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => [ProductWhereInput], {nullable:true})
+    NOT?: Array<ProductWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerCd?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodName?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerCd?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  ssp180Days?: FloatNullableFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodName?: StringFilter;
 
-  @Field(() => FloatNullableFilter, { nullable: true })
-  carton3SideSize?: FloatNullableFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    ssp180Days?: FloatNullableFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  minOrderQuantity?: IntFilter;
+    @Field(() => FloatNullableFilter, {nullable:true})
+    carton3SideSize?: FloatNullableFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  isValid?: BoolFilter;
+    @Field(() => IntFilter, {nullable:true})
+    minOrderQuantity?: IntFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    isValid?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => MakerRelationFilter, { nullable: true })
-  maker?: MakerRelationFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => OrderArrivalDataListRelationFilter, { nullable: true })
-  orderArrivalData?: OrderArrivalDataListRelationFilter;
+    @Field(() => MakerRelationFilter, {nullable:true})
+    maker?: MakerRelationFilter;
 
-  @Field(() => OrderRequestDetailListRelationFilter, { nullable: true })
-  orderRequestDetail?: OrderRequestDetailListRelationFilter;
+    @Field(() => OrderArrivalDataListRelationFilter, {nullable:true})
+    orderArrivalData?: OrderArrivalDataListRelationFilter;
+
+    @Field(() => OrderRequestDetailListRelationFilter, {nullable:true})
+    orderRequestDetail?: OrderRequestDetailListRelationFilter;
 }

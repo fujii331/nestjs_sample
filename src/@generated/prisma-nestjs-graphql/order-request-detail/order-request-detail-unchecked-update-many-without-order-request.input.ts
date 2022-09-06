@@ -11,51 +11,37 @@ import { OrderRequestDetailScalarWhereInput } from './order-request-detail-scala
 
 @InputType()
 export class OrderRequestDetailUncheckedUpdateManyWithoutOrderRequestInput {
-  @Field(() => [OrderRequestDetailCreateWithoutOrderRequestInput], {
-    nullable: true,
-  })
-  create?: Array<OrderRequestDetailCreateWithoutOrderRequestInput>;
 
-  @Field(() => [OrderRequestDetailCreateOrConnectWithoutOrderRequestInput], {
-    nullable: true,
-  })
-  connectOrCreate?: Array<OrderRequestDetailCreateOrConnectWithoutOrderRequestInput>;
+    @Field(() => [OrderRequestDetailCreateWithoutOrderRequestInput], {nullable:true})
+    create?: Array<OrderRequestDetailCreateWithoutOrderRequestInput>;
 
-  @Field(
-    () => [OrderRequestDetailUpsertWithWhereUniqueWithoutOrderRequestInput],
-    { nullable: true },
-  )
-  upsert?: Array<OrderRequestDetailUpsertWithWhereUniqueWithoutOrderRequestInput>;
+    @Field(() => [OrderRequestDetailCreateOrConnectWithoutOrderRequestInput], {nullable:true})
+    connectOrCreate?: Array<OrderRequestDetailCreateOrConnectWithoutOrderRequestInput>;
 
-  @Field(() => OrderRequestDetailCreateManyOrderRequestInputEnvelope, {
-    nullable: true,
-  })
-  createMany?: OrderRequestDetailCreateManyOrderRequestInputEnvelope;
+    @Field(() => [OrderRequestDetailUpsertWithWhereUniqueWithoutOrderRequestInput], {nullable:true})
+    upsert?: Array<OrderRequestDetailUpsertWithWhereUniqueWithoutOrderRequestInput>;
 
-  @Field(() => [OrderRequestDetailWhereUniqueInput], { nullable: true })
-  set?: Array<OrderRequestDetailWhereUniqueInput>;
+    @Field(() => OrderRequestDetailCreateManyOrderRequestInputEnvelope, {nullable:true})
+    createMany?: OrderRequestDetailCreateManyOrderRequestInputEnvelope;
 
-  @Field(() => [OrderRequestDetailWhereUniqueInput], { nullable: true })
-  disconnect?: Array<OrderRequestDetailWhereUniqueInput>;
+    @Field(() => [OrderRequestDetailWhereUniqueInput], {nullable:true})
+    set?: Array<OrderRequestDetailWhereUniqueInput>;
 
-  @Field(() => [OrderRequestDetailWhereUniqueInput], { nullable: true })
-  delete?: Array<OrderRequestDetailWhereUniqueInput>;
+    @Field(() => [OrderRequestDetailWhereUniqueInput], {nullable:true})
+    disconnect?: Array<OrderRequestDetailWhereUniqueInput>;
 
-  @Field(() => [OrderRequestDetailWhereUniqueInput], { nullable: true })
-  connect?: Array<OrderRequestDetailWhereUniqueInput>;
+    @Field(() => [OrderRequestDetailWhereUniqueInput], {nullable:true})
+    delete?: Array<OrderRequestDetailWhereUniqueInput>;
 
-  @Field(
-    () => [OrderRequestDetailUpdateWithWhereUniqueWithoutOrderRequestInput],
-    { nullable: true },
-  )
-  update?: Array<OrderRequestDetailUpdateWithWhereUniqueWithoutOrderRequestInput>;
+    @Field(() => [OrderRequestDetailWhereUniqueInput], {nullable:true})
+    connect?: Array<OrderRequestDetailWhereUniqueInput>;
 
-  @Field(
-    () => [OrderRequestDetailUpdateManyWithWhereWithoutOrderRequestInput],
-    { nullable: true },
-  )
-  updateMany?: Array<OrderRequestDetailUpdateManyWithWhereWithoutOrderRequestInput>;
+    @Field(() => [OrderRequestDetailUpdateWithWhereUniqueWithoutOrderRequestInput], {nullable:true})
+    update?: Array<OrderRequestDetailUpdateWithWhereUniqueWithoutOrderRequestInput>;
 
-  @Field(() => [OrderRequestDetailScalarWhereInput], { nullable: true })
-  deleteMany?: Array<OrderRequestDetailScalarWhereInput>;
+    @Field(() => [OrderRequestDetailUpdateManyWithWhereWithoutOrderRequestInput], {nullable:true})
+    updateMany?: Array<OrderRequestDetailUpdateManyWithWhereWithoutOrderRequestInput>;
+
+    @Field(() => [OrderRequestDetailScalarWhereInput], {nullable:true})
+    deleteMany?: Array<OrderRequestDetailScalarWhereInput>;
 }

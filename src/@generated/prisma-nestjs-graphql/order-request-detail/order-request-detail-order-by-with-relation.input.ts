@@ -7,36 +7,37 @@ import { ProductOrderByWithRelationInput } from '../product/product-order-by-wit
 
 @InputType()
 export class OrderRequestDetailOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  prodCd?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderQuantity?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    prodCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  ssp?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    orderQuantity?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  cbm?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    ssp?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  wasOrderAlerted?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    cbm?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    wasOrderAlerted?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderRequestId?: keyof typeof SortOrder;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderRequestOrderByWithRelationInput, { nullable: true })
-  orderRequest?: OrderRequestOrderByWithRelationInput;
+    @Field(() => SortOrder, {nullable:true})
+    orderRequestId?: keyof typeof SortOrder;
 
-  @Field(() => ProductOrderByWithRelationInput, { nullable: true })
-  product?: ProductOrderByWithRelationInput;
+    @Field(() => OrderRequestOrderByWithRelationInput, {nullable:true})
+    orderRequest?: OrderRequestOrderByWithRelationInput;
+
+    @Field(() => ProductOrderByWithRelationInput, {nullable:true})
+    product?: ProductOrderByWithRelationInput;
 }

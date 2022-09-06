@@ -9,39 +9,40 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class ProductScalarWhereWithAggregatesInput {
-  @Field(() => [ProductScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<ProductScalarWhereWithAggregatesInput>;
 
-  @Field(() => [ProductScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<ProductScalarWhereWithAggregatesInput>;
+    @Field(() => [ProductScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<ProductScalarWhereWithAggregatesInput>;
 
-  @Field(() => [ProductScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<ProductScalarWhereWithAggregatesInput>;
+    @Field(() => [ProductScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<ProductScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  prodCd?: StringWithAggregatesFilter;
+    @Field(() => [ProductScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<ProductScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  makerCd?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    prodCd?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  prodName?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    makerCd?: StringWithAggregatesFilter;
 
-  @Field(() => FloatNullableWithAggregatesFilter, { nullable: true })
-  ssp180Days?: FloatNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    prodName?: StringWithAggregatesFilter;
 
-  @Field(() => FloatNullableWithAggregatesFilter, { nullable: true })
-  carton3SideSize?: FloatNullableWithAggregatesFilter;
+    @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})
+    ssp180Days?: FloatNullableWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  minOrderQuantity?: IntWithAggregatesFilter;
+    @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})
+    carton3SideSize?: FloatNullableWithAggregatesFilter;
 
-  @Field(() => BoolWithAggregatesFilter, { nullable: true })
-  isValid?: BoolWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    minOrderQuantity?: IntWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    isValid?: BoolWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
+
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
 }

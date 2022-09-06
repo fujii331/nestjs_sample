@@ -8,20 +8,19 @@ import { ProductUpdateWithoutOrderRequestDetailInput } from './product-update-wi
 
 @InputType()
 export class ProductUpdateOneRequiredWithoutOrderRequestDetailInput {
-  @Field(() => ProductCreateWithoutOrderRequestDetailInput, { nullable: true })
-  create?: ProductCreateWithoutOrderRequestDetailInput;
 
-  @Field(() => ProductCreateOrConnectWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  connectOrCreate?: ProductCreateOrConnectWithoutOrderRequestDetailInput;
+    @Field(() => ProductCreateWithoutOrderRequestDetailInput, {nullable:true})
+    create?: ProductCreateWithoutOrderRequestDetailInput;
 
-  @Field(() => ProductUpsertWithoutOrderRequestDetailInput, { nullable: true })
-  upsert?: ProductUpsertWithoutOrderRequestDetailInput;
+    @Field(() => ProductCreateOrConnectWithoutOrderRequestDetailInput, {nullable:true})
+    connectOrCreate?: ProductCreateOrConnectWithoutOrderRequestDetailInput;
 
-  @Field(() => ProductWhereUniqueInput, { nullable: true })
-  connect?: ProductWhereUniqueInput;
+    @Field(() => ProductUpsertWithoutOrderRequestDetailInput, {nullable:true})
+    upsert?: ProductUpsertWithoutOrderRequestDetailInput;
 
-  @Field(() => ProductUpdateWithoutOrderRequestDetailInput, { nullable: true })
-  update?: ProductUpdateWithoutOrderRequestDetailInput;
+    @Field(() => ProductWhereUniqueInput, {nullable:true})
+    connect?: ProductWhereUniqueInput;
+
+    @Field(() => ProductUpdateWithoutOrderRequestDetailInput, {nullable:true})
+    update?: ProductUpdateWithoutOrderRequestDetailInput;
 }

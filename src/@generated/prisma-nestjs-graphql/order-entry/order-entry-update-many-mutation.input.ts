@@ -5,9 +5,10 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryUpdateManyMutationInput {
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

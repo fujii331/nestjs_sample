@@ -5,24 +5,25 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class MakerCountAggregate {
-  @Field(() => Int, { nullable: false })
-  makerCd!: number;
 
-  @Field(() => Int, { nullable: false })
-  makerName!: number;
+    @Field(() => Int, {nullable:false})
+    makerCd!: number;
 
-  @Field(() => Int, { nullable: false })
-  leadtime!: number;
+    @Field(() => Int, {nullable:false})
+    makerName!: number;
 
-  @Field(() => Int, { nullable: false })
-  isValid!: number;
+    @Field(() => Int, {nullable:false})
+    leadtime!: number;
 
-  @HideField()
-  createdAt!: number;
+    @Field(() => Int, {nullable:false})
+    isValid!: number;
 
-  @HideField()
-  updatedAt!: number;
+    @HideField()
+    createdAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  _all!: number;
+    @HideField()
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    _all!: number;
 }

@@ -7,24 +7,25 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryScalarWhereWithAggregatesInput {
-  @Field(() => [OrderEntryScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<OrderEntryScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderEntryScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<OrderEntryScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderEntryScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<OrderEntryScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderEntryScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<OrderEntryScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderEntryScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<OrderEntryScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  id?: IntWithAggregatesFilter;
+    @Field(() => [OrderEntryScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<OrderEntryScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  makerCd?: StringWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    makerCd?: StringWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
+
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
 }

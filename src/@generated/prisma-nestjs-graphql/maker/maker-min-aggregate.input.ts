@@ -4,21 +4,22 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class MakerMinAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  makerCd?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  makerName?: true;
+    @Field(() => Boolean, {nullable:true})
+    makerCd?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  leadtime?: true;
+    @Field(() => Boolean, {nullable:true})
+    makerName?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  isValid?: true;
+    @Field(() => Boolean, {nullable:true})
+    leadtime?: true;
 
-  @HideField()
-  createdAt?: true;
+    @Field(() => Boolean, {nullable:true})
+    isValid?: true;
 
-  @HideField()
-  updatedAt?: true;
+    @HideField()
+    createdAt?: true;
+
+    @HideField()
+    updatedAt?: true;
 }

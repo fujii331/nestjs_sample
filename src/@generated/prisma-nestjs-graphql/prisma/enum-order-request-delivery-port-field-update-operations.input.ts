@@ -4,6 +4,7 @@ import { OrderRequest_deliveryPort } from '../order-request/order-request-delive
 
 @InputType()
 export class EnumOrderRequest_deliveryPortFieldUpdateOperationsInput {
-  @Field(() => OrderRequest_deliveryPort, { nullable: true })
-  set?: keyof typeof OrderRequest_deliveryPort;
+
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    set?: keyof typeof OrderRequest_deliveryPort;
 }

@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestDetailWhereUniqueInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
+
+    @Field(() => Int, {nullable:true})
+    id?: number;
 }

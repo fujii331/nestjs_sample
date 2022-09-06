@@ -9,33 +9,34 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderArrivalDataScalarWhereInput {
-  @Field(() => [OrderArrivalDataScalarWhereInput], { nullable: true })
-  AND?: Array<OrderArrivalDataScalarWhereInput>;
 
-  @Field(() => [OrderArrivalDataScalarWhereInput], { nullable: true })
-  OR?: Array<OrderArrivalDataScalarWhereInput>;
+    @Field(() => [OrderArrivalDataScalarWhereInput], {nullable:true})
+    AND?: Array<OrderArrivalDataScalarWhereInput>;
 
-  @Field(() => [OrderArrivalDataScalarWhereInput], { nullable: true })
-  NOT?: Array<OrderArrivalDataScalarWhereInput>;
+    @Field(() => [OrderArrivalDataScalarWhereInput], {nullable:true})
+    OR?: Array<OrderArrivalDataScalarWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderArrivalDataScalarWhereInput], {nullable:true})
+    NOT?: Array<OrderArrivalDataScalarWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderQuantity?: IntFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  deliveryDate?: DateTimeNullableFilter;
+    @Field(() => IntFilter, {nullable:true})
+    orderQuantity?: IntFilter;
 
-  @Field(() => EnumDeliveryPortFilter, { nullable: true })
-  deliveryPort?: EnumDeliveryPortFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    deliveryDate?: DateTimeNullableFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => EnumDeliveryPortFilter, {nullable:true})
+    deliveryPort?: EnumDeliveryPortFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
+
+    @HideField()
+    updatedAt?: DateTimeFilter;
 }

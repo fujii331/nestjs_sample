@@ -8,24 +8,25 @@ import { OrderEntryCount } from './order-entry-count.output';
 
 @ObjectType()
 export class OrderEntry {
-  @Field(() => ID, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  makerCd!: string;
+    @Field(() => ID, {nullable:false})
+    id!: number;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => String, {nullable:false})
+    makerCd!: string;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Maker, { nullable: false })
-  maker?: Maker;
+    @HideField()
+    updatedAt!: Date;
 
-  @Field(() => [OrderRequest], { nullable: true })
-  orderRequest?: Array<OrderRequest>;
+    @Field(() => Maker, {nullable:false})
+    maker?: Maker;
 
-  @Field(() => OrderEntryCount, { nullable: false })
-  _count?: OrderEntryCount;
+    @Field(() => [OrderRequest], {nullable:true})
+    orderRequest?: Array<OrderRequest>;
+
+    @Field(() => OrderEntryCount, {nullable:false})
+    _count?: OrderEntryCount;
 }

@@ -10,36 +10,37 @@ import { ProductListRelationFilter } from '../product/product-list-relation-filt
 
 @InputType()
 export class MakerWhereInput {
-  @Field(() => [MakerWhereInput], { nullable: true })
-  AND?: Array<MakerWhereInput>;
 
-  @Field(() => [MakerWhereInput], { nullable: true })
-  OR?: Array<MakerWhereInput>;
+    @Field(() => [MakerWhereInput], {nullable:true})
+    AND?: Array<MakerWhereInput>;
 
-  @Field(() => [MakerWhereInput], { nullable: true })
-  NOT?: Array<MakerWhereInput>;
+    @Field(() => [MakerWhereInput], {nullable:true})
+    OR?: Array<MakerWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerCd?: StringFilter;
+    @Field(() => [MakerWhereInput], {nullable:true})
+    NOT?: Array<MakerWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerName?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerCd?: StringFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  leadtime?: IntFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerName?: StringFilter;
 
-  @Field(() => BoolFilter, { nullable: true })
-  isValid?: BoolFilter;
+    @Field(() => IntFilter, {nullable:true})
+    leadtime?: IntFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => BoolFilter, {nullable:true})
+    isValid?: BoolFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => OrderEntryListRelationFilter, { nullable: true })
-  orderEntry?: OrderEntryListRelationFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => ProductListRelationFilter, { nullable: true })
-  product?: ProductListRelationFilter;
+    @Field(() => OrderEntryListRelationFilter, {nullable:true})
+    orderEntry?: OrderEntryListRelationFilter;
+
+    @Field(() => ProductListRelationFilter, {nullable:true})
+    product?: ProductListRelationFilter;
 }

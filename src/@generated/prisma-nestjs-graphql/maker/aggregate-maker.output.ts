@@ -8,18 +8,19 @@ import { MakerMaxAggregate } from './maker-max-aggregate.output';
 
 @ObjectType()
 export class AggregateMaker {
-  @Field(() => MakerCountAggregate, { nullable: true })
-  _count?: MakerCountAggregate;
 
-  @Field(() => MakerAvgAggregate, { nullable: true })
-  _avg?: MakerAvgAggregate;
+    @Field(() => MakerCountAggregate, {nullable:true})
+    _count?: MakerCountAggregate;
 
-  @Field(() => MakerSumAggregate, { nullable: true })
-  _sum?: MakerSumAggregate;
+    @Field(() => MakerAvgAggregate, {nullable:true})
+    _avg?: MakerAvgAggregate;
 
-  @Field(() => MakerMinAggregate, { nullable: true })
-  _min?: MakerMinAggregate;
+    @Field(() => MakerSumAggregate, {nullable:true})
+    _sum?: MakerSumAggregate;
 
-  @Field(() => MakerMaxAggregate, { nullable: true })
-  _max?: MakerMaxAggregate;
+    @Field(() => MakerMinAggregate, {nullable:true})
+    _min?: MakerMinAggregate;
+
+    @Field(() => MakerMaxAggregate, {nullable:true})
+    _max?: MakerMaxAggregate;
 }

@@ -8,27 +8,28 @@ import { Product } from '../product/product.model';
 
 @ObjectType()
 export class OrderArrivalData {
-  @Field(() => ID, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  prodCd!: string;
+    @Field(() => ID, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderQuantity!: number;
+    @Field(() => String, {nullable:false})
+    prodCd!: string;
 
-  @Field(() => Date, { nullable: true })
-  deliveryDate!: Date | null;
+    @Field(() => Int, {nullable:false})
+    orderQuantity!: number;
 
-  @Field(() => DeliveryPort, { nullable: false, defaultValue: 'OTHER' })
-  deliveryPort!: keyof typeof DeliveryPort;
+    @Field(() => Date, {nullable:true})
+    deliveryDate!: Date | null;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => DeliveryPort, {nullable:false,defaultValue:'OTHER'})
+    deliveryPort!: keyof typeof DeliveryPort;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Product, { nullable: false })
-  product?: Product;
+    @HideField()
+    updatedAt!: Date;
+
+    @Field(() => Product, {nullable:false})
+    product?: Product;
 }

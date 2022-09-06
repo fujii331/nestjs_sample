@@ -6,24 +6,25 @@ import { NestedEnumPoStatusFilter } from './nested-enum-po-status-filter.input';
 
 @InputType()
 export class NestedEnumPoStatusWithAggregatesFilter {
-  @Field(() => PoStatus, { nullable: true })
-  equals?: keyof typeof PoStatus;
 
-  @Field(() => [PoStatus], { nullable: true })
-  in?: Array<keyof typeof PoStatus>;
+    @Field(() => PoStatus, {nullable:true})
+    equals?: keyof typeof PoStatus;
 
-  @Field(() => [PoStatus], { nullable: true })
-  notIn?: Array<keyof typeof PoStatus>;
+    @Field(() => [PoStatus], {nullable:true})
+    in?: Array<keyof typeof PoStatus>;
 
-  @Field(() => NestedEnumPoStatusWithAggregatesFilter, { nullable: true })
-  not?: NestedEnumPoStatusWithAggregatesFilter;
+    @Field(() => [PoStatus], {nullable:true})
+    notIn?: Array<keyof typeof PoStatus>;
 
-  @Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter;
+    @Field(() => NestedEnumPoStatusWithAggregatesFilter, {nullable:true})
+    not?: NestedEnumPoStatusWithAggregatesFilter;
 
-  @Field(() => NestedEnumPoStatusFilter, { nullable: true })
-  _min?: NestedEnumPoStatusFilter;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: NestedIntFilter;
 
-  @Field(() => NestedEnumPoStatusFilter, { nullable: true })
-  _max?: NestedEnumPoStatusFilter;
+    @Field(() => NestedEnumPoStatusFilter, {nullable:true})
+    _min?: NestedEnumPoStatusFilter;
+
+    @Field(() => NestedEnumPoStatusFilter, {nullable:true})
+    _max?: NestedEnumPoStatusFilter;
 }

@@ -11,42 +11,37 @@ import { ProductScalarWhereInput } from './product-scalar-where.input';
 
 @InputType()
 export class ProductUncheckedUpdateManyWithoutMakerInput {
-  @Field(() => [ProductCreateWithoutMakerInput], { nullable: true })
-  create?: Array<ProductCreateWithoutMakerInput>;
 
-  @Field(() => [ProductCreateOrConnectWithoutMakerInput], { nullable: true })
-  connectOrCreate?: Array<ProductCreateOrConnectWithoutMakerInput>;
+    @Field(() => [ProductCreateWithoutMakerInput], {nullable:true})
+    create?: Array<ProductCreateWithoutMakerInput>;
 
-  @Field(() => [ProductUpsertWithWhereUniqueWithoutMakerInput], {
-    nullable: true,
-  })
-  upsert?: Array<ProductUpsertWithWhereUniqueWithoutMakerInput>;
+    @Field(() => [ProductCreateOrConnectWithoutMakerInput], {nullable:true})
+    connectOrCreate?: Array<ProductCreateOrConnectWithoutMakerInput>;
 
-  @Field(() => ProductCreateManyMakerInputEnvelope, { nullable: true })
-  createMany?: ProductCreateManyMakerInputEnvelope;
+    @Field(() => [ProductUpsertWithWhereUniqueWithoutMakerInput], {nullable:true})
+    upsert?: Array<ProductUpsertWithWhereUniqueWithoutMakerInput>;
 
-  @Field(() => [ProductWhereUniqueInput], { nullable: true })
-  set?: Array<ProductWhereUniqueInput>;
+    @Field(() => ProductCreateManyMakerInputEnvelope, {nullable:true})
+    createMany?: ProductCreateManyMakerInputEnvelope;
 
-  @Field(() => [ProductWhereUniqueInput], { nullable: true })
-  disconnect?: Array<ProductWhereUniqueInput>;
+    @Field(() => [ProductWhereUniqueInput], {nullable:true})
+    set?: Array<ProductWhereUniqueInput>;
 
-  @Field(() => [ProductWhereUniqueInput], { nullable: true })
-  delete?: Array<ProductWhereUniqueInput>;
+    @Field(() => [ProductWhereUniqueInput], {nullable:true})
+    disconnect?: Array<ProductWhereUniqueInput>;
 
-  @Field(() => [ProductWhereUniqueInput], { nullable: true })
-  connect?: Array<ProductWhereUniqueInput>;
+    @Field(() => [ProductWhereUniqueInput], {nullable:true})
+    delete?: Array<ProductWhereUniqueInput>;
 
-  @Field(() => [ProductUpdateWithWhereUniqueWithoutMakerInput], {
-    nullable: true,
-  })
-  update?: Array<ProductUpdateWithWhereUniqueWithoutMakerInput>;
+    @Field(() => [ProductWhereUniqueInput], {nullable:true})
+    connect?: Array<ProductWhereUniqueInput>;
 
-  @Field(() => [ProductUpdateManyWithWhereWithoutMakerInput], {
-    nullable: true,
-  })
-  updateMany?: Array<ProductUpdateManyWithWhereWithoutMakerInput>;
+    @Field(() => [ProductUpdateWithWhereUniqueWithoutMakerInput], {nullable:true})
+    update?: Array<ProductUpdateWithWhereUniqueWithoutMakerInput>;
 
-  @Field(() => [ProductScalarWhereInput], { nullable: true })
-  deleteMany?: Array<ProductScalarWhereInput>;
+    @Field(() => [ProductUpdateManyWithWhereWithoutMakerInput], {nullable:true})
+    updateMany?: Array<ProductUpdateManyWithWhereWithoutMakerInput>;
+
+    @Field(() => [ProductScalarWhereInput], {nullable:true})
+    deleteMany?: Array<ProductScalarWhereInput>;
 }

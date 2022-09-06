@@ -9,33 +9,30 @@ import { ProductCreateNestedOneWithoutOrderRequestDetailInput } from '../product
 
 @InputType()
 export class OrderRequestDetailCreateInput {
-  @Field(() => Int, { nullable: false })
-  @Validator.IsNotEmpty()
-  orderQuantity!: number;
 
-  @Field(() => Float, { nullable: true })
-  ssp?: number;
+    @Field(() => Int, {nullable:false})
+    @Validator.IsNotEmpty()
+    orderQuantity!: number;
 
-  @Field(() => Float, { nullable: true })
-  cbm?: number;
+    @Field(() => Float, {nullable:true})
+    ssp?: number;
 
-  @Field(() => Boolean, { nullable: true })
-  @Validator.IsNotEmpty()
-  wasOrderAlerted?: boolean;
+    @Field(() => Float, {nullable:true})
+    cbm?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    @Validator.IsNotEmpty()
+    wasOrderAlerted?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => OrderRequestCreateNestedOneWithoutOrderRequestDetailInput, {
-    nullable: false,
-  })
-  orderRequest!: OrderRequestCreateNestedOneWithoutOrderRequestDetailInput;
+    @HideField()
+    updatedAt?: Date | string;
 
-  @Field(() => ProductCreateNestedOneWithoutOrderRequestDetailInput, {
-    nullable: false,
-  })
-  product!: ProductCreateNestedOneWithoutOrderRequestDetailInput;
+    @Field(() => OrderRequestCreateNestedOneWithoutOrderRequestDetailInput, {nullable:false})
+    orderRequest!: OrderRequestCreateNestedOneWithoutOrderRequestDetailInput;
+
+    @Field(() => ProductCreateNestedOneWithoutOrderRequestDetailInput, {nullable:false})
+    product!: ProductCreateNestedOneWithoutOrderRequestDetailInput;
 }

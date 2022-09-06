@@ -5,18 +5,19 @@ import { Float } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderRequestDetailSumAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => Int, { nullable: true })
-  orderQuantity?: number;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => Float, { nullable: true })
-  ssp?: number;
+    @Field(() => Int, {nullable:true})
+    orderQuantity?: number;
 
-  @Field(() => Float, { nullable: true })
-  cbm?: number;
+    @Field(() => Float, {nullable:true})
+    ssp?: number;
 
-  @Field(() => Int, { nullable: true })
-  orderRequestId?: number;
+    @Field(() => Float, {nullable:true})
+    cbm?: number;
+
+    @Field(() => Int, {nullable:true})
+    orderRequestId?: number;
 }

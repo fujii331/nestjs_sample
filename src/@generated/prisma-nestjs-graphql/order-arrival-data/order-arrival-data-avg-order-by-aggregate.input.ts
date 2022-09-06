@@ -4,9 +4,10 @@ import { SortOrder } from '../prisma/sort-order.enum';
 
 @InputType()
 export class OrderArrivalDataAvgOrderByAggregateInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  orderQuantity?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    orderQuantity?: keyof typeof SortOrder;
 }

@@ -10,36 +10,37 @@ import { MakerSumOrderByAggregateInput } from './maker-sum-order-by-aggregate.in
 
 @InputType()
 export class MakerOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  makerCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  makerName?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  leadtime?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerName?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  isValid?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    leadtime?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    isValid?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => MakerCountOrderByAggregateInput, { nullable: true })
-  _count?: MakerCountOrderByAggregateInput;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => MakerAvgOrderByAggregateInput, { nullable: true })
-  _avg?: MakerAvgOrderByAggregateInput;
+    @Field(() => MakerCountOrderByAggregateInput, {nullable:true})
+    _count?: MakerCountOrderByAggregateInput;
 
-  @Field(() => MakerMaxOrderByAggregateInput, { nullable: true })
-  _max?: MakerMaxOrderByAggregateInput;
+    @Field(() => MakerAvgOrderByAggregateInput, {nullable:true})
+    _avg?: MakerAvgOrderByAggregateInput;
 
-  @Field(() => MakerMinOrderByAggregateInput, { nullable: true })
-  _min?: MakerMinOrderByAggregateInput;
+    @Field(() => MakerMaxOrderByAggregateInput, {nullable:true})
+    _max?: MakerMaxOrderByAggregateInput;
 
-  @Field(() => MakerSumOrderByAggregateInput, { nullable: true })
-  _sum?: MakerSumOrderByAggregateInput;
+    @Field(() => MakerMinOrderByAggregateInput, {nullable:true})
+    _min?: MakerMinOrderByAggregateInput;
+
+    @Field(() => MakerSumOrderByAggregateInput, {nullable:true})
+    _sum?: MakerSumOrderByAggregateInput;
 }

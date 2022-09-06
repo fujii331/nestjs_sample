@@ -4,9 +4,10 @@ import { OrderRequestWhereInput } from './order-request-where.input';
 
 @InputType()
 export class OrderRequestRelationFilter {
-  @Field(() => OrderRequestWhereInput, { nullable: true })
-  is?: OrderRequestWhereInput;
 
-  @Field(() => OrderRequestWhereInput, { nullable: true })
-  isNot?: OrderRequestWhereInput;
+    @Field(() => OrderRequestWhereInput, {nullable:true})
+    is?: OrderRequestWhereInput;
+
+    @Field(() => OrderRequestWhereInput, {nullable:true})
+    isNot?: OrderRequestWhereInput;
 }

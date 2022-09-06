@@ -8,18 +8,19 @@ import { OrderRequestDetailMaxAggregate } from './order-request-detail-max-aggre
 
 @ObjectType()
 export class AggregateOrderRequestDetail {
-  @Field(() => OrderRequestDetailCountAggregate, { nullable: true })
-  _count?: OrderRequestDetailCountAggregate;
 
-  @Field(() => OrderRequestDetailAvgAggregate, { nullable: true })
-  _avg?: OrderRequestDetailAvgAggregate;
+    @Field(() => OrderRequestDetailCountAggregate, {nullable:true})
+    _count?: OrderRequestDetailCountAggregate;
 
-  @Field(() => OrderRequestDetailSumAggregate, { nullable: true })
-  _sum?: OrderRequestDetailSumAggregate;
+    @Field(() => OrderRequestDetailAvgAggregate, {nullable:true})
+    _avg?: OrderRequestDetailAvgAggregate;
 
-  @Field(() => OrderRequestDetailMinAggregate, { nullable: true })
-  _min?: OrderRequestDetailMinAggregate;
+    @Field(() => OrderRequestDetailSumAggregate, {nullable:true})
+    _sum?: OrderRequestDetailSumAggregate;
 
-  @Field(() => OrderRequestDetailMaxAggregate, { nullable: true })
-  _max?: OrderRequestDetailMaxAggregate;
+    @Field(() => OrderRequestDetailMinAggregate, {nullable:true})
+    _min?: OrderRequestDetailMinAggregate;
+
+    @Field(() => OrderRequestDetailMaxAggregate, {nullable:true})
+    _max?: OrderRequestDetailMaxAggregate;
 }

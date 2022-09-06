@@ -8,43 +8,40 @@ import { OrderRequestDetailOrderByRelationAggregateInput } from '../order-reques
 
 @InputType()
 export class ProductOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  prodCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  makerCd?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    prodCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  prodName?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    makerCd?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  ssp180Days?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    prodName?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  carton3SideSize?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    ssp180Days?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  minOrderQuantity?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    carton3SideSize?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  isValid?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    minOrderQuantity?: keyof typeof SortOrder;
 
-  @HideField()
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    isValid?: keyof typeof SortOrder;
 
-  @HideField()
-  updatedAt?: keyof typeof SortOrder;
+    @HideField()
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => MakerOrderByWithRelationInput, { nullable: true })
-  maker?: MakerOrderByWithRelationInput;
+    @HideField()
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => OrderArrivalDataOrderByRelationAggregateInput, {
-    nullable: true,
-  })
-  orderArrivalData?: OrderArrivalDataOrderByRelationAggregateInput;
+    @Field(() => MakerOrderByWithRelationInput, {nullable:true})
+    maker?: MakerOrderByWithRelationInput;
 
-  @Field(() => OrderRequestDetailOrderByRelationAggregateInput, {
-    nullable: true,
-  })
-  orderRequestDetail?: OrderRequestDetailOrderByRelationAggregateInput;
+    @Field(() => OrderArrivalDataOrderByRelationAggregateInput, {nullable:true})
+    orderArrivalData?: OrderArrivalDataOrderByRelationAggregateInput;
+
+    @Field(() => OrderRequestDetailOrderByRelationAggregateInput, {nullable:true})
+    orderRequestDetail?: OrderRequestDetailOrderByRelationAggregateInput;
 }

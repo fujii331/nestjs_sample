@@ -11,39 +11,40 @@ import { OrderArrivalDataMaxAggregate } from './order-arrival-data-max-aggregate
 
 @ObjectType()
 export class OrderArrivalDataGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  prodCd!: string;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderQuantity!: number;
+    @Field(() => String, {nullable:false})
+    prodCd!: string;
 
-  @Field(() => Date, { nullable: true })
-  deliveryDate?: Date | string;
+    @Field(() => Int, {nullable:false})
+    orderQuantity!: number;
 
-  @Field(() => DeliveryPort, { nullable: false })
-  deliveryPort!: keyof typeof DeliveryPort;
+    @Field(() => Date, {nullable:true})
+    deliveryDate?: Date | string;
 
-  @HideField()
-  createdAt!: Date | string;
+    @Field(() => DeliveryPort, {nullable:false})
+    deliveryPort!: keyof typeof DeliveryPort;
 
-  @HideField()
-  updatedAt!: Date | string;
+    @HideField()
+    createdAt!: Date | string;
 
-  @Field(() => OrderArrivalDataCountAggregate, { nullable: true })
-  _count?: OrderArrivalDataCountAggregate;
+    @HideField()
+    updatedAt!: Date | string;
 
-  @Field(() => OrderArrivalDataAvgAggregate, { nullable: true })
-  _avg?: OrderArrivalDataAvgAggregate;
+    @Field(() => OrderArrivalDataCountAggregate, {nullable:true})
+    _count?: OrderArrivalDataCountAggregate;
 
-  @Field(() => OrderArrivalDataSumAggregate, { nullable: true })
-  _sum?: OrderArrivalDataSumAggregate;
+    @Field(() => OrderArrivalDataAvgAggregate, {nullable:true})
+    _avg?: OrderArrivalDataAvgAggregate;
 
-  @Field(() => OrderArrivalDataMinAggregate, { nullable: true })
-  _min?: OrderArrivalDataMinAggregate;
+    @Field(() => OrderArrivalDataSumAggregate, {nullable:true})
+    _sum?: OrderArrivalDataSumAggregate;
 
-  @Field(() => OrderArrivalDataMaxAggregate, { nullable: true })
-  _max?: OrderArrivalDataMaxAggregate;
+    @Field(() => OrderArrivalDataMinAggregate, {nullable:true})
+    _min?: OrderArrivalDataMinAggregate;
+
+    @Field(() => OrderArrivalDataMaxAggregate, {nullable:true})
+    _max?: OrderArrivalDataMaxAggregate;
 }

@@ -8,18 +8,19 @@ import { MakerUpdateWithoutProductInput } from './maker-update-without-product.i
 
 @InputType()
 export class MakerUpdateOneRequiredWithoutProductInput {
-  @Field(() => MakerCreateWithoutProductInput, { nullable: true })
-  create?: MakerCreateWithoutProductInput;
 
-  @Field(() => MakerCreateOrConnectWithoutProductInput, { nullable: true })
-  connectOrCreate?: MakerCreateOrConnectWithoutProductInput;
+    @Field(() => MakerCreateWithoutProductInput, {nullable:true})
+    create?: MakerCreateWithoutProductInput;
 
-  @Field(() => MakerUpsertWithoutProductInput, { nullable: true })
-  upsert?: MakerUpsertWithoutProductInput;
+    @Field(() => MakerCreateOrConnectWithoutProductInput, {nullable:true})
+    connectOrCreate?: MakerCreateOrConnectWithoutProductInput;
 
-  @Field(() => MakerWhereUniqueInput, { nullable: true })
-  connect?: MakerWhereUniqueInput;
+    @Field(() => MakerUpsertWithoutProductInput, {nullable:true})
+    upsert?: MakerUpsertWithoutProductInput;
 
-  @Field(() => MakerUpdateWithoutProductInput, { nullable: true })
-  update?: MakerUpdateWithoutProductInput;
+    @Field(() => MakerWhereUniqueInput, {nullable:true})
+    connect?: MakerWhereUniqueInput;
+
+    @Field(() => MakerUpdateWithoutProductInput, {nullable:true})
+    update?: MakerUpdateWithoutProductInput;
 }

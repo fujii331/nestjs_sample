@@ -7,24 +7,25 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryScalarWhereInput {
-  @Field(() => [OrderEntryScalarWhereInput], { nullable: true })
-  AND?: Array<OrderEntryScalarWhereInput>;
 
-  @Field(() => [OrderEntryScalarWhereInput], { nullable: true })
-  OR?: Array<OrderEntryScalarWhereInput>;
+    @Field(() => [OrderEntryScalarWhereInput], {nullable:true})
+    AND?: Array<OrderEntryScalarWhereInput>;
 
-  @Field(() => [OrderEntryScalarWhereInput], { nullable: true })
-  NOT?: Array<OrderEntryScalarWhereInput>;
+    @Field(() => [OrderEntryScalarWhereInput], {nullable:true})
+    OR?: Array<OrderEntryScalarWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderEntryScalarWhereInput], {nullable:true})
+    NOT?: Array<OrderEntryScalarWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  makerCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => StringFilter, {nullable:true})
+    makerCd?: StringFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
+
+    @HideField()
+    updatedAt?: DateTimeFilter;
 }

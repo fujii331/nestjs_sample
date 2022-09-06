@@ -9,36 +9,37 @@ import { Product } from '../product/product.model';
 
 @ObjectType()
 export class OrderRequestDetail {
-  @Field(() => ID, { nullable: false })
-  id!: number;
 
-  @Field(() => String, { nullable: false })
-  prodCd!: string;
+    @Field(() => ID, {nullable:false})
+    id!: number;
 
-  @Field(() => Int, { nullable: false })
-  orderQuantity!: number;
+    @Field(() => String, {nullable:false})
+    prodCd!: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp!: number | null;
+    @Field(() => Int, {nullable:false})
+    orderQuantity!: number;
 
-  @Field(() => Float, { nullable: true })
-  cbm!: number | null;
+    @Field(() => Float, {nullable:true})
+    ssp!: number | null;
 
-  @Field(() => Boolean, { nullable: false, defaultValue: false })
-  wasOrderAlerted!: boolean;
+    @Field(() => Float, {nullable:true})
+    cbm!: number | null;
 
-  @HideField()
-  createdAt!: Date;
+    @Field(() => Boolean, {nullable:false,defaultValue:false})
+    wasOrderAlerted!: boolean;
 
-  @HideField()
-  updatedAt!: Date;
+    @HideField()
+    createdAt!: Date;
 
-  @Field(() => Int, { nullable: false })
-  orderRequestId!: number;
+    @HideField()
+    updatedAt!: Date;
 
-  @Field(() => OrderRequest, { nullable: false })
-  orderRequest?: OrderRequest;
+    @Field(() => Int, {nullable:false})
+    orderRequestId!: number;
 
-  @Field(() => Product, { nullable: false })
-  product?: Product;
+    @Field(() => OrderRequest, {nullable:false})
+    orderRequest?: OrderRequest;
+
+    @Field(() => Product, {nullable:false})
+    product?: Product;
 }

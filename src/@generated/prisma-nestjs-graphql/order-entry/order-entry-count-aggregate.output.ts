@@ -5,18 +5,19 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class OrderEntryCountAggregate {
-  @Field(() => Int, { nullable: false })
-  id!: number;
 
-  @Field(() => Int, { nullable: false })
-  makerCd!: number;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @HideField()
-  createdAt!: number;
+    @Field(() => Int, {nullable:false})
+    makerCd!: number;
 
-  @HideField()
-  updatedAt!: number;
+    @HideField()
+    createdAt!: number;
 
-  @Field(() => Int, { nullable: false })
-  _all!: number;
+    @HideField()
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    _all!: number;
 }

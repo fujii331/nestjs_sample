@@ -8,26 +8,19 @@ import { OrderRequestUpdateWithoutOrderRequestDetailInput } from './order-reques
 
 @InputType()
 export class OrderRequestUpdateOneRequiredWithoutOrderRequestDetailInput {
-  @Field(() => OrderRequestCreateWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  create?: OrderRequestCreateWithoutOrderRequestDetailInput;
 
-  @Field(() => OrderRequestCreateOrConnectWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  connectOrCreate?: OrderRequestCreateOrConnectWithoutOrderRequestDetailInput;
+    @Field(() => OrderRequestCreateWithoutOrderRequestDetailInput, {nullable:true})
+    create?: OrderRequestCreateWithoutOrderRequestDetailInput;
 
-  @Field(() => OrderRequestUpsertWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  upsert?: OrderRequestUpsertWithoutOrderRequestDetailInput;
+    @Field(() => OrderRequestCreateOrConnectWithoutOrderRequestDetailInput, {nullable:true})
+    connectOrCreate?: OrderRequestCreateOrConnectWithoutOrderRequestDetailInput;
 
-  @Field(() => OrderRequestWhereUniqueInput, { nullable: true })
-  connect?: OrderRequestWhereUniqueInput;
+    @Field(() => OrderRequestUpsertWithoutOrderRequestDetailInput, {nullable:true})
+    upsert?: OrderRequestUpsertWithoutOrderRequestDetailInput;
 
-  @Field(() => OrderRequestUpdateWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  update?: OrderRequestUpdateWithoutOrderRequestDetailInput;
+    @Field(() => OrderRequestWhereUniqueInput, {nullable:true})
+    connect?: OrderRequestWhereUniqueInput;
+
+    @Field(() => OrderRequestUpdateWithoutOrderRequestDetailInput, {nullable:true})
+    update?: OrderRequestUpdateWithoutOrderRequestDetailInput;
 }

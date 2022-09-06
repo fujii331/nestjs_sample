@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderRequestWhereInput } from './order-request-where.input';
+import { Type } from 'class-transformer';
 import { OrderRequestOrderByWithAggregationInput } from './order-request-order-by-with-aggregation.input';
 import { OrderRequestScalarFieldEnum } from './order-request-scalar-field.enum';
 import { OrderRequestScalarWhereWithAggregatesInput } from './order-request-scalar-where-with-aggregates.input';
@@ -13,36 +14,38 @@ import { OrderRequestMaxAggregateInput } from './order-request-max-aggregate.inp
 
 @ArgsType()
 export class OrderRequestGroupByArgs {
-  @Field(() => OrderRequestWhereInput, { nullable: true })
-  where?: OrderRequestWhereInput;
 
-  @Field(() => [OrderRequestOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<OrderRequestOrderByWithAggregationInput>;
+    @Field(() => OrderRequestWhereInput, {nullable:true})
+    @Type(() => OrderRequestWhereInput)
+    where?: OrderRequestWhereInput;
 
-  @Field(() => [OrderRequestScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof OrderRequestScalarFieldEnum>;
+    @Field(() => [OrderRequestOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<OrderRequestOrderByWithAggregationInput>;
 
-  @Field(() => OrderRequestScalarWhereWithAggregatesInput, { nullable: true })
-  having?: OrderRequestScalarWhereWithAggregatesInput;
+    @Field(() => [OrderRequestScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof OrderRequestScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => OrderRequestScalarWhereWithAggregatesInput, {nullable:true})
+    having?: OrderRequestScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => OrderRequestCountAggregateInput, { nullable: true })
-  _count?: OrderRequestCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => OrderRequestAvgAggregateInput, { nullable: true })
-  _avg?: OrderRequestAvgAggregateInput;
+    @Field(() => OrderRequestCountAggregateInput, {nullable:true})
+    _count?: OrderRequestCountAggregateInput;
 
-  @Field(() => OrderRequestSumAggregateInput, { nullable: true })
-  _sum?: OrderRequestSumAggregateInput;
+    @Field(() => OrderRequestAvgAggregateInput, {nullable:true})
+    _avg?: OrderRequestAvgAggregateInput;
 
-  @Field(() => OrderRequestMinAggregateInput, { nullable: true })
-  _min?: OrderRequestMinAggregateInput;
+    @Field(() => OrderRequestSumAggregateInput, {nullable:true})
+    _sum?: OrderRequestSumAggregateInput;
 
-  @Field(() => OrderRequestMaxAggregateInput, { nullable: true })
-  _max?: OrderRequestMaxAggregateInput;
+    @Field(() => OrderRequestMinAggregateInput, {nullable:true})
+    _min?: OrderRequestMinAggregateInput;
+
+    @Field(() => OrderRequestMaxAggregateInput, {nullable:true})
+    _max?: OrderRequestMaxAggregateInput;
 }

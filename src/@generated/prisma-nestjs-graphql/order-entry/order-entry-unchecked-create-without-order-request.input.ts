@@ -6,16 +6,17 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderEntryUncheckedCreateWithoutOrderRequestInput {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: false })
-  @Validator.IsNotEmpty()
-  makerCd!: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:false})
+    @Validator.IsNotEmpty()
+    makerCd!: string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

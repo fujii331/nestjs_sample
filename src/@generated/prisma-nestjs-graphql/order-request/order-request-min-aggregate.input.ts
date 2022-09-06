@@ -4,36 +4,37 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderRequestMinAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  containerNo?: true;
+    @Field(() => Boolean, {nullable:true})
+    id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  orderRequestNo?: true;
+    @Field(() => Boolean, {nullable:true})
+    containerNo?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  deliveryDate?: true;
+    @Field(() => Boolean, {nullable:true})
+    orderRequestNo?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  poRequestDate?: true;
+    @Field(() => Boolean, {nullable:true})
+    deliveryDate?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  deliveryPort?: true;
+    @Field(() => Boolean, {nullable:true})
+    poRequestDate?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  poStatus?: true;
+    @Field(() => Boolean, {nullable:true})
+    deliveryPort?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  discarded?: true;
+    @Field(() => Boolean, {nullable:true})
+    poStatus?: true;
 
-  @HideField()
-  createdAt?: true;
+    @Field(() => Boolean, {nullable:true})
+    discarded?: true;
 
-  @HideField()
-  updatedAt?: true;
+    @HideField()
+    createdAt?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  orderEntryId?: true;
+    @HideField()
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    orderEntryId?: true;
 }

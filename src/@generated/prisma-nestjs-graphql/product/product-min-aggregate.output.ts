@@ -6,30 +6,31 @@ import { HideField } from '@nestjs/graphql';
 
 @ObjectType()
 export class ProductMinAggregate {
-  @Field(() => String, { nullable: true })
-  prodCd?: string;
 
-  @Field(() => String, { nullable: true })
-  makerCd?: string;
+    @Field(() => String, {nullable:true})
+    prodCd?: string;
 
-  @Field(() => String, { nullable: true })
-  prodName?: string;
+    @Field(() => String, {nullable:true})
+    makerCd?: string;
 
-  @Field(() => Float, { nullable: true })
-  ssp180Days?: number;
+    @Field(() => String, {nullable:true})
+    prodName?: string;
 
-  @Field(() => Float, { nullable: true })
-  carton3SideSize?: number;
+    @Field(() => Float, {nullable:true})
+    ssp180Days?: number;
 
-  @Field(() => Int, { nullable: true })
-  minOrderQuantity?: number;
+    @Field(() => Float, {nullable:true})
+    carton3SideSize?: number;
 
-  @Field(() => Boolean, { nullable: true })
-  isValid?: boolean;
+    @Field(() => Int, {nullable:true})
+    minOrderQuantity?: number;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => Boolean, {nullable:true})
+    isValid?: boolean;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
+
+    @HideField()
+    updatedAt?: Date | string;
 }

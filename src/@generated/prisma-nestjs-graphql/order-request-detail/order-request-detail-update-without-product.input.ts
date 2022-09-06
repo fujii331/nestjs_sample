@@ -5,30 +5,29 @@ import { NullableFloatFieldUpdateOperationsInput } from '../prisma/nullable-floa
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
-import { OrderRequestUpdateOneRequiredWithoutOrderRequestDetailInput } from '../order-request/order-request-update-one-required-without-order-request-detail.input';
+import { OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput } from '../order-request/order-request-update-one-required-without-order-request-detail-nested.input';
 
 @InputType()
 export class OrderRequestDetailUpdateWithoutProductInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  ssp?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    orderQuantity?: IntFieldUpdateOperationsInput;
 
-  @Field(() => NullableFloatFieldUpdateOperationsInput, { nullable: true })
-  cbm?: NullableFloatFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    ssp?: NullableFloatFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  wasOrderAlerted?: BoolFieldUpdateOperationsInput;
+    @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
+    cbm?: NullableFloatFieldUpdateOperationsInput;
 
-  @HideField()
-  createdAt?: DateTimeFieldUpdateOperationsInput;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    wasOrderAlerted?: BoolFieldUpdateOperationsInput;
 
-  @HideField()
-  updatedAt?: DateTimeFieldUpdateOperationsInput;
+    @HideField()
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => OrderRequestUpdateOneRequiredWithoutOrderRequestDetailInput, {
-    nullable: true,
-  })
-  orderRequest?: OrderRequestUpdateOneRequiredWithoutOrderRequestDetailInput;
+    @HideField()
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput, {nullable:true})
+    orderRequest?: OrderRequestUpdateOneRequiredWithoutOrderRequestDetailNestedInput;
 }

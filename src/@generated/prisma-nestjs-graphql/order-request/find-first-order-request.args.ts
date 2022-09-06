@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { OrderRequestWhereInput } from './order-request-where.input';
+import { Type } from 'class-transformer';
 import { OrderRequestOrderByWithRelationInput } from './order-request-order-by-with-relation.input';
 import { OrderRequestWhereUniqueInput } from './order-request-where-unique.input';
 import { Int } from '@nestjs/graphql';
@@ -8,21 +9,23 @@ import { OrderRequestScalarFieldEnum } from './order-request-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstOrderRequestArgs {
-  @Field(() => OrderRequestWhereInput, { nullable: true })
-  where?: OrderRequestWhereInput;
 
-  @Field(() => [OrderRequestOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<OrderRequestOrderByWithRelationInput>;
+    @Field(() => OrderRequestWhereInput, {nullable:true})
+    @Type(() => OrderRequestWhereInput)
+    where?: OrderRequestWhereInput;
 
-  @Field(() => OrderRequestWhereUniqueInput, { nullable: true })
-  cursor?: OrderRequestWhereUniqueInput;
+    @Field(() => [OrderRequestOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<OrderRequestOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => OrderRequestWhereUniqueInput, {nullable:true})
+    cursor?: OrderRequestWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [OrderRequestScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof OrderRequestScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [OrderRequestScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof OrderRequestScalarFieldEnum>;
 }

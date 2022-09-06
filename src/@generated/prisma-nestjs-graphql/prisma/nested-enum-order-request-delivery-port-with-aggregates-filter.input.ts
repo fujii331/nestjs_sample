@@ -6,26 +6,25 @@ import { NestedEnumOrderRequest_deliveryPortFilter } from './nested-enum-order-r
 
 @InputType()
 export class NestedEnumOrderRequest_deliveryPortWithAggregatesFilter {
-  @Field(() => OrderRequest_deliveryPort, { nullable: true })
-  equals?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => [OrderRequest_deliveryPort], { nullable: true })
-  in?: Array<keyof typeof OrderRequest_deliveryPort>;
+    @Field(() => OrderRequest_deliveryPort, {nullable:true})
+    equals?: keyof typeof OrderRequest_deliveryPort;
 
-  @Field(() => [OrderRequest_deliveryPort], { nullable: true })
-  notIn?: Array<keyof typeof OrderRequest_deliveryPort>;
+    @Field(() => [OrderRequest_deliveryPort], {nullable:true})
+    in?: Array<keyof typeof OrderRequest_deliveryPort>;
 
-  @Field(() => NestedEnumOrderRequest_deliveryPortWithAggregatesFilter, {
-    nullable: true,
-  })
-  not?: NestedEnumOrderRequest_deliveryPortWithAggregatesFilter;
+    @Field(() => [OrderRequest_deliveryPort], {nullable:true})
+    notIn?: Array<keyof typeof OrderRequest_deliveryPort>;
 
-  @Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter;
+    @Field(() => NestedEnumOrderRequest_deliveryPortWithAggregatesFilter, {nullable:true})
+    not?: NestedEnumOrderRequest_deliveryPortWithAggregatesFilter;
 
-  @Field(() => NestedEnumOrderRequest_deliveryPortFilter, { nullable: true })
-  _min?: NestedEnumOrderRequest_deliveryPortFilter;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: NestedIntFilter;
 
-  @Field(() => NestedEnumOrderRequest_deliveryPortFilter, { nullable: true })
-  _max?: NestedEnumOrderRequest_deliveryPortFilter;
+    @Field(() => NestedEnumOrderRequest_deliveryPortFilter, {nullable:true})
+    _min?: NestedEnumOrderRequest_deliveryPortFilter;
+
+    @Field(() => NestedEnumOrderRequest_deliveryPortFilter, {nullable:true})
+    _max?: NestedEnumOrderRequest_deliveryPortFilter;
 }

@@ -6,27 +6,28 @@ import { Authority } from '../prisma/authority.enum';
 
 @ObjectType()
 export class UserMinAggregate {
-  @Field(() => Int, { nullable: true })
-  id?: number;
 
-  @Field(() => String, { nullable: true })
-  email?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
-  @Field(() => String, { nullable: true })
-  name?: string;
+    @Field(() => String, {nullable:true})
+    email?: string;
 
-  @HideField()
-  password?: string;
+    @Field(() => String, {nullable:true})
+    name?: string;
 
-  @HideField()
-  createdAt?: Date | string;
+    @HideField()
+    password?: string;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => Authority, { nullable: true })
-  authority?: keyof typeof Authority;
+    @HideField()
+    updatedAt?: Date | string;
 
-  @HideField()
-  hashedRefreshToken?: string;
+    @Field(() => Authority, {nullable:true})
+    authority?: keyof typeof Authority;
+
+    @HideField()
+    hashedRefreshToken?: string;
 }

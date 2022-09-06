@@ -8,24 +8,23 @@ import { ProductCreateNestedOneWithoutOrderArrivalDataInput } from '../product/p
 
 @InputType()
 export class OrderArrivalDataCreateInput {
-  @Field(() => Int, { nullable: false })
-  @Validator.IsNotEmpty()
-  orderQuantity!: number;
 
-  @Field(() => Date, { nullable: true })
-  deliveryDate?: Date | string;
+    @Field(() => Int, {nullable:false})
+    @Validator.IsNotEmpty()
+    orderQuantity!: number;
 
-  @Field(() => DeliveryPort, { nullable: true })
-  deliveryPort?: keyof typeof DeliveryPort;
+    @Field(() => Date, {nullable:true})
+    deliveryDate?: Date | string;
 
-  @HideField()
-  createdAt?: Date | string;
+    @Field(() => DeliveryPort, {nullable:true})
+    deliveryPort?: keyof typeof DeliveryPort;
 
-  @HideField()
-  updatedAt?: Date | string;
+    @HideField()
+    createdAt?: Date | string;
 
-  @Field(() => ProductCreateNestedOneWithoutOrderArrivalDataInput, {
-    nullable: false,
-  })
-  product!: ProductCreateNestedOneWithoutOrderArrivalDataInput;
+    @HideField()
+    updatedAt?: Date | string;
+
+    @Field(() => ProductCreateNestedOneWithoutOrderArrivalDataInput, {nullable:false})
+    product!: ProductCreateNestedOneWithoutOrderArrivalDataInput;
 }

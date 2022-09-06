@@ -9,39 +9,34 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class OrderArrivalDataScalarWhereWithAggregatesInput {
-  @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
 
-  @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
+    @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  id?: IntWithAggregatesFilter;
+    @Field(() => [OrderArrivalDataScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<OrderArrivalDataScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  prodCd?: StringWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  orderQuantity?: IntWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    prodCd?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
-  deliveryDate?: DateTimeNullableWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    orderQuantity?: IntWithAggregatesFilter;
 
-  @Field(() => EnumDeliveryPortWithAggregatesFilter, { nullable: true })
-  deliveryPort?: EnumDeliveryPortWithAggregatesFilter;
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    deliveryDate?: DateTimeNullableWithAggregatesFilter;
 
-  @HideField()
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => EnumDeliveryPortWithAggregatesFilter, {nullable:true})
+    deliveryPort?: EnumDeliveryPortWithAggregatesFilter;
 
-  @HideField()
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @HideField()
+    createdAt?: DateTimeWithAggregatesFilter;
+
+    @HideField()
+    updatedAt?: DateTimeWithAggregatesFilter;
 }

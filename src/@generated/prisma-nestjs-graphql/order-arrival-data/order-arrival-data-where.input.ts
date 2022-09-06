@@ -10,36 +10,37 @@ import { ProductRelationFilter } from '../product/product-relation-filter.input'
 
 @InputType()
 export class OrderArrivalDataWhereInput {
-  @Field(() => [OrderArrivalDataWhereInput], { nullable: true })
-  AND?: Array<OrderArrivalDataWhereInput>;
 
-  @Field(() => [OrderArrivalDataWhereInput], { nullable: true })
-  OR?: Array<OrderArrivalDataWhereInput>;
+    @Field(() => [OrderArrivalDataWhereInput], {nullable:true})
+    AND?: Array<OrderArrivalDataWhereInput>;
 
-  @Field(() => [OrderArrivalDataWhereInput], { nullable: true })
-  NOT?: Array<OrderArrivalDataWhereInput>;
+    @Field(() => [OrderArrivalDataWhereInput], {nullable:true})
+    OR?: Array<OrderArrivalDataWhereInput>;
 
-  @Field(() => IntFilter, { nullable: true })
-  id?: IntFilter;
+    @Field(() => [OrderArrivalDataWhereInput], {nullable:true})
+    NOT?: Array<OrderArrivalDataWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  prodCd?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  orderQuantity?: IntFilter;
+    @Field(() => StringFilter, {nullable:true})
+    prodCd?: StringFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  deliveryDate?: DateTimeNullableFilter;
+    @Field(() => IntFilter, {nullable:true})
+    orderQuantity?: IntFilter;
 
-  @Field(() => EnumDeliveryPortFilter, { nullable: true })
-  deliveryPort?: EnumDeliveryPortFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    deliveryDate?: DateTimeNullableFilter;
 
-  @HideField()
-  createdAt?: DateTimeFilter;
+    @Field(() => EnumDeliveryPortFilter, {nullable:true})
+    deliveryPort?: EnumDeliveryPortFilter;
 
-  @HideField()
-  updatedAt?: DateTimeFilter;
+    @HideField()
+    createdAt?: DateTimeFilter;
 
-  @Field(() => ProductRelationFilter, { nullable: true })
-  product?: ProductRelationFilter;
+    @HideField()
+    updatedAt?: DateTimeFilter;
+
+    @Field(() => ProductRelationFilter, {nullable:true})
+    product?: ProductRelationFilter;
 }

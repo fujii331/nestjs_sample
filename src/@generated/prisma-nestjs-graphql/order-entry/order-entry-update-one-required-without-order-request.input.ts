@@ -8,20 +8,19 @@ import { OrderEntryUpdateWithoutOrderRequestInput } from './order-entry-update-w
 
 @InputType()
 export class OrderEntryUpdateOneRequiredWithoutOrderRequestInput {
-  @Field(() => OrderEntryCreateWithoutOrderRequestInput, { nullable: true })
-  create?: OrderEntryCreateWithoutOrderRequestInput;
 
-  @Field(() => OrderEntryCreateOrConnectWithoutOrderRequestInput, {
-    nullable: true,
-  })
-  connectOrCreate?: OrderEntryCreateOrConnectWithoutOrderRequestInput;
+    @Field(() => OrderEntryCreateWithoutOrderRequestInput, {nullable:true})
+    create?: OrderEntryCreateWithoutOrderRequestInput;
 
-  @Field(() => OrderEntryUpsertWithoutOrderRequestInput, { nullable: true })
-  upsert?: OrderEntryUpsertWithoutOrderRequestInput;
+    @Field(() => OrderEntryCreateOrConnectWithoutOrderRequestInput, {nullable:true})
+    connectOrCreate?: OrderEntryCreateOrConnectWithoutOrderRequestInput;
 
-  @Field(() => OrderEntryWhereUniqueInput, { nullable: true })
-  connect?: OrderEntryWhereUniqueInput;
+    @Field(() => OrderEntryUpsertWithoutOrderRequestInput, {nullable:true})
+    upsert?: OrderEntryUpsertWithoutOrderRequestInput;
 
-  @Field(() => OrderEntryUpdateWithoutOrderRequestInput, { nullable: true })
-  update?: OrderEntryUpdateWithoutOrderRequestInput;
+    @Field(() => OrderEntryWhereUniqueInput, {nullable:true})
+    connect?: OrderEntryWhereUniqueInput;
+
+    @Field(() => OrderEntryUpdateWithoutOrderRequestInput, {nullable:true})
+    update?: OrderEntryUpdateWithoutOrderRequestInput;
 }
