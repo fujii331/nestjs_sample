@@ -18,6 +18,7 @@ generator nestgraphql {
   decorate_2_from        = "class-transformer"
   decorate_2_arguments   = "['() => {propertyType.0}']"
   noAtomicOperations     = true
+  purgeOutput            = true
 }
 
 datasource db {
