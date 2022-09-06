@@ -5,7 +5,7 @@ import * as Validator from 'class-validator';
 @InputType()
 export class MakerWhereUniqueInput {
 
-    @Field(() => String, {nullable:true})
+    @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
-    makerCd?: string;
+    makerCd!: string;
 }

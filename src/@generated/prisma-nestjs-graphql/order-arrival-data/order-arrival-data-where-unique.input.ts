@@ -5,6 +5,6 @@ import { Int } from '@nestjs/graphql';
 @InputType()
 export class OrderArrivalDataWhereUniqueInput {
 
-    @Field(() => Int, {nullable:true})
-    id?: number;
+    @Field(() => Int, {nullable:false})
+    id!: number;
 }

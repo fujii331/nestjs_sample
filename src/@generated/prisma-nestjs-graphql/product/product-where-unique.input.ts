@@ -5,7 +5,7 @@ import * as Validator from 'class-validator';
 @InputType()
 export class ProductWhereUniqueInput {
 
-    @Field(() => String, {nullable:true})
+    @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
-    prodCd?: string;
+    prodCd!: string;
 }
