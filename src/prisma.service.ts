@@ -14,6 +14,7 @@ export class PrismaService
   // ログ出力用
   constructor() {
     super({
+      // log: ['query', 'info'],
       log: [
         { emit: 'event', level: 'query' },
         { emit: 'stdout', level: 'info' },

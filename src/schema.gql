@@ -181,7 +181,7 @@ input OrderEntriesWhereInput {
 }
 
 input OrderEntryWhereUniqueInput {
-  id: Int
+  id: Int!
 }
 
 input FirstOrderEntryInput {
@@ -261,7 +261,7 @@ input OrderArrivalDataCreateOrConnectWithoutProductInput {
 }
 
 input OrderArrivalDataWhereUniqueInput {
-  id: Int
+  id: Int!
 }
 
 input OrderArrivalDataCreateManyProductInputEnvelope {
@@ -329,7 +329,7 @@ input OrderRequestCreateOrConnectWithoutOrderRequestDetailInput {
 }
 
 input OrderRequestWhereUniqueInput {
-  id: Int
+  id: Int!
 }
 
 input OrderRequestDetailCreateOrConnectWithoutProductInput {
@@ -338,7 +338,7 @@ input OrderRequestDetailCreateOrConnectWithoutProductInput {
 }
 
 input OrderRequestDetailWhereUniqueInput {
-  id: Int
+  id: Int!
 }
 
 input OrderRequestDetailCreateManyProductInputEnvelope {
@@ -361,7 +361,7 @@ input ProductCreateOrConnectWithoutMakerInput {
 }
 
 input ProductWhereUniqueInput {
-  prodCd: String
+  prodCd: String!
 }
 
 input ProductCreateManyMakerInputEnvelope {
@@ -384,7 +384,7 @@ input MakerCreateOrConnectWithoutOrderEntryInput {
 }
 
 input MakerWhereUniqueInput {
-  makerCd: String
+  makerCd: String!
 }
 
 input OrderRequestCreateNestedManyWithoutOrderEntryInput {

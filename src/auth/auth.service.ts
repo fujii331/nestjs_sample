@@ -66,7 +66,7 @@ export class AuthService {
   async logout(user: User): Promise<boolean> {
     await this.usersService.updateUser({
       where: { id: user.id },
-      data: { hashedRefreshToken: { set: null } },
+      data: { hashedRefreshToken: null },
     });
 
     return true;
@@ -79,7 +79,7 @@ export class AuthService {
     const hashedRefreshToken = bcrypt.hashSync(refreshToken, 10);
     await this.usersService.updateUser({
       where: { id: user.id },
-      data: { hashedRefreshToken: { set: hashedRefreshToken } },
+      data: { hashedRefreshToken: hashedRefreshToken },
     });
   }
 

@@ -7,6 +7,7 @@ import { UpdateOneOrderEntryArgs } from '../../src/@generated/prisma-nestjs-grap
 import { FirstOrderEntryInput } from '../../src/interfaces/order-entries/first-order-entry.input';
 import { OrderEntry } from '../../src/@generated/prisma-nestjs-graphql/order-entry/order-entry.model';
 // import { stringify } from 'csv-stringify';
+import { Authority } from '../@generated/prisma-nestjs-graphql/prisma/authority.enum';
 
 @Injectable()
 export class OrderEntriesRepository {
@@ -29,63 +30,142 @@ export class OrderEntriesRepository {
     // );
     // console.log(result);
 
-    // csv作成
-    // const data = [
-    //   {
-    //     id: 1,
-    //     name: 'hoge',
-    //     age: 17,
-    //   },
-    //   {
-    //     id: 2,
-    //     name: 'fuga',
-    //     age: 21,
-    //   },
-    //   {
-    //     id: 3,
-    //     name: 'piyo',
-    //     age: 13,
-    //   },
-    // ];
+    const bigList = [...Array(5000)].map((_, i) => {
+      return {
+        email: 'test@example.com',
+        name: '深太郎',
+        password: 'fwefwefwefwefw',
+        authority: Authority.FIRST,
+        hashedRefreshToken: 'fwefawefaw',
+      };
+    });
 
-    // const csvData = stringify(data, { header: true });
+    const arraySplit = <T = object>(array: T[], n: number): T[][] =>
+      array.reduce(
+        (acc: T[][], c, i: number) =>
+          i % n ? acc : [...acc, ...[array.slice(i, i + n)]],
+        [],
+      );
+
+    const result = arraySplit(bigList, 5000);
+
+    // console.log(result);
+
+    setInterval(() => {
+      const used = process.memoryUsage();
+      const messages = [];
+      for (const key in used) {
+        messages.push(
+          `${key}: ${Math.round((used[key] / 1024 / 1024) * 100) / 100} MB`,
+        );
+      }
+      console.log(new Date(), messages.join(', '));
+    }, 10 * 1000);
+
+    for (const test of result) {
+      const query = test.map((item) =>
+        this.prisma.user.upsert({
+          where: {
+            id: 1,
+          },
+          update: item,
+          create: item,
+        }),
+      );
+
+      await this.prisma.$transaction([...query]).catch((error) => {
+        console.log('厳しいね');
+      });
+    }
+
+    // const query = bigList.map((item) =>
+    //   this.prisma.orderEntry.upsert({
+    //     where: {
+    //       id: 1,
+    //     },
+    //     update: item,
+    //     create: item,
+    //   }),
+    // );
+
+    // await this.prisma.$transaction([...query]).catch((error) => {
+    //   console.log('厳しいね');
+    // });
+
+    console.log('終わりです');
 
     return this.prisma.orderEntry.findMany({
       skip,
       take,
       cursor,
-      include: {
-        orderRequest: {
-          include: {
-            // orderRequestDetail: true,
-            _count: {
-              select: { orderRequestDetail: true },
-            },
-          },
-        },
-        maker: {
-          include: {
-            product: {
-              include: { orderArrivalData: true, orderRequestDetail: true },
-            },
-          },
-        },
+      select: {
+        id: true,
+        makerCd: true,
+        createdAt: true,
+        updatedAt: true,
+        // orderRequest: {
+        //   // where: { discarded: false, containerNo: { in: [2, 3] } },
+        //   include: {
+        //     // orderRequestDetail: true,
+        //     _count: {
+        //       select: { orderRequestDetail: true },
+        //     },
+        //   },
+        // },
+        // maker: {
+        //   include: {
+        //     product: {
+        //       include: { orderArrivalData: true, orderRequestDetail: true },
+        //     },
+        //   },
+        // },
       },
+      // include: {
+      //   orderRequest: {
+      //     where: { discarded: false, containerNo: { in: [2, 3] } },
+      //     include: {
+      //       // orderRequestDetail: true,
+      //       _count: {
+      //         select: { orderRequestDetail: true },
+      //       },
+      //     },
+      //   },
+      //   maker: {
+      //     include: {
+      //       product: {
+      //         include: { orderArrivalData: true, orderRequestDetail: true },
+      //       },
+      //     },
+      //   },
+      // },
       where: {
-        makerCd: orderEntriesWhereInput.makerCd,
-        orderRequest: {
-          some: {
-            orderRequestNo: orderEntriesWhereInput.orderRequestNo,
-            discarded: false,
-            orderRequestDetail: {
-              // everyは全ての明細が指定の商品コードのものを取ってくる
-              // someはどれかの明細に指定の商品コードが入っていたら取ってくる。この際、明細は商品コードが指定のものじゃなくても全部取ってくる
+        // makerCd: orderEntriesWhereInput.makerCd,
+        OR: [
+          {
+            id: 2,
+          },
+          {
+            makerCd: orderEntriesWhereInput.makerCd,
+            orderRequest: {
               some: {
-                prodCd: orderEntriesWhereInput.prodCd,
+                orderRequestNo: orderEntriesWhereInput.orderRequestNo,
               },
             },
           },
-        },
+        ],
+        // orderRequest: {
+        //   some: {
+        //     // orderRequestNo: orderEntriesWhereInput.orderRequestNo,
+        //     // orderRequestNo: { in: [] },
+        //     orderRequestDetail: {
+        //       // everyは全ての明細が指定の商品コードのものを取ってくる
+        //       // someはどれかの明細に指定の商品コードが入っていたら取ってくる。この際、明細は商品コードが指定のものじゃなくても全部取ってくる
+        //       some: {
+        //         prodCd: orderEntriesWhereInput.prodCd,
+        //       },
+        //     },
+        //   },
+        // },
       },
       orderBy: {
         makerCd: 'asc',
@@ -118,18 +198,27 @@ export class OrderEntriesRepository {
         },
       },
       where: {
-        makerCd: makerCd,
+        // makerCd: makerCd,
         orderRequest: {
           some: {
-            discarded: false,
-            orderRequestNo: orderRequestNo,
-            orderRequestDetail: {
-              // everyは全ての明細が指定の商品コードのものを取ってくる
-              // someはどれかの明細に指定の商品コードが入っていたら取ってくる。この際、明細は商品コードが指定のものじゃなくても全部取ってくる
-              some: {
-                prodCd: prodCd,
-              },
-            },
+            // OR: [
+            //   {
+            //     orderRequestNo: orderRequestNo,
+            //   },
+            //   {
+            //     orderRequestNo: 'test',
+            //   },
+            // ],
+            // orderRequestNo: { in: ['ORDER2'] },
+            // discarded: false,
+            // orderRequestNo: orderRequestNo,
+            // orderRequestDetail: {
+            //   // everyは全ての明細が指定の商品コードのものを取ってくる
+            //   // someはどれかの明細に指定の商品コードが入っていたら取ってくる。この際、明細は商品コードが指定のものじゃなくても全部取ってくる
+            //   some: {
+            //     prodCd: prodCd,
+            //   },
+            // },
           },
         },
       },

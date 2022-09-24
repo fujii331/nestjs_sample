@@ -21,7 +21,8 @@ export class UsersResolver {
 
   @Query(() => User, { nullable: true })
   // @UseGuards(JwtAuthGuard)
-  @Authorities(Authority.FIRST)
+  @SkipAuth()
+  // @Authorities(Authority.FIRST)
   firstUser(@Args('firstUserInput') args: FirstUserInput) {
     return this.userService.findFirstUser(args);
   }

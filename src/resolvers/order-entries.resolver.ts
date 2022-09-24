@@ -11,7 +11,7 @@ export class OrderEntriesResolver {
   constructor(private readonly orderEntriesService: OrderEntriesService) {}
 
   @Query(() => [OrderEntry], { nullable: true })
-  // @SkipAuth()
+  @SkipAuth()
   orderEntries(@Args('orderEntriesInput') args: OrderEntriesInput) {
     return this.orderEntriesService.findOrderEntries(args);
   }

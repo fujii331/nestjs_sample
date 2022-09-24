@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../src/prisma.service';
 import { User } from '../../src/@generated/prisma-nestjs-graphql/user/user.model';
 import { CreateOneUserArgs } from '../../src/@generated/prisma-nestjs-graphql/user/create-one-user.args';
@@ -44,21 +44,13 @@ export class UsersRepository {
 
   async findFirstUser(params: FirstUserInput): Promise<User | null> {
     const { email, name, authority } = params;
-    return this.prisma.user.findFirst({
-      where: {
-        OR: [
-          {
-            email: { contains: email },
-          },
-          {
-            name: { contains: name },
-          },
-          {
-            authority: { equals: authority },
-          },
-        ],
+    throw new HttpException(
+      {
+        status: HttpStatus.NOT_FOUND,
+        error: `Missing user).`,
       },
-    });
+      404,
+    );
   }
 
   async findUniqueUser(params: UserWhereUniqueInput): Promise<User | null> {

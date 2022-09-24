@@ -1,0 +1,64 @@
+type User {
+  id: ID!
+
+  """@Validator.@IsEmail()"""
+  email: String!
+  name: String!
+  authority: Authority!
+}
+
+enum Authority {
+  FIRST
+  SECOND
+  THIRD
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+  refresh_token: String!
+}
+
+type Query {
+  users(usersInput: UsersInput!): [User!]
+  firstUser(firstUserInput: FirstUserInput!): User
+  uniqueUser(uniqueUserInput: UserWhereUniqueInput!): User
+}
+
+input UsersInput {
+  usersWhereInput: UsersWhereInput
+  skip: Float
+  take: Float
+  cursor: UserWhereUniqueInput
+}
+
+input UsersWhereInput {
+  email: String
+  name: String
+  authority: String
+}
+
+input UserWhereUniqueInput {
+  id: Int
+  email: String
+}
+
+input FirstUserInput {
+  email: String
+  name: String
+  authority: String
+}
+
+type Mutation {
+  login(idToken: String!): LoginResponse!
+  refreshToken: LoginResponse!
+  logout: Boolean!
+  createUser(data: UserCreateInput!): User!
+}
+
+input UserCreateInput {
+  email: String!
+  name: String!
+  password: String!
+  authority: Authority
+}
